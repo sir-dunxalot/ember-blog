@@ -1,6 +1,6 @@
-var post = require('posts/welcome-to-ember');
+// var post = require('posts/welcome-to-ember');
 
-post['id'] = 1;
+// post['id'] = 1;
 
 App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
@@ -19,6 +19,6 @@ App.Post = DS.Model.extend({
   __content: attr('atring'),
 });
 
-App.Post.FIXTURES = [];
+// App.Post.FIXTURES = [];
 
-App.Post.FIXTURES.push(post);
+
