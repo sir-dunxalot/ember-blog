@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = App.IndexRoute = Ember.Route.extend({
+module.exports = App.ApplicationRoute = Ember.Route.extend({
 
-  model: function() {
+  // Load each post and add it to the fixtures
+  setupController: function(controller, model) {
     var _this = this;
     var postIndex = 1;
 
@@ -11,21 +12,24 @@ module.exports = App.IndexRoute = Ember.Route.extend({
       return new RegExp('^posts/').test(module);
     }).forEach(function(module) {
       var post = require(module);
+      var title = post.title;
+      var url;
 
       // Add index to object (required for Ember fixtures)
       post['id'] = postIndex;
 
-      // Rename content for model (can't start with an underscore)
-      post['content'] = post['__content'];
+      // Rename content for model (can't start with an underscore and content is reserved)
+      post['body'] = post['__content'];
       delete post['__content'];
 
-      console.log(post);
+      // Set url for routing
+      url = title.dasherize();
+      post['url'] = url;
+
       _this.store.createRecord('post', post);
 
       postIndex++;
     });
-
-    return this.store.find('post');
   },
 
 });

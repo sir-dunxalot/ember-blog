@@ -1,7 +1,11 @@
 'use strict';
 
-module.exports = App.Store = DS.Store.extend({
-  revision: 13
-});
+module.exports = (function() {
 
-App.ApplicationAdapter = DS.FixtureAdapter.extend();
+  App.Store = DS.Store.extend({
+    revision: 13
+  });
+
+  App.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+}());
