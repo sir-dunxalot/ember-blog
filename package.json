@@ -27,8 +27,7 @@
     "clean-css-brunch": "~1.7.0",
     "auto-reload-brunch": "~1.7.0",
     "ember-handlebars-brunch": "git://github.com/gcollazo/ember-handlebars-brunch.git#master",
-    "yaml-front-matter-brunch": "~0.1.0",
-    "objects-to-ember-fixtures-brunch": "~0.1.0"
+    "yaml-front-matter-brunch": "~0.2.2"
   },
   "devDependencies": {
     "karma": "*",
