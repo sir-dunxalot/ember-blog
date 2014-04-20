@@ -1,11 +1,19 @@
 'use strict';
 
-module.exports = App.ApplicationRoute = Ember.Route.extend({
+App.ApplicationRoute = Ember.Route.extend({
+
+  model: function() {
+    var categories = this.store.all('category');
+    return categories;
+  },
 
   // Load each post and add it to the fixtures
   setupController: function(controller, model) {
     var _this = this;
+    var model = this.get('model');
     var postIndex = 1;
+
+    this.set('categories', model);
 
     // Load each post and add it to the fixtures with post model
     window.require.list().filter(function(module) {
@@ -21,10 +29,6 @@ module.exports = App.ApplicationRoute = Ember.Route.extend({
       // Rename content for model (can't start with an underscore and content is reserved)
       post['body'] = post['__content'];
       delete post['__content'];
-
-      // Set url for routing
-      url = title.dasherize();
-      post['url'] = url;
 
       _this.store.createRecord('post', post);
 

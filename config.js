@@ -34,6 +34,25 @@ exports.config = {
       }
     }
   },
+  conventions: {
+    ignored: function(path) {
+      var sep, startsWith;
+      var sysPath = require('path');
+
+      startsWith = function(string, substring) {
+        return string.indexOf(substring, 0) === 0;
+      };
+
+      sep = sysPath.sep;
+
+      // Regular Brunch ignoring for Ember
+      if (path.indexOf("app" + sep + "templates" + sep) === 0) {
+        return false;
+      } else {
+        return startsWith(sysPath.basename(path), '_');
+      }
+    }
+  },
   overrides: {
 
     // Production Settings
