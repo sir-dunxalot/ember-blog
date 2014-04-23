@@ -7,5 +7,3 @@ App.Post = DS.Model.extend({
   categories: hasMany('category'),
   content: attr('string'),
 });
-
-App.Post.FIXTURES = [];

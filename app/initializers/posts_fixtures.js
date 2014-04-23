@@ -1,19 +1,10 @@
 'use strict';
 
-App.ApplicationRoute = Ember.Route.extend({
+Em.Application.initializer({
+  name: 'postsFixtures',
 
-  model: function() {
-    var categories = this.store.all('category');
-    return categories;
-  },
-
-  // Load each post and add it to the fixtures
-  setupController: function(controller, model) {
-    var _this = this;
-    var model = this.get('model');
+  initialize: function(container, application) {
     var postIndex = 1;
-
-    this.set('categories', model);
 
     // Load each post and add it to the fixtures with post model
     window.require.list().filter(function(module) {
@@ -30,10 +21,9 @@ App.ApplicationRoute = Ember.Route.extend({
       post['body'] = post['__content'];
       delete post['__content'];
 
-      _this.store.createRecord('post', post);
+      container.lookup('store:main').createRecord('post', post);
 
       postIndex++;
     });
   },
-
-});
+})
