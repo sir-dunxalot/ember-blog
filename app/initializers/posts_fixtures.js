@@ -11,8 +11,6 @@ Em.Application.initializer({
       return new RegExp('^posts/').test(module);
     }).forEach(function(module) {
       var post = require(module);
-      var title = post.title;
-      var url;
 
       // Add index to object (required for Ember fixtures)
       post['id'] = postIndex;
