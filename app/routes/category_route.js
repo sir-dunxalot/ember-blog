@@ -3,11 +3,13 @@
 App.CategoryRoute = Ember.Route.extend({
   posts: [],
 
+  // Category data
   model: function(params) {
     var category = this.store.find('category', params.category_name);
     return category;
   },
 
+  // Posts data
   afterModel: function(params) {
     var _this = this;
 
@@ -21,6 +23,7 @@ App.CategoryRoute = Ember.Route.extend({
     });
   },
 
+  // URL
   serialize: function(model) {
     var obj = { category_name: model.get('name').dasherize() };
     return obj;

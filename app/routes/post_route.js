@@ -7,6 +7,7 @@ App.PostRoute = Em.Route.extend({
     return post;
   },
 
+  // URL
   serialize: function(model) {
     var obj = { post_url: model.get('title').dasherize() };
     return obj;

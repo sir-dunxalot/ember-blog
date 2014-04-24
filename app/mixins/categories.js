@@ -7,8 +7,4 @@ App.Categories = Em.Mixin.create({
 
     return categories;
   }.property(),
-
-  watch: function() {
-    console.log(this.get('categories'));
-  }.observes("categories"),
 });
