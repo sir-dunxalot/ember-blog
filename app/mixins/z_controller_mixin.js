@@ -1,6 +1,7 @@
 'use strict';
 
 Em.ControllerMixin.reopen(
-  App.Categories, {
+  App.Categories,
+  App.Options, {
 
 });

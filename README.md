@@ -43,7 +43,11 @@ Aim is to make the framework unopinionated with regards to deployment, etc, whil
 Todos and Known Issues
 ------
 
-- WIP - lots of functionality needs adding
+- WIP - lots of functionality needs to be added
 - Automatically generate category fixtures
 - Thorough documentation
 - Basic CSS
+- Page title updating
+- application.html to hbs?
+- github pages deployment task
+- Social meta tags with handlebars unbound options

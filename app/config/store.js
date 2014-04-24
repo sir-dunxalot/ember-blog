@@ -2,7 +2,7 @@
 
 module.exports = (function() {
 
-  App.Store = DS.Store.extend({
+  App.ApplicationStore = DS.Store.extend({
     revision: 13
   });
 
