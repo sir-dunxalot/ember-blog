@@ -444,10 +444,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/header", options) : helperMissing.call(depth0, "partial", "partials/header", options))));
-  data.buffer.push("\n\n");
+  data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n\n");
+  data.buffer.push("\n</main>\n\n");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
   data.buffer.push("\n\n<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
   data.buffer.push(escapeExpression(helpers.unbound.call(depth0, "googleAnalyticsCode", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
@@ -502,7 +502,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("Footer\n");
+  data.buffer.push("<div class=\"footer\" role=\"contentinfo\">\n  Footer\n</div>\n");
   
 });
 });
@@ -514,8 +514,9 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
+  data.buffer.push("<header class=\"header-sidebar\" role=\"banner\">\n  ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
-  data.buffer.push("\n");
+  data.buffer.push("\n</header>\n");
   return buffer;
   
 });
@@ -542,32 +543,32 @@ function program3(depth0,data) {
 function program5(depth0,data) {
   
   var buffer = '', stack1, helper, options;
-  data.buffer.push("\n    <li>\n      ");
+  data.buffer.push("\n      <li>\n        ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "category", "", options) : helperMissing.call(depth0, "link-to", "category", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n    </li>\n  ");
+  data.buffer.push("\n      </li>\n    ");
   return buffer;
   }
 function program6(depth0,data) {
   
   var buffer = '', stack1;
-  data.buffer.push("\n        ");
+  data.buffer.push("\n          ");
   stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n      ");
+  data.buffer.push("\n        ");
   return buffer;
   }
 
-  data.buffer.push("<ul>\n  <li>");
+  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul>\n    <li>");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</li>\n  <li>");
+  data.buffer.push("</li>\n    <li>");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "about", options) : helperMissing.call(depth0, "link-to", "about", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</li>\n  ");
+  data.buffer.push("</li>\n    ");
   stack1 = helpers.each.call(depth0, "categories", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n</ul>\n");
+  data.buffer.push("\n  </ul>\n</nav>\n");
   return buffer;
   
 });
@@ -626,6 +627,14 @@ App.AboutView = Em.View.extend({
     $('.modal').modal();
   }.on('didInsertElement'),
 
+});
+
+});
+
+;require.register("views/application_view", function(exports, require, module) {
+App.ApplicationView = Em.View.extend({
+  ariaRole: 'application',
+  classNames: ['page'],
 });
 
 });

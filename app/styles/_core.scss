@@ -1,0 +1,28 @@
+%table {
+  display: table;
+  width: 100%;
+}
+
+%row {
+  display: table-row;
+}
+
+%cell {
+  display: table-cell;
+}
+
+%full_width {
+  width: 100%;
+}
+
+%full_height {
+  height: 100%;
+}
+
+%relative {
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+}

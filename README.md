@@ -51,3 +51,6 @@ Todos and Known Issues
 - application.html to hbs?
 - github pages deployment task
 - Social meta tags with handlebars unbound options
+- Code/syntax highlighting
+- Ember root as html
+- Comment integration

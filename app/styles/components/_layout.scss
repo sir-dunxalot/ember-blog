@@ -1,0 +1,45 @@
+// .page {
+//   .header {
+//     .nav {
+
+//     }
+//   }
+//   .main {
+
+//   }
+// }
+
+html, body {
+  @extend %full_height;
+  @extend %full_width;
+}
+
+body {
+  background-color: $offwhite;
+}
+
+.page {
+  @extend %table;
+  @extend %full_height;
+}
+
+@include mod(header) {
+  @extend %cell;
+  vertical-align: top;
+}
+
+.header, .main {
+}
+
+.header {
+
+}
+
+.main {
+  @extend %cell;
+  @extend %full_width;
+}
+
+.footer {
+  display: table-footer-group;
+}

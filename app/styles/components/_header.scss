@@ -1,0 +1,7 @@
+.header {
+  background-color: $white;
+}
+
+@include mod(header) {
+  @extend .header;
+}

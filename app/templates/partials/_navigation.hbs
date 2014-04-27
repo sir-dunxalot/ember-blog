@@ -1,11 +1,13 @@
-<ul>
-  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-  <li>{{#link-to 'about'}}About{{/link-to}}</li>
-  {{#each categories}}
-    <li>
-      {{#link-to 'category' this}}
-        {{name}}
-      {{/link-to}}
-    </li>
-  {{/each}}
-</ul>
+<nav class="nav" role="navigation">
+  <ul>
+    <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+    <li>{{#link-to 'about'}}About{{/link-to}}</li>
+    {{#each categories}}
+      <li>
+        {{#link-to 'category' this}}
+          {{name}}
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+</nav>
