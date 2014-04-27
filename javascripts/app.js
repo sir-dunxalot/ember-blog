@@ -431,7 +431,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("about text\n");
+  data.buffer.push("<div class=\"modal\">\n  <p>Testing the modal</p>\n</div>\n");
   
 });
 });
@@ -621,6 +621,10 @@ function program1(depth0,data) {
 
 ;require.register("views/about_view", function(exports, require, module) {
 App.AboutView = Em.View.extend({
+
+  testBootstrap: function() {
+    $('.modal').modal();
+  }.on('didInsertElement'),
 
 });
 

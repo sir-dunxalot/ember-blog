@@ -15,16 +15,18 @@ exports.config = {
           'vendor/scripts/common/jquery.js',
           'vendor/scripts/common/handlebars.js',
           'vendor/scripts/development/ember.js',
-          'vendor/scripts/development/ember-data.js'
+          'vendor/scripts/development/ember-data.js',
+          'vendor/scripts/common/bootstrap/tooltip.js'
         ]
       }
     },
     stylesheets: {
+      // defaultExtension: 'scss',
       joinTo: {
         'stylesheets/app.css': /^(app|vendor)/
       },
       order: {
-        before: ['vendor/styles/normalize.css']
+        // before: ['vendor/styles/normalize.css']
       }
     },
     templates: {
@@ -54,6 +56,11 @@ exports.config = {
       }
     }
   },
+  plugins: {
+    sass: {
+      options: ['--compass']
+    }
+  },
   overrides: {
 
     // Production Settings
@@ -80,8 +87,8 @@ exports.config = {
       plugins: {
         autoReload: {
           enabled: false
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 };
