@@ -8,14 +8,7 @@
 @import 'mixins';
 @import 'core';
 
+@import 'components/typography';
 @import 'components/layout';
 @import 'components/header';
 @import 'components/navigation';
-
-// .ember-list-view {
-//   overflow: auto;
-//   position: relative;
-// }
-// .ember-list-item-view {
-//   position: absolute;
-// }

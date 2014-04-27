@@ -10320,25 +10320,60 @@ textarea {
   display: table;
   width: 100%; }
 
-*[class^='header-'], *[class*='header-'], .main {
+.header, .main {
   display: table-cell; }
 
 html, body, .main {
   width: 100%; }
 
-html, body, .page {
+html, body, .page, .main, .content {
   height: 100%; }
 
+html {
+  font-size: 50%; }
+  @media (min-width: 50em) {
+    html {
+      font-size: 56.25%; } }
+  @media (min-width: 63.75em) {
+    html {
+      font-size: 62.5%; } }
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem; }
+
+/*
+.page {
+  .header {
+    .nav {
+
+    }
+  }
+  .main {
+    .content {
+
+    }
+  }
+}
+*/
 body {
   background-color: #efefef; }
 
-*[class^='header-'], *[class*='header-'] {
+.page {
+  position: fixed; }
+
+.header {
   vertical-align: top; }
+
+.content {
+  width: 640px;
+  width: 64rem;
+  overflow-y: scroll; }
 
 .footer {
   display: table-footer-group; }
 
-.header, *[class^='header-'], *[class*='header-'] {
+.header {
   background-color: white; }
 
 

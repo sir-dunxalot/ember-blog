@@ -1,5 +1,5 @@
-@mixin mod($class_begins_with) {
-  $class: '#{$class_begins_with}-';
+@mixin mod($classBeginsWith) {
+  $class: '#{$classBeginsWith}-';
 
   *[class^='#{$class}'], *[class*='#{$class}'] {
     @content;

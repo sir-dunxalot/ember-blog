@@ -1,0 +1,15 @@
+html {
+  font-size: $baseFontSize * 0.8;
+
+  @media($medium) {
+    font-size: $baseFontSize * 0.9;
+  }
+
+  @media($big) {
+    font-size: $baseFontSize;
+  }
+}
+
+body {
+  @include rem(font-size, $bodyFontSize);
+}

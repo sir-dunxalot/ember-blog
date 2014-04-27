@@ -347,7 +347,7 @@ module.exports = {"title":"More Ember stuff","description":"This is a descriptio
 });
 
 ;require.register("posts/welcome-to-your-ember-blog", function(exports, require, module) {
-module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
+module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
 });
 
 ;require.register("routes/category_route", function(exports, require, module) {
@@ -444,10 +444,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/header", options) : helperMissing.call(depth0, "partial", "partials/header", options))));
-  data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  ");
+  data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  <div class=\"content\">\n    ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n</main>\n\n");
+  data.buffer.push("\n  </div>\n</main>\n\n");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
   data.buffer.push("\n\n<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
   data.buffer.push(escapeExpression(helpers.unbound.call(depth0, "googleAnalyticsCode", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
@@ -514,7 +514,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<header class=\"header-sidebar\" role=\"banner\">\n  ");
+  data.buffer.push("<header class=\"header\" role=\"banner\">\n  ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
   data.buffer.push("\n</header>\n");
   return buffer;
@@ -2066,6 +2066,14 @@ Ember.Handlebars.registerHelper('ember-list', function emberList(options) {
 (function() {
 
 })();
+
+});
+
+;require.register("views/post_view", function(exports, require, module) {
+App.PostView = Em.View.extend({
+  classNames: ['post'],
+  tagName: 'article',
+});
 
 });
 
