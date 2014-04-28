@@ -1,3 +1,21 @@
+.nav {
+  @include rem(font-size, 2);
+  font-weight: 300;
+
+  li ~ li {
+    border-top: 1px solid $headerSubtle;
+  }
+
+  li {
+
+    a {
+      display: block;
+      @include rem(padding, 1);
+      @include rem(margin-left, -1);
+    }
+  }
+}
+
 .nav_list {
   padding: 0;
   margin: 0;

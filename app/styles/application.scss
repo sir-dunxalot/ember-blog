@@ -13,3 +13,7 @@
 @import 'components/header';
 @import 'components/navigation';
 @import 'components/posts';
+
+body {
+  background-color: $bodyBackground;
+}

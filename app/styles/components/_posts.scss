@@ -1,3 +1,10 @@
 .posts {
   list-style: none;
+  padding: 0;
+}
+
+.post_preview {
+  .date {
+    @include rem(margin-top, -1);
+  }
 }

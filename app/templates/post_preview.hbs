@@ -3,7 +3,7 @@
     {{#link-to 'post' this class='u-url'}}{{title}}{{/link-to}}
   </h2>
 
-  <p class="alt_text dt-published" pubdate>{{formatDate published}}</p>
+  <p class="date"><time class="dt-published" pubdate {{bind-attr datetime='published'}}>{{formatDate published}}</time></p>
 
   <p class="p-summary">{{description}}</p>
 </article>

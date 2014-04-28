@@ -15,6 +15,7 @@ html {
 body {
   @include rem(font-size, $bodyFontSize);
   font-family: 'Lato';
+  color: $bodyColor;
 }
 
 h1, h2 {
@@ -22,8 +23,17 @@ h1, h2 {
   margin-top: 0;
 }
 
+h1 {
+  @include rem(margin-bottom, $spacing);
+}
+
 .alt_text {
   font-weight: 400;
   text-transform: uppercase;
   @include opacity(0.5);
+  @include rem(font-size, 1.6);
+}
+
+.date {
+  @extend .alt_text;
 }

@@ -18,10 +18,6 @@ html, body {
   @extend %full_width;
 }
 
-body {
-  background-color: $offwhite;
-}
-
 .page {
   @extend %table;
   @extend %full_height;

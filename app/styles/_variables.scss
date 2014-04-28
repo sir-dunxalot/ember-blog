@@ -2,13 +2,19 @@
 
 $contentWidth: 60;
 $sidebarWidth: 30;
-$spacing: 3;
+$spacing: 4;
 
 // Colors
 
 $white: #FFFFFF;
 $black: #000000;
 $offwhite: #EFEFEF;
+
+$headerBackground: $white;
+$headerSubtle: scale-color($headerBackground, $lightness: -7%);
+
+$bodyBackground: $offwhite;
+$bodyColor: #333333;
 
 // Media queries
 
@@ -20,4 +26,4 @@ $big: "min-width: 63.75em"; // 1020px
 // Typography
 
 $baseFontSize: 62.5%; // So 1rem = 10px when browser has default font-size of 16px (i.e. 10/16 * 100)
-$bodyFontSize: 1.6; // In rem
+$bodyFontSize: 1.8; // In rem

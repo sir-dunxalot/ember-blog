@@ -442,7 +442,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("test\n");
+  data.buffer.push("<h1>About</h1>\n\n<p>This is your blog's about page. You're going to look silly if you don't change it.</p>\n");
   
 });
 });
@@ -570,7 +570,7 @@ function program6(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li>");
+  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li class=\"logo\">");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</li>\n    <li>");
@@ -624,9 +624,13 @@ function program1(depth0,data) {
     'class': ("u-url")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h2>\n\n  <p class=\"alt_text dt-published\" pubdate>");
+  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><time class=\"dt-published\" pubdate ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'datetime': ("published")
+  },hashTypes:{'datetime': "STRING"},hashContexts:{'datetime': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
   data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("</p>\n\n  <p class=\"p-summary\">");
+  data.buffer.push("</time></p>\n\n  <p class=\"p-summary\">");
   stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</p>\n</article>\n");

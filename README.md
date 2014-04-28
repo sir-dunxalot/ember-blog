@@ -46,11 +46,11 @@ Todos and Known Issues
 - WIP - lots of functionality needs to be added
 - Automatically generate category fixtures
 - Thorough documentation
-- Basic CSS
 - Page title updating
 - application.html to hbs?
 - github pages deployment task
 - Social meta tags with handlebars unbound options
 - Code/syntax highlighting
-- Ember root as html
+- Ember root as html, maybe
 - Comment integration
+- Social sharing
