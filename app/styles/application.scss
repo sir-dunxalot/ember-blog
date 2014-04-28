@@ -1,10 +1,12 @@
 @import 'compass';
+
+@import 'variables';
+
 @import 'vendor/bootstrap';
 
 @import 'vendor/normalize';
 @import 'vendor/html5bp';
 
-@import 'variables';
 @import 'mixins';
 @import 'core';
 
@@ -13,6 +15,7 @@
 @import 'components/header';
 @import 'components/navigation';
 @import 'components/posts';
+@import 'components/icons';
 
 body {
   background-color: $bodyBackground;

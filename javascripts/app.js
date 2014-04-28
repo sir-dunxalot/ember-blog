@@ -624,7 +624,7 @@ function program1(depth0,data) {
     'class': ("u-url")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><time class=\"dt-published\" pubdate ");
+  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><span class=\"glyphicon glyphicon-time\"></span><time class=\"text dt-published\" pubdate ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'datetime': ("published")
   },hashTypes:{'datetime': "STRING"},hashContexts:{'datetime': depth0},contexts:[],types:[],data:data})));

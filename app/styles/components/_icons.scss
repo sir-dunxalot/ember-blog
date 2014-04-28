@@ -1,0 +1,7 @@
+.glyphicon, .text {
+  @include inline-block;
+}
+
+.glyphicon ~ .text, .text ~ .glyphicon {
+  @include rem(margin-left, 1);
+}

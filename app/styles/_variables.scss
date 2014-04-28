@@ -27,3 +27,7 @@ $big: "min-width: 63.75em"; // 1020px
 
 $baseFontSize: 62.5%; // So 1rem = 10px when browser has default font-size of 16px (i.e. 10/16 * 100)
 $bodyFontSize: 1.8; // In rem
+
+// Iconography
+
+$icon-font-path: '../fonts/bootstrap/';
