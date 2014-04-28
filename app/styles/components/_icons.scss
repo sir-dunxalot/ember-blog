@@ -1,3 +1,7 @@
+.glyphicon {
+  @include opacity(0.5);
+}
+
 .glyphicon, .text {
   @include inline-block;
 }

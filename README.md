@@ -54,3 +54,6 @@ Todos and Known Issues
 - Ember root as html, maybe
 - Comment integration
 - Social sharing
+- URL serialization with reloading
+- Category model not loading
+- See if fixtures always load despite ember list view

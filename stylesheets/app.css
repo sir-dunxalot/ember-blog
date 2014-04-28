@@ -5917,6 +5917,10 @@ h1 {
   margin-top: -10px;
   margin-top: -1rem; }
 
+.glyphicon {
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+
 .glyphicon, .text {
   display: -moz-inline-stack;
   display: inline-block;
