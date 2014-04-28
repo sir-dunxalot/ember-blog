@@ -10316,7 +10316,7 @@ textarea {
   h2,
   h3 {
     page-break-after: avoid; } }
-.page {
+.page, .content {
   display: table;
   width: 100%; }
 
@@ -10326,14 +10326,18 @@ textarea {
 html, body, .main {
   width: 100%; }
 
-html, body, .page, .main, .content {
+html, body, .page, .main, .content_wrapper, .content {
   height: 100%; }
 
+.header, .content_wrapper {
+  padding: 30px;
+  padding: 3rem; }
+
 html {
-  font-size: 50%; }
+  font-size: 56.25%; }
   @media (min-width: 50em) {
     html {
-      font-size: 56.25%; } }
+      font-size: 59.375%; } }
   @media (min-width: 63.75em) {
     html {
       font-size: 62.5%; } }
@@ -10362,19 +10366,32 @@ body {
 .page {
   position: fixed; }
 
-.header {
+.header, .main {
   vertical-align: top; }
 
+.header {
+  min-width: 300px;
+  min-width: 30rem; }
+
+.content_wrapper {
+  overflow-y: scroll;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
 .content {
-  width: 640px;
-  width: 64rem;
-  overflow-y: scroll; }
+  max-width: 600px;
+  max-width: 60rem; }
 
 .footer {
   display: table-footer-group; }
 
 .header {
   background-color: white; }
+
+.nav_list {
+  padding: 0;
+  margin: 0; }
 
 
 /*# sourceMappingURL=app.css.map*/

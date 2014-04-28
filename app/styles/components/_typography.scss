@@ -1,8 +1,8 @@
 html {
-  font-size: $baseFontSize * 0.8;
+  font-size: $baseFontSize * 0.9;
 
   @media($medium) {
-    font-size: $baseFontSize * 0.9;
+    font-size: $baseFontSize * 0.95;
   }
 
   @media($big) {

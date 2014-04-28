@@ -347,7 +347,7 @@ module.exports = {"title":"More Ember stuff","description":"This is a descriptio
 });
 
 ;require.register("posts/welcome-to-your-ember-blog", function(exports, require, module) {
-module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
+module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post! os sos ssousus souduof ufuofouffuoouf ufu uofuofuof uf ofou fo</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
 });
 
 ;require.register("routes/category_route", function(exports, require, module) {
@@ -431,7 +431,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   
 
 
-  data.buffer.push("<div class=\"modal\">\n  <p>Testing the modal</p>\n</div>\n");
+  data.buffer.push("test\n");
   
 });
 });
@@ -444,12 +444,12 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/header", options) : helperMissing.call(depth0, "partial", "partials/header", options))));
-  data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  <div class=\"content\">\n    ");
+  data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  <div class=\"content_wrapper\">\n    <div class=\"content\">\n      ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </div>\n</main>\n\n");
+  data.buffer.push("\n      ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
-  data.buffer.push("\n\n<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
+  data.buffer.push("\n    </div>\n  </div>\n</main>\n\n<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
   data.buffer.push(escapeExpression(helpers.unbound.call(depth0, "googleAnalyticsCode", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
   data.buffer.push("');ga('send','pageview');\n</script>\n");
   return buffer;
@@ -559,7 +559,7 @@ function program6(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul>\n    <li>");
+  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li>");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</li>\n    <li>");
@@ -618,17 +618,6 @@ function program1(depth0,data) {
   return buffer;
   
 });
-});
-
-;require.register("views/about_view", function(exports, require, module) {
-App.AboutView = Em.View.extend({
-
-  testBootstrap: function() {
-    $('.modal').modal();
-  }.on('didInsertElement'),
-
-});
-
 });
 
 ;require.register("views/application_view", function(exports, require, module) {

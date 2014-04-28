@@ -28,21 +28,33 @@ body {
   position: fixed;
 }
 
-.header {
+.header, .main {
   @extend %cell;
   vertical-align: top;
 }
 
+.header {
+ @include rem(min-width, $sidebarWidth);
+ @extend %pad;
+}
+
 .main {
-  @extend %cell;
+  // @extend %cell;
   @extend %full_height;
   @extend %full_width;
 }
 
-.content {
+.content_wrapper {
+  @extend %pad;
   @extend %full_height;
-  @include rem(width, $contentWidth);
   overflow-y: scroll;
+  @include box-sizing(content-box);
+}
+
+.content {
+  @extend %table;
+  @extend %full_height;
+  @include rem(max-width, $contentWidth);
 }
 
 .footer {
