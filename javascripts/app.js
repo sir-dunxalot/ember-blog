@@ -298,6 +298,16 @@ App.Options = Em.Mixin.create({
 
   // Misc
   googleAnalyticsCode: 'xouxou',
+
+  // Microformat classes
+  mf: {
+    postFull: 'h-entry',
+    postPreview: 'h-entry',
+    postTitle: 'p-name',
+    postDescription: 'p-summary',
+    postPublishedDate: 'dt-published',
+    postLink: 'u-url',
+  }
 });
 
 });
@@ -609,7 +619,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 module.exports = Ember.TEMPLATES['post_preview'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
@@ -619,18 +629,31 @@ function program1(depth0,data) {
   else { data.buffer.push(''); }
   }
 
-  data.buffer.push("<article class=\"h-entry\">\n  <h2 class=\"p-name\">\n    ");
+  data.buffer.push("<article ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postPreview")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n  <h2 ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postTitle")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n    ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
     'class': ("u-url")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><span class=\"glyphicon glyphicon-time\"></span><time class=\"text dt-published\" pubdate ");
+  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><span class=\"glyphicon glyphicon-time\"></span><time pubdate ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postPublishedDate :text"),
     'datetime': ("published")
-  },hashTypes:{'datetime': "STRING"},hashContexts:{'datetime': depth0},contexts:[],types:[],data:data})));
+  },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
   data.buffer.push(">");
   data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("</time></p>\n\n  <p class=\"p-summary\">");
+  data.buffer.push("</time></p>\n\n  <p ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postDescription")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</p>\n</article>\n");

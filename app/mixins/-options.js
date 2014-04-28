@@ -9,4 +9,14 @@ App.Options = Em.Mixin.create({
 
   // Misc
   googleAnalyticsCode: 'xouxou',
+
+  // Microformat classes
+  mf: {
+    postFull: 'h-entry',
+    postPreview: 'h-entry',
+    postTitle: 'p-name',
+    postDescription: 'p-summary',
+    postPublishedDate: 'dt-published',
+    postLink: 'u-url',
+  }
 });
