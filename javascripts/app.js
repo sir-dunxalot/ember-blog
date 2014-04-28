@@ -223,7 +223,7 @@ App.Post.FIXTURES = [];
 Em.Handlebars.helper('formatDate', function(date, format) {
   format = format.typeof === 'string' ? format : null;
 
-  var formatString = format || 'MMM D[,] YYYY';
+  var formatString = format || 'MMM D, YYYY';
   var formattedDate = moment(date).format(formatString);
   return formattedDate;
 });
@@ -354,11 +354,11 @@ App.Post = DS.Model.extend({
 });
 
 ;require.register("posts/welcome-to-ember", function(exports, require, module) {
-module.exports = {"title":"More Ember stuff","description":"This is a description of the ember stuff in this article","published":"2014-03-01T00:00:00.000Z","categories":["ember","design"],"__content":"<p>This is a lot more content for markdown parsing</p>\n<p><strong>Ok yeah</strong></p>\n"}
+module.exports = {"title":"More Ember stuff","description":"This is a description of the ember stuff in this article","published":"2014-03-01T00:00:00.000Z","author":"Michael Dane","categories":["ember","design"],"__content":"<p>This is a lot more content for markdown parsing</p>\n<p><strong>Ok yeah</strong></p>\n"}
 });
 
 ;require.register("posts/welcome-to-your-ember-blog", function(exports, require, module) {
-module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post! os sos ssousus souduof ufuofouffuoouf ufu uofuofuof uf ofou fo</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
+module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do stuff with your Ember blog","published":"2014-03-30T00:00:00.000Z","author":"Matt Hart","categories":["ember","lifestyle"],"__content":"<p>Loads of text for this amazing blog post! os sos ssousus souduof ufuofouffuoouf ufu uofuofuof uf ofou fo</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n<p>Loads of text for this amazing blog post!</p>\n<p>You now have</p>\n<ul>\n<li>Jekyll</li>\n<li>Html5 Boilerplate based templates</li>\n<li>jQuery and Modernizr</li>\n<li>Sass and Compass</li>\n<li>rdiscount markdown parser and Pygments highlighter</li>\n</ul>\n<p>installed.</p>\n<p><strong>Enjoy coding!</strong></p>\n"}
 });
 
 ;require.register("routes/category_route", function(exports, require, module) {
@@ -592,7 +592,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<h1>");
+  data.buffer.push("<h1 class=\"p-name\">");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</h1>\n");
@@ -619,15 +619,17 @@ function program1(depth0,data) {
   else { data.buffer.push(''); }
   }
 
-  data.buffer.push("<h2>\n  ");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
+  data.buffer.push("<article class=\"h-entry\">\n  <h2 class=\"p-name\">\n    ");
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
+    'class': ("u-url")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n</h2>\n\n<p class=\"alt_text\">");
+  data.buffer.push("\n  </h2>\n\n  <p class=\"alt_text dt-published\" pubdate>");
   data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("</p>\n\n<p>");
+  data.buffer.push("</p>\n\n  <p class=\"p-summary\">");
   stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</p>\n");
+  data.buffer.push("</p>\n</article>\n");
   return buffer;
   
 });
@@ -2083,14 +2085,15 @@ App.PostView = Em.View.extend({
 App.PostsView = Em.ListView.extend({
   classNames: ['posts'],
   height: 500,
-  rowHeight: 50,
   itemsPerLoad: 10,
+  rowHeight: 50,
+  tagName: 'ol',
+
   itemViewClass: Em.ListItemView.extend({
     tagName: 'li',
     templateName: 'post_preview',
     classNames: ['post_preview'],
   }),
-  tagName: 'ul',
 
   setSize: function() {
     var height = $(window).height();

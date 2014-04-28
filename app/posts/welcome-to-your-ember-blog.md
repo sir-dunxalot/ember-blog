@@ -2,6 +2,7 @@
 title: Welcome to Your Ember Blog
 description: How to do stuff with your Ember blog
 published: 2014-03-30
+author: Matt Hart
 categories:
  - ember
  - lifestyle

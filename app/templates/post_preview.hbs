@@ -1,7 +1,9 @@
-<h2>
-  {{#link-to 'post' this}}{{title}}{{/link-to}}
-</h2>
+<article class="h-entry">
+  <h2 class="p-name">
+    {{#link-to 'post' this class='u-url'}}{{title}}{{/link-to}}
+  </h2>
 
-<p class="alt_text">{{formatDate published}}</p>
+  <p class="alt_text dt-published" pubdate>{{formatDate published}}</p>
 
-<p>{{description}}</p>
+  <p class="p-summary">{{description}}</p>
+</article>

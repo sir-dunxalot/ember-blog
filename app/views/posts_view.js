@@ -1,14 +1,15 @@
 App.PostsView = Em.ListView.extend({
   classNames: ['posts'],
   height: 500,
-  rowHeight: 50,
   itemsPerLoad: 10,
+  rowHeight: 50,
+  tagName: 'ol',
+
   itemViewClass: Em.ListItemView.extend({
     tagName: 'li',
     templateName: 'post_preview',
     classNames: ['post_preview'],
   }),
-  tagName: 'ul',
 
   setSize: function() {
     var height = $(window).height();
