@@ -4511,6 +4511,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -10344,7 +10345,18 @@ html {
 
 body {
   font-size: 16px;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  font-family: 'Lato'; }
+
+h1, h2 {
+  font-weight: 300;
+  margin-top: 0; }
+
+.alt_text {
+  font-weight: 400;
+  text-transform: uppercase;
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
 
 /*
 .page {
@@ -10392,6 +10404,9 @@ body {
 .nav_list {
   padding: 0;
   margin: 0; }
+
+.posts {
+  list-style: none; }
 
 
 /*# sourceMappingURL=app.css.map*/

@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
 html {
   font-size: $baseFontSize * 0.9;
 
@@ -12,4 +14,16 @@ html {
 
 body {
   @include rem(font-size, $bodyFontSize);
+  font-family: 'Lato';
+}
+
+h1, h2 {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.alt_text {
+  font-weight: 400;
+  text-transform: uppercase;
+  @include opacity(0.5);
 }

@@ -219,6 +219,17 @@ App.Post.FIXTURES = [];
 
 });
 
+;require.register("helpers/format_date", function(exports, require, module) {
+Em.Handlebars.helper('formatDate', function(date, format) {
+  format = format.typeof === 'string' ? format : null;
+
+  var formatString = format || 'MMM D[,] YYYY';
+  var formattedDate = moment(date).format(formatString);
+  return formattedDate;
+});
+
+});
+
 ;require.register("initialize", function(exports, require, module) {
 'use strict';
 
@@ -229,9 +240,9 @@ require('config/store');
 // Load all modules in order automagically. Ember likes things to work this
 // way so everything is in the App.* namespace.
 var folderOrder = [
-    'initializers', 'models', 'fixtures', 'mixins',
-    'routes', 'views', 'controllers', 'helpers',
-    'templates', 'components'
+    'initializers', 'models', 'fixtures',
+    'mixins', 'routes', 'views', 'controllers',
+    'helpers', 'templates', 'components'
 ];
 
 folderOrder.forEach(function(folder) {
@@ -485,7 +496,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<h2>Posts</h2>\n\n");
+  data.buffer.push("<h1>Latest Posts</h1>\n\n");
   data.buffer.push(escapeExpression((helper = helpers.collection || (depth0 && depth0.collection),options={hash:{
     'content': ("sortedPosts")
   },hashTypes:{'content': "ID"},hashContexts:{'content': depth0},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "App.PostsView", options) : helperMissing.call(depth0, "collection", "App.PostsView", options))));
@@ -598,7 +609,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 module.exports = Ember.TEMPLATES['post_preview'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
@@ -611,7 +622,9 @@ function program1(depth0,data) {
   data.buffer.push("<h2>\n  ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n</h2>\n\n<p>");
+  data.buffer.push("\n</h2>\n\n<p class=\"alt_text\">");
+  data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
+  data.buffer.push("</p>\n\n<p>");
   stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</p>\n");
@@ -2068,12 +2081,14 @@ App.PostView = Em.View.extend({
 
 ;require.register("views/posts_view", function(exports, require, module) {
 App.PostsView = Em.ListView.extend({
+  classNames: ['posts'],
   height: 500,
   rowHeight: 50,
   itemsPerLoad: 10,
   itemViewClass: Em.ListItemView.extend({
     tagName: 'li',
     templateName: 'post_preview',
+    classNames: ['post_preview'],
   }),
   tagName: 'ul',
 

@@ -16,9 +16,10 @@ exports.config = {
           'vendor/scripts/common/handlebars.js',
           'vendor/scripts/development/ember.js',
           'vendor/scripts/development/ember-data.js',
-          'vendor/scripts/common/bootstrap/tooltip.js'
+          'vendor/scripts/common/bootstrap/tooltip.js',
+          'vendor/scripts/common/moment.js'
         ]
-      }
+      },
     },
     stylesheets: {
       // defaultExtension: 'scss',

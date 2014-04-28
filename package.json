@@ -27,7 +27,8 @@
     "auto-reload-brunch": "~1.7.0",
     "ember-handlebars-brunch": "git://github.com/gcollazo/ember-handlebars-brunch.git#master",
     "yaml-front-matter-brunch": "~0.2.2",
-    "sass-brunch": "^1.8.1"
+    "sass-brunch": "^1.8.1",
+    "moment": "^2.6.0"
   },
   "devDependencies": {
     "karma": "*",
