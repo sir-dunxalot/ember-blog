@@ -4,7 +4,7 @@
     <li>{{#link-to 'about'}}About{{/link-to}}</li>
     {{#each categories}}
       <li>
-        {{#link-to 'category' this}}
+        {{#link-to 'category' this.name}}
           {{name}}
         {{/link-to}}
       </li>

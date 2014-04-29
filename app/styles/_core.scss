@@ -30,3 +30,7 @@
 %pad {
   @include rem(padding, $spacing);
 }
+
+hr {
+  @include rem(margin, $spacing, 0);
+}

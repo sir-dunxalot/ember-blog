@@ -1,9 +1,16 @@
 <article {{bind-attr class='mf.postPreview'}}>
+
   <h2 {{bind-attr class='mf.postTitle'}}>
     {{#link-to 'post' this class='u-url'}}{{title}}{{/link-to}}
   </h2>
 
-  <p class="date"><span class="glyphicon glyphicon-time"></span><time pubdate {{bind-attr class='mf.postPublishedDate :text' datetime='published'}}>{{formatDate published}}</time></p>
+  <p class="date">
+    <span class="glyphicon glyphicon-time"></span>
+    <time pubdate {{bind-attr class='mf.postPublishedDate :text' datetime='published'}}>
+      {{formatDate published}}
+    </time>
+  </p>
 
   <p {{bind-attr class='mf.postDescription'}}>{{description}}</p>
+
 </article>

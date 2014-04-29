@@ -1,2 +1,16 @@
-<h1 class="p-name">{{title}}</h1>
+<header class="header">
+
+  <h1 {{bind-attr class='mf.postTitle'}}>{{title}}</h1>
+
+  <p class="date">
+    <span class="glyphicon glyphicon-time"></span>
+    <time pubdate {{bind-attr class='mf.postPublishedDate :text' datetime='published'}}>
+      {{formatDate published}}
+    </time>
+  </p>
+
+</header>
+
+<hr>
+
 {{{body}}}

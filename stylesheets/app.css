@@ -5808,7 +5808,7 @@ textarea {
   display: table;
   width: 100%; }
 
-.header, .main {
+.page_header, .main {
   display: table-cell; }
 
 html, body, .main {
@@ -5817,9 +5817,13 @@ html, body, .main {
 html, body, .page, .main, .content_wrapper, .content {
   height: 100%; }
 
-.header, .content_wrapper {
+.page_header, .content_wrapper {
   padding: 40px;
   padding: 4rem; }
+
+hr {
+  margin: 40px 0px;
+  margin: 4rem 0rem; }
 
 html {
   font-size: 56.25%; }
@@ -5869,10 +5873,10 @@ h1 {
 .page {
   position: fixed; }
 
-.header, .main {
+.page_header, .main {
   vertical-align: top; }
 
-.header {
+.page_header {
   min-width: 300px;
   min-width: 30rem; }
 
@@ -5889,7 +5893,7 @@ h1 {
 .footer {
   display: table-footer-group; }
 
-.header {
+.page_header {
   background-color: white; }
 
 .nav {
@@ -5916,6 +5920,10 @@ h1 {
 .post_preview .date {
   margin-top: -10px;
   margin-top: -1rem; }
+
+.post .date {
+  margin-top: -20px;
+  margin-top: -2rem; }
 
 .glyphicon {
   opacity: 0.5;

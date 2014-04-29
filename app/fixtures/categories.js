@@ -3,17 +3,17 @@
 App.Category.FIXTURES = [
   {
     id: 1,
-    name: 'Ember',
+    name: 'ember',
   },{
     id: 2,
-    name: 'Rails',
+    name: 'rails',
   },
   {
     id: 3,
-    name: 'Design',
+    name: 'design',
   },
   {
     id: 4,
-    name: 'Lifestyle',
+    name: 'lifestyle',
   }
 ];

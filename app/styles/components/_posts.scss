@@ -8,3 +8,9 @@
     @include rem(margin-top, -1);
   }
 }
+
+.post {
+  .date {
+    @include rem(margin-top, $spacing / -2);
+  }
+}

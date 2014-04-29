@@ -130,7 +130,7 @@ module.exports = (function() {
     this.route('index', { path: '/' });
     this.route('about');
     this.resource('post', { path: '/post/:post_url' });
-    this.resource('category', { path: '/category/:category_name' });
+    this.resource('category', { path: '/category/:name' });
   });
 
   if (Modernizr.history) {
@@ -156,7 +156,18 @@ module.exports = (function() {
     revision: 13
   });
 
-  App.ApplicationAdapter = DS.FixtureAdapter.extend();
+  App.ApplicationAdapter = DS.FixtureAdapter.extend({
+    queryFixtures: function(fixtures, query, type) {
+      return fixtures.filter(function(item) {
+        for(var prop in query) {
+          if( item[prop] != query[prop]) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+  });
 
 }());
 
@@ -197,18 +208,18 @@ App.IndexController = Em.ArrayController.extend({
 App.Category.FIXTURES = [
   {
     id: 1,
-    name: 'Ember',
+    name: 'ember',
   },{
     id: 2,
-    name: 'Rails',
+    name: 'rails',
   },
   {
     id: 3,
-    name: 'Design',
+    name: 'design',
   },
   {
     id: 4,
-    name: 'Lifestyle',
+    name: 'lifestyle',
   }
 ];
 
@@ -379,33 +390,57 @@ App.CategoryRoute = Ember.Route.extend({
 
   // Category data
   model: function(params) {
-    var category = this.store.find('category', params.category_name);
+    var store = this.get('store');
+    var category = store.find('category', { name: params.name });
     return category;
   },
 
   // Posts data
-  afterModel: function(params) {
-    var _this = this;
+  // afterModel: function(params) {
+  //   var _this = this;
+  //   var model = this.get('model');
 
-    return this.store.filter('post', function(post) {
-      var categories = post.get('categories');
-      var pageCategory = params.get('name').toLowerCase();
+  //   // console.log(model);
 
-      return categories.indexOf(pageCategory) > -1;
-    }).then(function(result) {
-      _this.set('posts', result.content);
-    });
-  },
+
+  // },
 
   // URL
-  serialize: function(model) {
-    var obj = { category_name: model.get('name').dasherize() };
+  serialize: function(model, params) {
+    // console.log(params);
+    // console.log(model.get(''));
+    var obj = { category_name: model.get('name') };
     return obj;
   },
 
-  setupController: function() {
-    var posts = this.get('posts');
+  setupController: function(controller, model) {
+    var _this = this;
+    var category = model.get('content')[0];
+    var categoryName = category.get('name');
+
+    var posts = this.store.filter('post', function(post) {
+      var categories = post.get('categories');
+
+      return categories.indexOf(categoryName) > -1;
+    }).then(function(result) {
+      // _this.set('posts', result.content);
+      _this.controller.set('posts', result.content);
+    });
+
+    var posts = this._getPosts(categoryName);
     this.controller.set('posts', posts);
+  },
+
+  _getPosts: function(categoryName) {
+
+
+    // return this.store.filter('post', function(post) {
+    //   var categories = post.get('categories');
+
+    //   return categories.indexOf(categoryName) > -1;
+    // }).then(function(result) {
+    //   _this.set('posts', result.content);
+    // });
   },
 
 });
@@ -535,7 +570,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<header class=\"header\" role=\"banner\">\n  ");
+  data.buffer.push("<header class=\"page_header\" role=\"banner\">\n  ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
   data.buffer.push("\n</header>\n");
   return buffer;
@@ -565,7 +600,7 @@ function program5(depth0,data) {
   
   var buffer = '', stack1, helper, options;
   data.buffer.push("\n      <li>\n        ");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "category", "", options) : helperMissing.call(depth0, "link-to", "category", "", options));
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "category", "name", options) : helperMissing.call(depth0, "link-to", "category", "name", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n      </li>\n    ");
   return buffer;
@@ -599,13 +634,24 @@ function program6(depth0,data) {
 module.exports = Ember.TEMPLATES['post'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
 
-  data.buffer.push("<h1 class=\"p-name\">");
+  data.buffer.push("<header class=\"header\">\n\n  <h1 ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postTitle")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h1>\n");
+  data.buffer.push("</h1>\n\n  <p class=\"date\">\n    <span class=\"glyphicon glyphicon-time\"></span>\n    <time pubdate ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postPublishedDate :text"),
+    'datetime': ("published")
+  },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n      ");
+  data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
+  data.buffer.push("\n    </time>\n  </p>\n\n</header>\n\n<hr>\n\n");
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "body", {hash:{
     'unescaped': ("true")
   },hashTypes:{'unescaped': "STRING"},hashContexts:{'unescaped': depth0},contexts:[depth0],types:["ID"],data:data})));
@@ -633,7 +679,7 @@ function program1(depth0,data) {
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("mf.postPreview")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n  <h2 ");
+  data.buffer.push(">\n\n  <h2 ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("mf.postTitle")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
@@ -642,21 +688,21 @@ function program1(depth0,data) {
     'class': ("u-url")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h2>\n\n  <p class=\"date\"><span class=\"glyphicon glyphicon-time\"></span><time pubdate ");
+  data.buffer.push("\n  </h2>\n\n  <p class=\"date\">\n    <span class=\"glyphicon glyphicon-time\"></span>\n    <time pubdate ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("mf.postPublishedDate :text"),
     'datetime': ("published")
   },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">");
+  data.buffer.push(">\n      ");
   data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("</time></p>\n\n  <p ");
+  data.buffer.push("\n    </time>\n  </p>\n\n  <p ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("mf.postDescription")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "description", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</p>\n</article>\n");
+  data.buffer.push("</p>\n\n</article>\n");
   return buffer;
   
 });

@@ -24,12 +24,12 @@ html, body {
   position: fixed;
 }
 
-.header, .main {
+.page_header, .main {
   @extend %cell;
   vertical-align: top;
 }
 
-.header {
+.page_header {
  @include rem(min-width, $sidebarWidth);
  @extend %pad;
 }

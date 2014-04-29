@@ -6,7 +6,7 @@ module.exports = (function() {
     this.route('index', { path: '/' });
     this.route('about');
     this.resource('post', { path: '/post/:post_url' });
-    this.resource('category', { path: '/category/:category_name' });
+    this.resource('category', { path: '/category/:name' });
   });
 
   if (Modernizr.history) {
