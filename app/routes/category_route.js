@@ -33,29 +33,15 @@ App.CategoryRoute = Ember.Route.extend({
     var category = model.get('content')[0];
     var categoryName = category.get('name');
 
+    this.controller.set('category', category);
+
     var posts = this.store.filter('post', function(post) {
       var categories = post.get('categories');
 
       return categories.indexOf(categoryName) > -1;
     }).then(function(result) {
-      // _this.set('posts', result.content);
       _this.controller.set('posts', result.content);
     });
-
-    var posts = this._getPosts(categoryName);
-    this.controller.set('posts', posts);
-  },
-
-  _getPosts: function(categoryName) {
-
-
-    // return this.store.filter('post', function(post) {
-    //   var categories = post.get('categories');
-
-    //   return categories.indexOf(categoryName) > -1;
-    // }).then(function(result) {
-    //   _this.set('posts', result.content);
-    // });
   },
 
 });

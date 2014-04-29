@@ -230,6 +230,14 @@ App.Post.FIXTURES = [];
 
 });
 
+;require.register("helpers/capitalize", function(exports, require, module) {
+Em.Handlebars.helper('capitalize', function(string) {
+  var capitalizedString = string.charAt(0).toUpperCase() + string.slice(1);
+  return capitalizedString;
+});
+
+});
+
 ;require.register("helpers/format_date", function(exports, require, module) {
 Em.Handlebars.helper('formatDate', function(date, format) {
   format = format.typeof === 'string' ? format : null;
@@ -418,29 +426,15 @@ App.CategoryRoute = Ember.Route.extend({
     var category = model.get('content')[0];
     var categoryName = category.get('name');
 
+    this.controller.set('category', category);
+
     var posts = this.store.filter('post', function(post) {
       var categories = post.get('categories');
 
       return categories.indexOf(categoryName) > -1;
     }).then(function(result) {
-      // _this.set('posts', result.content);
       _this.controller.set('posts', result.content);
     });
-
-    var posts = this._getPosts(categoryName);
-    this.controller.set('posts', posts);
-  },
-
-  _getPosts: function(categoryName) {
-
-
-    // return this.store.filter('post', function(post) {
-    //   var categories = post.get('categories');
-
-    //   return categories.indexOf(categoryName) > -1;
-    // }).then(function(result) {
-    //   _this.set('posts', result.content);
-    // });
   },
 
 });
@@ -517,13 +511,11 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 module.exports = Ember.TEMPLATES['category'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+  var buffer = '', helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push(escapeExpression(helpers.log.call(depth0, "content", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
-  data.buffer.push("\n\n<h1>");
-  stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("<h1>");
+  data.buffer.push(escapeExpression((helper = helpers.capitalize || (depth0 && depth0.capitalize),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "category.name", options) : helperMissing.call(depth0, "capitalize", "category.name", options))));
   data.buffer.push("</h1>\n\n");
   data.buffer.push(escapeExpression((helper = helpers.collection || (depth0 && depth0.collection),options={hash:{
     'content': ("sortedPosts")
@@ -582,7 +574,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 module.exports = Ember.TEMPLATES['partials/_navigation'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
   
@@ -607,10 +599,9 @@ function program5(depth0,data) {
   }
 function program6(depth0,data) {
   
-  var buffer = '', stack1;
+  var buffer = '', helper, options;
   data.buffer.push("\n          ");
-  stack1 = helpers._triageMustache.call(depth0, "name", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push(escapeExpression((helper = helpers.capitalize || (depth0 && depth0.capitalize),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "name", options) : helperMissing.call(depth0, "capitalize", "name", options))));
   data.buffer.push("\n        ");
   return buffer;
   }

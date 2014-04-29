@@ -5,7 +5,7 @@
     {{#each categories}}
       <li>
         {{#link-to 'category' this.name}}
-          {{name}}
+          {{capitalize name}}
         {{/link-to}}
       </li>
     {{/each}}
