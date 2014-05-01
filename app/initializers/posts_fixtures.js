@@ -24,6 +24,9 @@ Em.Application.initializer({
       post['body'] = post['__content'];
       delete post['__content'];
 
+      // Convert JS date to Date object for Ember model DS.attr('date')
+      post['published'] = new Date(post['published']);
+
       store = container.lookup('store:main')
       newPost = store.createRecord('post', post);
       newPost.save();

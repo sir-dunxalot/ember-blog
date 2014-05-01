@@ -268,7 +268,7 @@ require('config/store');
 // Load all modules in order automagically. Ember likes things to work this
 // way so everything is in the App.* namespace.
 var folderOrder = [
-    'models', 'fixtures', 'initializers',
+    'initializers', 'models', 'fixtures',
     'mixins', 'routes', 'views', 'controllers',
     'helpers', 'templates', 'components'
 ];
@@ -309,6 +309,9 @@ Em.Application.initializer({
       // Rename content for model (can't start with an underscore and content is reserved)
       post['body'] = post['__content'];
       delete post['__content'];
+
+      // Convert JS date to Date object for Ember model DS.attr('date')
+      post['published'] = new Date(post['published']);
 
       store = container.lookup('store:main')
       newPost = store.createRecord('post', post);
