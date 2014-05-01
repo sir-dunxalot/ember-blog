@@ -5,7 +5,7 @@ module.exports = (function() {
   App.Router.map(function() {
     this.route('index', { path: '/' });
     this.route('about');
-    this.resource('post', { path: '/post/:post_url' });
+    this.resource('post', { path: '/post/:urlString' });
     this.resource('category', { path: '/category/:name' });
   });
 

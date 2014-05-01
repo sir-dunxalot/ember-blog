@@ -129,7 +129,7 @@ module.exports = (function() {
   App.Router.map(function() {
     this.route('index', { path: '/' });
     this.route('about');
-    this.resource('post', { path: '/post/:post_url' });
+    this.resource('post', { path: '/post/:urlString' });
     this.resource('category', { path: '/category/:name' });
   });
 
@@ -202,6 +202,13 @@ App.IndexController = Em.ArrayController.extend({
 
 });
 
+;require.register("controllers/post_controller", function(exports, require, module) {
+App.PostController = Em.ObjectController.extend({
+
+});
+
+});
+
 ;require.register("fixtures/categories", function(exports, require, module) {
 'use strict';
 
@@ -226,13 +233,15 @@ App.Category.FIXTURES = [
 });
 
 ;require.register("fixtures/posts", function(exports, require, module) {
+'use strict';
+
 App.Post.FIXTURES = [];
 
 });
 
 ;require.register("helpers/capitalize", function(exports, require, module) {
 Em.Handlebars.helper('capitalize', function(string) {
-  var capitalizedString = string.charAt(0).toUpperCase() + string.slice(1);
+  var capitalizedString = string.capitalize();
   return capitalizedString;
 });
 
@@ -259,7 +268,7 @@ require('config/store');
 // Load all modules in order automagically. Ember likes things to work this
 // way so everything is in the App.* namespace.
 var folderOrder = [
-    'initializers', 'models', 'fixtures',
+    'models', 'fixtures', 'initializers',
     'mixins', 'routes', 'views', 'controllers',
     'helpers', 'templates', 'components'
 ];
@@ -288,15 +297,22 @@ Em.Application.initializer({
       return new RegExp('^posts/').test(module);
     }).forEach(function(module) {
       var post = require(module);
+      var title = post.title;
+      var store, newPost;
 
       // Add index to object (required for Ember fixtures)
       post['id'] = postIndex;
+
+      // Add string to model for link-to helpers and url serialization
+      post['urlString'] = title.dasherize();
 
       // Rename content for model (can't start with an underscore and content is reserved)
       post['body'] = post['__content'];
       delete post['__content'];
 
-      container.lookup('store:main').createRecord('post', post);
+      store = container.lookup('store:main')
+      newPost = store.createRecord('post', post);
+      newPost.save();
 
       postIndex++;
     });
@@ -369,15 +385,21 @@ App.Category = DS.Model.extend({
 
 });
 
-;require.register("models/posts", function(exports, require, module) {
+;require.register("models/post", function(exports, require, module) {
+'use strict';
+
 var attr = DS.attr;
 var hasMany = DS.attr;
 
 App.Post = DS.Model.extend({
-  title: attr('string'),
+  author: attr('string'),
+  body: attr('string'),
+  // categories: hasMany('category'),
+  categories: attr(),
+  description: attr('string'),
   published: attr('date'),
-  categories: hasMany('category'),
-  content: attr('string'),
+  urlString: attr('string'),
+  title: attr('string'),
 });
 
 });
@@ -393,47 +415,32 @@ module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do 
 ;require.register("routes/category_route", function(exports, require, module) {
 'use strict';
 
-App.CategoryRoute = Ember.Route.extend({
-  posts: [],
+App.CategoryRoute = Em.Route.extend({
 
   // Category data
   model: function(params) {
-    var store = this.get('store');
-    var category = store.find('category', { name: params.name });
+    var category = this.store.find('category', { name: params.name });
     return category;
   },
 
-  // Posts data
-  // afterModel: function(params) {
-  //   var _this = this;
-  //   var model = this.get('model');
-
-  //   // console.log(model);
-
-
-  // },
-
   // URL
   serialize: function(model, params) {
-    // console.log(params);
-    // console.log(model.get(''));
-    var obj = { category_name: model.get('name') };
+    var obj = { name: model.get('name') };
     return obj;
   },
 
   setupController: function(controller, model) {
-    var _this = this;
     var category = model.get('content')[0];
     var categoryName = category.get('name');
 
-    this.controller.set('category', category);
+    controller.set('category', category);
 
     var posts = this.store.filter('post', function(post) {
       var categories = post.get('categories');
 
       return categories.indexOf(categoryName) > -1;
     }).then(function(result) {
-      _this.controller.set('posts', result.content);
+      controller.set('posts', result.content);
     });
   },
 
@@ -444,9 +451,9 @@ App.CategoryRoute = Ember.Route.extend({
 ;require.register("routes/index_route", function(exports, require, module) {
 'use strict';
 
-App.IndexRoute = Ember.Route.extend({
+App.IndexRoute = Em.Route.extend({
 
-  model: function() {
+  model: function(params) {
     var posts = this.store.all('post');
     return posts;
   },
@@ -460,14 +467,24 @@ App.IndexRoute = Ember.Route.extend({
 App.PostRoute = Em.Route.extend({
 
   model: function(params) {
-    var post = this.store.find('post', params.post_url);
+    var post = this.store.find('post', { urlString: params.urlString });
     return post;
   },
 
   // URL
   serialize: function(model) {
-    var obj = { post_url: model.get('title').dasherize() };
+    // console.log(model);
+    var obj = { urlString: model.get('urlString') };
     return obj;
+  },
+
+  // watch: function() {
+  //   console.log(this.get('model'));
+  // }.observes('model'),
+
+  setupController: function(controller, model) {
+    var post = model.get('content')[0];
+    controller.set('content', post);
   },
 
 });
@@ -677,7 +694,7 @@ function program1(depth0,data) {
   data.buffer.push(">\n    ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
     'class': ("u-url")
-  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "", options) : helperMissing.call(depth0, "link-to", "post", "", options));
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "urlString", options) : helperMissing.call(depth0, "link-to", "post", "urlString", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </h2>\n\n  <p class=\"date\">\n    <span class=\"glyphicon glyphicon-time\"></span>\n    <time pubdate ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{

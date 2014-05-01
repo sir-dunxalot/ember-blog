@@ -11,15 +11,22 @@ Em.Application.initializer({
       return new RegExp('^posts/').test(module);
     }).forEach(function(module) {
       var post = require(module);
+      var title = post.title;
+      var store, newPost;
 
       // Add index to object (required for Ember fixtures)
       post['id'] = postIndex;
+
+      // Add string to model for link-to helpers and url serialization
+      post['urlString'] = title.dasherize();
 
       // Rename content for model (can't start with an underscore and content is reserved)
       post['body'] = post['__content'];
       delete post['__content'];
 
-      container.lookup('store:main').createRecord('post', post);
+      store = container.lookup('store:main')
+      newPost = store.createRecord('post', post);
+      newPost.save();
 
       postIndex++;
     });

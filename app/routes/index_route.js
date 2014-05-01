@@ -1,8 +1,8 @@
 'use strict';
 
-App.IndexRoute = Ember.Route.extend({
+App.IndexRoute = Em.Route.extend({
 
-  model: function() {
+  model: function(params) {
     var posts = this.store.all('post');
     return posts;
   },

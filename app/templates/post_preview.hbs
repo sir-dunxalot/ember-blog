@@ -1,7 +1,7 @@
 <article {{bind-attr class='mf.postPreview'}}>
 
   <h2 {{bind-attr class='mf.postTitle'}}>
-    {{#link-to 'post' this class='u-url'}}{{title}}{{/link-to}}
+    {{#link-to 'post' this.urlString class='u-url'}}{{title}}{{/link-to}}
   </h2>
 
   <p class="date">
