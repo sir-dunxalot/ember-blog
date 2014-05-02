@@ -1,13 +1,15 @@
 /*
-.page {
+.app {
   .header {
     .nav {
 
     }
   }
   .main {
-    .content {
+    .content_wrapper {
+      .content {
 
+      }
     }
   }
 }
@@ -18,7 +20,7 @@ html, body {
   @extend %full_width;
 }
 
-.page {
+.app {
   @extend %table;
   @extend %full_height;
   position: fixed;
@@ -30,8 +32,8 @@ html, body {
 }
 
 .page_header {
- @include rem(min-width, $sidebarWidth);
- @extend %pad;
+  @include rem(min-width, $sidebarWidth);
+  @extend %pad;
 }
 
 .main {

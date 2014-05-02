@@ -14,6 +14,7 @@ App.CategoryRoute = Em.Route.extend({
     return obj;
   },
 
+  // Posts data
   setupController: function(controller, model) {
     var category = model.get('content')[0];
     var categoryName = category.get('name');

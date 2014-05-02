@@ -437,6 +437,7 @@ App.CategoryRoute = Em.Route.extend({
     return obj;
   },
 
+  // Posts data
   setupController: function(controller, model) {
     var category = model.get('content')[0];
     var categoryName = category.get('name');
@@ -481,14 +482,9 @@ App.PostRoute = Em.Route.extend({
 
   // URL
   serialize: function(model) {
-    // console.log(model);
     var obj = { urlString: model.get('urlString') };
     return obj;
   },
-
-  // watch: function() {
-  //   console.log(this.get('model'));
-  // }.observes('model'),
 
   setupController: function(controller, model) {
     var post = model.get('content')[0];
@@ -604,7 +600,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  data.buffer.push("Home");
+  data.buffer.push("Latest");
   }
 
 function program3(depth0,data) {
@@ -632,10 +628,14 @@ function program6(depth0,data) {
   }
 
   data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li class=\"logo\">");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
+    'title': ("The latest posts published on this blog")
+  },hashTypes:{'title': "STRING"},hashContexts:{'title': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</li>\n    <li>");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "about", options) : helperMissing.call(depth0, "link-to", "about", options));
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
+    'title': ("Information about this blog")
+  },hashTypes:{'title': "STRING"},hashContexts:{'title': depth0},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "about", options) : helperMissing.call(depth0, "link-to", "about", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</li>\n    ");
   stack1 = helpers.each.call(depth0, "categories", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],data:data});
@@ -727,7 +727,32 @@ function program1(depth0,data) {
 ;require.register("views/application_view", function(exports, require, module) {
 App.ApplicationView = Em.View.extend({
   ariaRole: 'application',
-  classNames: ['page'],
+  classNames: ['app'],
+
+  /*
+  Firefox does not handle display: table; height well.
+  Thus, we handle the height with jQuery to avoid adding
+  unnecessary markup and css. IE can go fuck itself.
+  */
+
+  checkForFirefox: function() {
+    var isFirefox = Modernizr.firefox;
+    var setHeight, windowHeight, contentWrapper;
+
+    if (!isFirefox) {
+      return false;
+    }
+
+    contentWrapper = $('.content_wrapper');
+
+    $(window).resize(function() {
+      windowHeight = $(window).height();
+      contentWrapper.innerHeight(windowHeight);
+    });
+
+    $(window).resize(); // Call immediately on page load
+
+  }.on('didInsertElement'),
 });
 
 });

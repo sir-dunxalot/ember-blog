@@ -5804,7 +5804,7 @@ textarea {
   h2,
   h3 {
     page-break-after: avoid; } }
-.page, .content {
+.app, .content {
   display: table;
   width: 100%; }
 
@@ -5814,7 +5814,7 @@ textarea {
 html, body, .main {
   width: 100%; }
 
-html, body, .page, .main, .content_wrapper, .content {
+html, body, .app, .main, .content_wrapper, .content {
   height: 100%; }
 
 .page_header, .content_wrapper {
@@ -5857,20 +5857,22 @@ h1 {
   font-size: 1.6rem; }
 
 /*
-.page {
+.app {
   .header {
     .nav {
 
     }
   }
   .main {
-    .content {
+    .content_wrapper {
+      .content {
 
+      }
     }
   }
 }
 */
-.page {
+.app {
   position: fixed; }
 
 .page_header, .main {

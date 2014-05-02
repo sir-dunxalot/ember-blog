@@ -9,14 +9,9 @@ App.PostRoute = Em.Route.extend({
 
   // URL
   serialize: function(model) {
-    // console.log(model);
     var obj = { urlString: model.get('urlString') };
     return obj;
   },
-
-  // watch: function() {
-  //   console.log(this.get('model'));
-  // }.observes('model'),
 
   setupController: function(controller, model) {
     var post = model.get('content')[0];
