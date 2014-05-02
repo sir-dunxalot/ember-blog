@@ -4,6 +4,8 @@
 }
 
 .post_preview {
+  @include rem(margin-bottom, 10);
+
   .date {
     @include rem(margin-top, -1);
   }

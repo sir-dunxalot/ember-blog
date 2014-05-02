@@ -5919,9 +5919,12 @@ h1 {
   list-style: none;
   padding: 0; }
 
-.post_preview .date {
-  margin-top: -10px;
-  margin-top: -1rem; }
+.post_preview {
+  margin-bottom: 100px;
+  margin-bottom: 10rem; }
+  .post_preview .date {
+    margin-top: -10px;
+    margin-top: -1rem; }
 
 .post .date {
   margin-top: -20px;
