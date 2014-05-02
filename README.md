@@ -53,16 +53,14 @@ This is the blog content. I am writing this blog post all about Ember and stuff.
 
 Save the post in the `posts` directory with any filename you like (filename does not affect the fixtures compiling). Everything outside the YAML Front Matter will be [parsed as markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis) and used for the content of the blog post.
 
-Deployment
+Deployment & Github Pages
 ------
 
-To compile your app for production (minimize, optimize, etc), run `brunch build --production`
+To compile your app for production (minimizing, optimizing, etc), run `brunch build --production`.
 
-### Github Pages
+Deploying to [Github Pages](https://pages.github.com/) is super easy! Simply run `git push origin` or whatever command you use to push to the master branch of your blog repo. Octosmashed will run on Github Pages without any issues.
 
-Deploying to [github pages](https://pages.github.com/) is super easy! Simply run `git push origin` or whatever command you use to push to the master branch fo your blog repo. Octosmashed will run on Github Pages without any issues.
-
-Todos and Known Issues
+Todos & Known Issues
 ------
 
 - WIP - lots of functionality needs to be added
@@ -84,7 +82,7 @@ Todos and Known Issues
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
-Questions and Issues
+Questions & Comments
 ------
 
 Hit me up at walkerdu@bc.edu
