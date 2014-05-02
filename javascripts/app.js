@@ -267,7 +267,7 @@ folderOrder.forEach(function(folder) {
 
 });
 
-;require.register("initializers/posts_fixtures", function(exports, require, module) {
+;require.register("initializers/create_fixtures", function(exports, require, module) {
 'use strict';
 
 Em.Application.initializer({
