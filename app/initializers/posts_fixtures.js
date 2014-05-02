@@ -12,7 +12,7 @@ Em.Application.initializer({
     }).forEach(function(module) {
       var post = require(module);
       var title = post.title;
-      var store, newPost;
+      var published, store, newPost;
 
       // Add index to object (required for Ember fixtures)
       post['id'] = postIndex;
@@ -25,7 +25,7 @@ Em.Application.initializer({
       delete post['__content'];
 
       // Convert JS date to Date object for Ember model DS.attr('date')
-      post['published'] = new Date(post['published']);
+      post['publishedObject'] = new Date(post['published']);
 
       store = container.lookup('store:main')
       newPost = store.createRecord('post', post);
