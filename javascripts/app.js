@@ -2199,7 +2199,8 @@ App.PostsView = Em.CollectionView.extend({
   // rowHeight: 50,
   tagName: 'ol',
 
-  itemViewClass: Em.ListItemView.extend({
+  // itemViewClass: Em.ListItemView.extend({
+  itemViewClass: Em.View.extend({
     tagName: 'li',
     templateName: 'post_preview',
     classNames: ['post_preview'],
