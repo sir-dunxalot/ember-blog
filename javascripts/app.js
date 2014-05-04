@@ -628,8 +628,27 @@ function program1(depth0,data) {
   return buffer;
   }
 
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, helper, options;
+  data.buffer.push("\n    ");
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  ");
+  return buffer;
+  }
+function program4(depth0,data) {
+  
+  var buffer = '', stack1;
+  data.buffer.push("\n      ");
+  stack1 = helpers._triageMustache.call(depth0, "blogTitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n    ");
+  return buffer;
+  }
+
   data.buffer.push("<h1 class=\"logo\">\n  ");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  stack1 = helpers['if'].call(depth0, "view.hasMobileNav", {hash:{},hashTypes:{},hashContexts:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n</h1>\n\n");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
@@ -2338,35 +2357,40 @@ App.ApplicationView = Em.View.extend({
 App.HeaderView = Em.View.extend({
   ariaRole: 'banner',
   classNames: ['page_header'],
-  isMobileNav: null,
+  hasMobileNav: false,
   tagName: 'header',
   templateName: 'header',
 
   click: function() {
-    var isMobileNav = this.get('isMobileNav');
-    var list = this.$().find('ul:first');
+    var hasMobileNav = this.get('hasMobileNav');
+    var list;
 
     // If layout is in desktop nav mode, do nothing
-    if (!isMobileNav) {
+    if (!hasMobileNav) {
       return false;
     }
 
+    list = this.$().find('ul:first');
     list.slideToggle('fast');
   },
 
   // If the window is resized and goes from mobile layout to
   // desktop layout, always show nav
   showNav: function() {
-    var isMobileNav = this.get('isMobileNav');
+    var hasMobileNav = this.get('hasMobileNav');
+    var list;
 
-    if (!isMobileNav) {
-      var list = this.$().find('ul:first');
+    if (!hasMobileNav) {
+      list = this.$().find('ul:first');
       list.show();
     }
-  }.observes('isMobileNav'),
+  }.observes('hasMobileNav'),
 
   watchForResize: function() {
     var _this = this;
+
+    // Run mobile nav check on load
+    _this._resized();
 
     $(window).resize(function() {
       _this._resized();
@@ -2377,9 +2401,9 @@ App.HeaderView = Em.View.extend({
   _resized: function() {
     var header = this.$();
     var displayCss = header.css('display');
-    var isMobileNav = displayCss === 'table-header-group'; // Nav displaying above content
+    var hasMobileNav = displayCss === 'table-header-group'; // Nav displaying above content
 
-    this.set('isMobileNav', isMobileNav);
+    this.set('hasMobileNav', hasMobileNav);
   },
 });
 
