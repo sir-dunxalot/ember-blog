@@ -7,6 +7,7 @@ module.exports = (function() {
     this.route('about');
     this.resource('post', { path: '/post/:urlString' });
     this.resource('category', { path: '/category/:name' });
+    this.route('catchall', {path: '/*wildcard'});
   });
 
   if (Modernizr.history) {

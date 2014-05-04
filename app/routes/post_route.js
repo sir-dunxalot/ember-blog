@@ -15,7 +15,16 @@ App.PostRoute = Em.Route.extend({
 
   setupController: function(controller, model) {
     var post = model.get('content')[0];
-    controller.set('content', post);
+
+    if (!post) {
+      this._postNotFound();
+    } else {
+      controller.set('content', post);
+    }
+  },
+
+  _postNotFound: function() {
+    this.transitionTo('catchall', 'post-not-found');
   },
 
 });

@@ -14,8 +14,10 @@
 @import 'components/layout';
 @import 'components/headers';
 @import 'components/navigation';
+@import 'components/footers';
 @import 'components/posts';
 @import 'components/icons';
+@import 'components/buttons';
 
 body {
   background-color: $bodyBackground;

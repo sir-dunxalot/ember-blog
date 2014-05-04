@@ -14,6 +14,7 @@ $headerBackground: $white;
 $headerSubtle: scale-color($headerBackground, $lightness: -7%);
 
 $bodyBackground: $offwhite;
+$bodySubtle: scale-color($bodyBackground, $lightness: -7%);
 $bodyColor: #333333;
 
 // Media queries
