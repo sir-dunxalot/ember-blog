@@ -12,6 +12,8 @@ Octosmashed is an Ember.js-based blogging framework built on Bruch. Features inc
 - Easy integration with npm modules and other JS plugins
 - All [Twitter Bootstrap](http://getbootstrap.com/) CSS and JS capabilities
 - Simple [CEM/BEM](http://www.smashingmagazine.com/2012/04/16/a-new-front-end-methodology-bem/)-based styling for interchangable layouts and themes written in CSS or SCSS with [Compass](http://compass-style.org/)
+- [Microformatting](http://microformats.org/wiki/microformats2#h-entry) and [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) integration (WIP)
+- Easily deploy to Github pages
 
 **Octosmashed works out-of-the-box but can be customized as much as you like. Writing your first post is as easy as starting the server!**
 
@@ -70,10 +72,10 @@ Todos & Known Issues
 - application.html to hbs?
 - github pages deployment task
 - Social meta tags with handlebars unbound options
-- Code/syntax highlighting
 - Ember root as html, maybe
 - Comment integration
 - Social sharing
+- Social links
 - Investigate benefits (if any) of using Ember.ListView with fixtures
 - Social sharing
 - Mobile testing
