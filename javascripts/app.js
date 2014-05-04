@@ -329,6 +329,7 @@ App.Options = Em.Mixin.create({
   googleAnalyticsCode: 'xouxou',
 
   // Microformat classes
+  // USAGE - http://microformats.org/wiki/microformats2#h-entry
   mf: {
     postFull: 'h-entry',
     postPreview: 'h-entry',
@@ -336,6 +337,9 @@ App.Options = Em.Mixin.create({
     postDescription: 'p-summary',
     postPublishedDate: 'dt-published',
     postLink: 'u-url',
+    postAuthor: 'p-author',
+    postCategory: 'p-category',
+    postContent: 'e-content'
   }
 });
 
@@ -711,12 +715,77 @@ function program6(depth0,data) {
 });
 });
 
+;require.register("templates/partials/_published", function(exports, require, module) {
+module.exports = Ember.TEMPLATES['partials/_published'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+
+
+  data.buffer.push("<p class=\"date\">\n  <span class=\"glyphicon glyphicon-time\"></span>\n  <time pubdate ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("mf.postPublishedDate :text"),
+    'datetime': ("published")
+  },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n    ");
+  data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
+  data.buffer.push("\n  </time>\n</p>\n");
+  return buffer;
+  
+});
+});
+
+;require.register("templates/partials/_tags", function(exports, require, module) {
+module.exports = Ember.TEMPLATES['partials/_tags'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1, helper, options;
+  data.buffer.push("\n    <li>\n      ");
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "category", "", options) : helperMissing.call(depth0, "link-to", "category", "", options));
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n    </li>\n  ");
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = '', helper, options;
+  data.buffer.push("\n        <span ");
+  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
+    'class': ("view.mf.postCategory :text")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">");
+  data.buffer.push(escapeExpression((helper = helpers.capitalize || (depth0 && depth0.capitalize),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "", options) : helperMissing.call(depth0, "capitalize", "", options))));
+  data.buffer.push("</span>\n        <span class=\"glyphicon glyphicon-bookmark\"></span>\n      ");
+  return buffer;
+  }
+
+  data.buffer.push("<ul class=\"tags\">\n  ");
+  stack1 = helpers.each.call(depth0, "categories", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n</ul>\n");
+  return buffer;
+  
+});
+});
+
 ;require.register("templates/post", function(exports, require, module) {
 module.exports = Ember.TEMPLATES['post'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
+function program1(depth0,data) {
+  
+  var buffer = '', helper, options;
+  data.buffer.push("\n    ");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/tags", options) : helperMissing.call(depth0, "partial", "partials/tags", options))));
+  data.buffer.push("\n  ");
+  return buffer;
+  }
 
   data.buffer.push("<header class=\"header\">\n\n  <h1 ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
@@ -725,18 +794,20 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(">");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("</h1>\n\n  <p class=\"date\">\n    <span class=\"glyphicon glyphicon-time\"></span>\n    <time pubdate ");
+  data.buffer.push("</h1>\n\n  ");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/published", options) : helperMissing.call(depth0, "partial", "partials/published", options))));
+  data.buffer.push("\n\n  ");
+  stack1 = helpers['with'].call(depth0, "content", {hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n\n</header>\n\n<hr>\n\n<div ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-    'class': ("mf.postPublishedDate :text"),
-    'datetime': ("published")
-  },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n      ");
-  data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("\n    </time>\n  </p>\n\n</header>\n\n<hr>\n\n");
+    'class': ("mf.postContent")
+  },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));
+  data.buffer.push(">\n  ");
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "body", {hash:{
     'unescaped': ("true")
   },hashTypes:{'unescaped': "STRING"},hashContexts:{'unescaped': depth0},contexts:[depth0],types:["ID"],data:data})));
-  data.buffer.push("\n");
+  data.buffer.push("\n</div>\n\n");
   return buffer;
   
 });
@@ -750,10 +821,12 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
-  var stack1;
+  var buffer = '', stack1;
+  data.buffer.push("\n      ");
   stack1 = helpers._triageMustache.call(depth0, "title", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  else { data.buffer.push(''); }
+  data.buffer.push("\n    ");
+  return buffer;
   }
 
   data.buffer.push("<article ");
@@ -769,14 +842,11 @@ function program1(depth0,data) {
     'class': ("u-url")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "urlString", options) : helperMissing.call(depth0, "link-to", "post", "urlString", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h2>\n\n  <p class=\"date\">\n    <span class=\"glyphicon glyphicon-time\"></span>\n    <time pubdate ");
-  data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
-    'class': ("mf.postPublishedDate :text"),
-    'datetime': ("published")
-  },hashTypes:{'class': "STRING",'datetime': "STRING"},hashContexts:{'class': depth0,'datetime': depth0},contexts:[],types:[],data:data})));
-  data.buffer.push(">\n      ");
-  data.buffer.push(escapeExpression((helper = helpers.formatDate || (depth0 && depth0.formatDate),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "published", options) : helperMissing.call(depth0, "formatDate", "published", options))));
-  data.buffer.push("\n    </time>\n  </p>\n\n  <p ");
+  data.buffer.push("\n  </h2>\n\n  ");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/published", options) : helperMissing.call(depth0, "partial", "partials/published", options))));
+  data.buffer.push("\n\n  ");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/tags", options) : helperMissing.call(depth0, "partial", "partials/tags", options))));
+  data.buffer.push("\n\n  <p ");
   data.buffer.push(escapeExpression(helpers['bind-attr'].call(depth0, {hash:{
     'class': ("mf.postDescription")
   },hashTypes:{'class': "STRING"},hashContexts:{'class': depth0},contexts:[],types:[],data:data})));

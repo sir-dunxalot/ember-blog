@@ -11,6 +11,7 @@ App.Options = Em.Mixin.create({
   googleAnalyticsCode: 'xouxou',
 
   // Microformat classes
+  // USAGE - http://microformats.org/wiki/microformats2#h-entry
   mf: {
     postFull: 'h-entry',
     postPreview: 'h-entry',
@@ -18,5 +19,8 @@ App.Options = Em.Mixin.create({
     postDescription: 'p-summary',
     postPublishedDate: 'dt-published',
     postLink: 'u-url',
+    postAuthor: 'p-author',
+    postCategory: 'p-category',
+    postContent: 'e-content'
   }
 });

@@ -16,3 +16,32 @@
     @include rem(margin-top, $spacing / -2);
   }
 }
+
+.tags {
+  $tagVertPadding: 0.5;
+  $tagHorizPadding: 1;
+
+  @extend .list-inline;
+
+  li {
+    @include rem(font-size, 1.6);
+    @include rem(margin-right, $tagVertPadding);
+    background-color: rgba($bodyColor, 0.15);
+    padding: 0;
+  }
+
+  a {
+    display: block;
+    @include rem(padding, $tagVertPadding, $tagHorizPadding);
+    color: rgba($bodyColor, 0.25);
+  }
+
+  .glyphicon-bookmark {
+    @include rem(font-size, 2);
+    @include rem(margin-top, -($tagVertPadding + 1));
+  }
+
+  .text ~ .glyphicon {
+    @include rem(margin-left, $tagVertPadding);
+  }
+}

@@ -1,0 +1,15 @@
+.list {
+
+}
+
+@include mod(list) {
+  @extend .list;
+
+
+.list-inline {
+  // @extend .list-unstyled;
+
+  // li {
+    // @include inline-block;
+  // }
+}
