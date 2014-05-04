@@ -26,19 +26,32 @@ html, body {
   position: fixed;
 }
 
-.page_header, .main {
-  @extend %cell;
-  vertical-align: top;
-}
-
 .page_header {
   @include rem(min-width, $sidebarWidth);
+  display: table-header-group;
   @extend %pad;
+
+  @media ($medium) {
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+
+.logo {
+  @include rem(padding, $spacing, $spacing, $spacing / 2);
+  margin-bottom: 0;
+
+  @media ($medium) {
+    padding: 0;
+    @include rem(margin-bottom, $spacing);
+  }
 }
 
 .main {
   @extend %full_height;
   @extend %full_width;
+  @extend %cell;
+  vertical-align: top;
 }
 
 .content_wrapper {

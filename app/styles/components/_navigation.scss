@@ -10,8 +10,12 @@
 
     a {
       display: block;
-      @include rem(padding, 1);
-      @include rem(margin-left, -1);
+      @include rem(padding, 1, $spacing);
+
+      @media ($medium) {
+        @include rem(padding, 1);
+        @include rem(margin-left, -1);
+      }
     }
   }
 }

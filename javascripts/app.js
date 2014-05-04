@@ -661,7 +661,7 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<header class=\"page_header\" role=\"banner\">\n\n  <h1>\n    ");
+  data.buffer.push("<header class=\"page_header\" role=\"banner\">\n\n  <h1 class=\"logo\">\n    ");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n  </h1>\n\n  ");
@@ -708,7 +708,7 @@ function program6(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li class=\"logo\">");
+  data.buffer.push("<nav class=\"nav\" role=\"navigation\">\n  <ul class=\"nav_list\">\n    <li>");
   stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
     'title': ("The latest posts published on this blog")
   },hashTypes:{'title': "STRING"},hashContexts:{'title': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));

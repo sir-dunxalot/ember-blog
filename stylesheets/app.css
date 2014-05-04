@@ -6063,7 +6063,7 @@ textarea {
   display: table;
   width: 100%; }
 
-.page_header, .main {
+.main {
   display: table-cell; }
 
 html, body, .main {
@@ -6130,12 +6130,27 @@ h1 {
 .app {
   position: fixed; }
 
-.page_header, .main {
-  vertical-align: top; }
-
 .page_header {
   min-width: 300px;
-  min-width: 30rem; }
+  min-width: 30rem;
+  display: table-header-group; }
+  @media (min-width: 50em) {
+    .page_header {
+      display: table-cell;
+      vertical-align: top; } }
+
+.logo {
+  padding: 40px 40px 20px;
+  padding: 4rem 4rem 2rem;
+  margin-bottom: 0; }
+  @media (min-width: 50em) {
+    .logo {
+      padding: 0;
+      margin-bottom: 40px;
+      margin-bottom: 4rem; } }
+
+.main {
+  vertical-align: top; }
 
 .content_wrapper {
   overflow-y: scroll;
@@ -6161,10 +6176,14 @@ h1 {
     border-top: 1px solid #ededed; }
   .nav li a {
     display: block;
-    padding: 10px;
-    padding: 1rem;
-    margin-left: -10px;
-    margin-left: -1rem; }
+    padding: 10px 40px;
+    padding: 1rem 4rem; }
+    @media (min-width: 50em) {
+      .nav li a {
+        padding: 10px;
+        padding: 1rem;
+        margin-left: -10px;
+        margin-left: -1rem; } }
 
 .nav_list {
   padding: 0;
