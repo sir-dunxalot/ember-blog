@@ -366,6 +366,31 @@ Em.ControllerMixin.reopen(
 
 });
 
+;require.register("mixins/page_title", function(exports, require, module) {
+'use strict';
+
+App.PageTitle = Em.Mixin.create(
+  App.Options, {
+
+  pageTitle: null,
+
+  setPageTitle: function() {
+    var pageTitle = this.get('pageTitle');
+    var controller = this.get('controller');
+    var blogTitle = controller.get('blogTitle');
+
+    // By default, set page title to blog title
+    document.title = pageTitle ? pageTitle + ' | ' + blogTitle : blogTitle;
+  }.observes('pageTitle').on('didInsertElement'),
+});
+
+Em.View.reopen(
+  App.PageTitle, {
+
+});
+
+});
+
 ;require.register("models/category", function(exports, require, module) {
 'use strict';
 
@@ -2230,6 +2255,13 @@ App.ApplicationView = Em.View.extend({
 App.PostView = Em.View.extend({
   classNames: ['post'],
   tagName: 'article',
+
+  pageTitle: function() {
+    var controller = this.get('controller');
+    var postTitle = controller.get('content.title');
+
+    return postTitle;
+  }.property('controller.content.title')
 });
 
 });
