@@ -66,9 +66,7 @@ Todos & Known Issues
 ------
 
 - WIP - lots of functionality needs to be added
-- Automatically generate category fixtures
 - Thorough documentation
-- Page title updating
 - application.html to hbs?
 - github pages deployment task
 - Social meta tags with handlebars unbound options
@@ -81,6 +79,7 @@ Todos & Known Issues
 - Mobile testing
 - Unit tests
 - Test with large number of posts (300+)
+- SEO capabilities
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 

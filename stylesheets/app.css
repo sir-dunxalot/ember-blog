@@ -5953,7 +5953,13 @@ h1 {
 .button {
   padding: 13px 25px 15px 23px;
   padding: 1.3rem 2.5rem 1.5rem 2.3rem;
-  border: 1px solid rgba(66, 139, 202, 0.5); }
+  border: 1px solid rgba(66, 139, 202, 0.5);
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline; }
 
 body {
   background-color: #efefef; }

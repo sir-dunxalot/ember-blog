@@ -439,6 +439,7 @@ module.exports = {"title":"Welcome to Your Ember Blog","description":"How to do 
 ;require.register("routes/application_route", function(exports, require, module) {
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
+    // Errors bubble up to application route
     error: function () {
       this.transitionTo('catchall', 'page-not-found');
     }
