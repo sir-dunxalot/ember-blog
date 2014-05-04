@@ -6187,7 +6187,11 @@ h1 {
 
 .nav_list {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  display: none; }
+  @media (min-width: 50em) {
+    .nav_list {
+      display: block; } }
 
 .footer {
   opacity: 0.25;

@@ -7,5 +7,5 @@ App.PostView = Em.View.extend({
     var postTitle = controller.get('content.title');
 
     return postTitle;
-  }.property('controller.content.title')
+  }.property('controller.content.title'),
 });

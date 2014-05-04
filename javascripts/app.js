@@ -552,16 +552,16 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 module.exports = Ember.TEMPLATES['application'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, helper, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
 
 
-  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/header", options) : helperMissing.call(depth0, "partial", "partials/header", options))));
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "header", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push("\n\n<main class=\"main\" role=\"main\">\n  <div class=\"content_wrapper\">\n    <div class=\"content\">\n      ");
   stack1 = helpers._triageMustache.call(depth0, "outlet", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n      ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/footer", options) : helperMissing.call(depth0, "partial", "partials/footer", options))));
-  data.buffer.push("\n    </div>\n  </div>\n</main>\n\n<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
+  data.buffer.push("\n    </div>\n  </div>\n</main>\n\n<script>\n  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=\n  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;\n  e=o.createElement(i);r=o.getElementsByTagName(i)[0];\n  e.src='//www.google-analytics.com/analytics.js';\n  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));\n  ga('create','");
   data.buffer.push(escapeExpression(helpers.unbound.call(depth0, "googleAnalyticsCode", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data})));
   data.buffer.push("');ga('send','pageview');\n</script>\n");
   return buffer;
@@ -612,6 +612,33 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 });
 });
 
+;require.register("templates/header", function(exports, require, module) {
+module.exports = Ember.TEMPLATES['header'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  var buffer = '', stack1;
+  data.buffer.push("\n    ");
+  stack1 = helpers._triageMustache.call(depth0, "blogTitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  ");
+  return buffer;
+  }
+
+  data.buffer.push("<h1 class=\"logo\">\n  ");
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n</h1>\n\n");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
+  data.buffer.push("\n\n");
+  return buffer;
+  
+});
+});
+
 ;require.register("templates/index", function(exports, require, module) {
 module.exports = Ember.TEMPLATES['index'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
@@ -640,33 +667,6 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   stack1 = helpers._triageMustache.call(depth0, "blogAuthor", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n</div>\n");
-  return buffer;
-  
-});
-});
-
-;require.register("templates/partials/_header", function(exports, require, module) {
-module.exports = Ember.TEMPLATES['partials/_header'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-
-function program1(depth0,data) {
-  
-  var buffer = '', stack1;
-  data.buffer.push("\n      ");
-  stack1 = helpers._triageMustache.call(depth0, "blogTitle", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n    ");
-  return buffer;
-  }
-
-  data.buffer.push("<header class=\"page_header\" role=\"banner\">\n\n  <h1 class=\"logo\">\n    ");
-  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{},hashTypes:{},hashContexts:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "index", options) : helperMissing.call(depth0, "link-to", "index", options));
-  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n  </h1>\n\n  ");
-  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/navigation", options) : helperMissing.call(depth0, "partial", "partials/navigation", options))));
-  data.buffer.push("\n\n</header>\n");
   return buffer;
   
 });
@@ -2334,6 +2334,57 @@ App.ApplicationView = Em.View.extend({
 
 });
 
+;require.register("views/header_view", function(exports, require, module) {
+App.HeaderView = Em.View.extend({
+  ariaRole: 'banner',
+  classNames: ['page_header'],
+  isMobileNav: null,
+  tagName: 'header',
+  templateName: 'header',
+
+  click: function() {
+    var isMobileNav = this.get('isMobileNav');
+    var list = this.$().find('ul:first');
+
+    // If layout is in desktop nav mode, do nothing
+    if (!isMobileNav) {
+      return false;
+    }
+
+    list.slideToggle('fast');
+  },
+
+  // If the window is resized and goes from mobile layout to
+  // desktop layout, always show nav
+  showNav: function() {
+    var isMobileNav = this.get('isMobileNav');
+
+    if (!isMobileNav) {
+      var list = this.$().find('ul:first');
+      list.show();
+    }
+  }.observes('isMobileNav'),
+
+  watchForResize: function() {
+    var _this = this;
+
+    $(window).resize(function() {
+      _this._resized();
+    });
+  }.on('didInsertElement'),
+
+  // When window is resized, check the layout type
+  _resized: function() {
+    var header = this.$();
+    var displayCss = header.css('display');
+    var isMobileNav = displayCss === 'table-header-group'; // Nav displaying above content
+
+    this.set('isMobileNav', isMobileNav);
+  },
+});
+
+});
+
 ;require.register("views/post_view", function(exports, require, module) {
 App.PostView = Em.View.extend({
   classNames: ['post'],
@@ -2344,7 +2395,7 @@ App.PostView = Em.View.extend({
     var postTitle = controller.get('content.title');
 
     return postTitle;
-  }.property('controller.content.title')
+  }.property('controller.content.title'),
 });
 
 });

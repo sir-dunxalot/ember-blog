@@ -23,4 +23,9 @@
 .nav_list {
   padding: 0;
   margin: 0;
+  display: none;
+
+  @media ($medium) {
+    display: block;
+  }
 }
