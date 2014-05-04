@@ -429,7 +429,7 @@ App.Post = DS.Model.extend({
 });
 
 ;require.register("posts/welcome-to-ember", function(exports, require, module) {
-module.exports = {"title":"More Ember stuff","description":"This is a description of the ember stuff in this article","published":"2014-03-01T00:00:00.000Z","author":"Michael Dane","categories":["ember","design"],"__content":"<p>This is a lot more content for markdown parsing</p>\n<p><strong>Ok yeah</strong></p>\n"}
+module.exports = {"title":"More Ember stuff","description":"This is a description of the ember stuff in this article","published":"2014-03-01T00:00:00.000Z","author":"Michael Dane","categories":["ember","design"],"__content":"<p>This is a lot more content for markdown parsing</p>\n<p><strong>Ok yeah</strong></p>\n<pre class=\"language-css line-numbers\">\n  <code>\n    .test {\n      background: red;\n    }\n  </code>\n</pre>\n"}
 });
 
 ;require.register("posts/welcome-to-your-ember-blog", function(exports, require, module) {
