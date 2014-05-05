@@ -253,60 +253,6 @@ pre[class*='language-'] > code[data-language]::before {
   text-shadow: none;
 }
 
-/*! responsive-nav.js 1.0.32 by @viljamis */
-
-.nav-collapse ul {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: block;
-  list-style: none;
-}
-
-.nav-collapse li {
-  width: 100%;
-  display: block;
-}
-
-.js .nav-collapse {
-  clip: rect(0 0 0 0);
-  max-height: 0;
-  position: absolute;
-  display: block;
-  overflow: hidden;
-  zoom: 1;
-}
-
-.nav-collapse.opened {
-  max-height: 9999px;
-}
-
-.disable-pointer-events {
-  pointer-events: none !important;
-}
-
-.nav-toggle {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-@media screen and (min-width: 40em) {
-  .js .nav-collapse {
-    position: relative;
-  }
-  .js .nav-collapse.closed {
-    max-height: none;
-  }
-  .nav-toggle {
-    display: none;
-  }
-}
-
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -6112,6 +6058,50 @@ textarea {
   h2,
   h3 {
     page-break-after: avoid; } }
+/*! responsive-nav.js 1.0.32 by @viljamis */
+.nav-collapse ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none; }
+
+.nav-collapse li {
+  width: 100%;
+  display: block; }
+
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1; }
+
+.nav-collapse.opened {
+  max-height: 9999px; }
+
+.disable-pointer-events {
+  pointer-events: none !important; }
+
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+@media screen and (min-width: 50em) {
+  .js .nav-collapse {
+    position: relative; }
+
+  .js .nav-collapse.closed {
+    max-height: none; }
+
+  .nav-toggle {
+    display: none; } }
 .app, .content {
   display: table;
   width: 100%; }
@@ -6239,6 +6229,7 @@ h1 {
         margin-left: -1rem; } }
 
 .nav_list {
+  display: none;
   padding: 0;
   margin: 0; }
 
