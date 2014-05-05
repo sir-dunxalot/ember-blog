@@ -1,52 +1,24 @@
 App.HeaderView = Em.View.extend({
   ariaRole: 'banner',
   classNames: ['page_header'],
-  hasMobileNav: false,
   tagName: 'header',
   templateName: 'header',
 
-  click: function() {
-    var hasMobileNav = this.get('hasMobileNav');
-    var list;
-
-    // If layout is in desktop nav mode, do nothing
-    if (!hasMobileNav) {
-      return false;
-    }
-
-    list = this.$().find('ul:first');
-    list.slideToggle('fast');
-  },
-
-  // If the window is resized and goes from mobile layout to
-  // desktop layout, always show nav
-  showNav: function() {
-    var hasMobileNav = this.get('hasMobileNav');
-    var list;
-
-    if (!hasMobileNav) {
-      list = this.$().find('ul:first');
-      list.show();
-    }
-  }.observes('hasMobileNav'),
-
-  watchForResize: function() {
-    var _this = this;
-
-    // Run mobile nav check on load
-    _this._resized();
-
-    $(window).resize(function() {
-      _this._resized();
-    });
+  responsiveNav: function() {
+    // Delay init of responsive nav so categories load and height
+    // is calculated correctly
+    Em.run.later(this, function() {
+      var nav = responsiveNav('.nav_list', { // Selector
+        animate: true, // Boolean: Use CSS3 transitions, true or false
+        transition: 284, // Integer: Speed of the transition, in milliseconds
+        label: 'Nav', // String: Label for the navigation toggle
+        insert: 'before', // String: Insert the toggle before or after the navigation
+        // customToggle: "", // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: true, // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative", // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse", // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active", // String: Class that is added to <html> element when nav is active
+      });
+    }, 500);
   }.on('didInsertElement'),
-
-  // When window is resized, check the layout type
-  _resized: function() {
-    var header = this.$();
-    var displayCss = header.css('display');
-    var hasMobileNav = displayCss === 'table-header-group'; // Nav displaying above content
-
-    this.set('hasMobileNav', hasMobileNav);
-  },
 });
