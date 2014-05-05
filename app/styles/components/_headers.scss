@@ -1,3 +1,11 @@
 .page_header {
   background-color: $headerBackground;
 }
+
+.logo {
+  text-align: center;
+
+  @media ($small) {
+    text-align: left;
+  }
+}
