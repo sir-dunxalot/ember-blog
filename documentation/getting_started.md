@@ -19,13 +19,13 @@ Your blog is now setup! visit `localhost:3333` to see it and live preview your c
 Next Steps
 ------
 
-- Writing Posts
-- Deployment
+- [Writing Posts](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/writing_posts.md)
+- [Deployment](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/writing_posts.md)
 
 Customization
 ------
 
 Octosmashed is designed to be a solid yet easily customizable base on which to build your blog. It works out of the box, but you can do anything you like with it!
 
-- Layout
-- Theme
+- [Layout](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/layout.md)
+- [Theme](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/theme.md)
