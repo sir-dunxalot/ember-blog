@@ -6213,6 +6213,10 @@ h1 {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
+  @media (min-width: 50em) {
+    .content_wrapper {
+      padding: 40px;
+      padding: 4rem; } }
 
 .content {
   max-width: 600px;

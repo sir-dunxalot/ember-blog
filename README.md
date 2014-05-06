@@ -64,6 +64,11 @@ To compile your app for production (minimizing, optimizing, etc), run `brunch bu
 
 Deploying to [Github Pages](https://pages.github.com/) is super easy! Simply run `git push origin` or whatever command you use to push to the master branch of your blog repo. Octosmashed will run on Github Pages without any issues.
 
+Documentation
+------
+
+- [Vendors & Third-party Integration](//github.com/sir-dunxalot/ember-blog/documentation/vendors.md)
+
 Todos & Known Issues
 ------
 
@@ -82,6 +87,9 @@ Todos & Known Issues
 - Unit tests
 - Test with large number of posts (300+)
 - SEO capabilities
+- Parse CSS for unused rules
+- Development watching to seperate folder ignored by git
+- Allow ember components to be used in template (Em.Handlebars.compile(post.body);
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 

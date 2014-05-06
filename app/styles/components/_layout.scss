@@ -60,6 +60,10 @@ html, body {
   @extend %full_height;
   overflow-y: scroll;
   @include box-sizing(content-box);
+
+  @media ($medium) {
+    @include rem(padding, $spacingMedium);
+  }
 }
 
 .content {
