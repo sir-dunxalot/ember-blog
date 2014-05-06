@@ -25,6 +25,10 @@ h1, h2 {
 
 h1 {
   @include rem(margin-bottom, $spacing);
+
+  @media ($medium) {
+    @include rem(margin-bottom, $spacingMedium);
+  }
 }
 
 .alt_text {

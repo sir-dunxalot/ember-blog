@@ -35,7 +35,7 @@
   right: 0;
   @include rem(height, 3);
   @include rem(width, 3.5);
-  @include rem(padding, 3);
+  @include rem(padding, $spacing);
   @include background-clip(content-box);
   @include box-sizing(content-box);
 }

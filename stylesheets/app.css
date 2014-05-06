@@ -6118,13 +6118,13 @@ html, body, .app, .main, .content_wrapper, .content {
 .nav_toggle {
   position: absolute; }
 
-.page_header, .content_wrapper {
-  padding: 40px;
-  padding: 4rem; }
-
 hr {
-  margin: 40px 0px;
-  margin: 4rem 0rem; }
+  margin: 30px 0px;
+  margin: 3rem 0rem; }
+  @media (min-width: 50em) {
+    hr {
+      margin: 40px 0px;
+      margin: 4rem 0rem; } }
 
 html {
   font-size: 56.25%; }
@@ -6146,8 +6146,12 @@ h1, h2 {
   margin-top: 0; }
 
 h1 {
-  margin-bottom: 40px;
-  margin-bottom: 4rem; }
+  margin-bottom: 30px;
+  margin-bottom: 3rem; }
+  @media (min-width: 50em) {
+    h1 {
+      margin-bottom: 40px;
+      margin-bottom: 4rem; } }
 
 .alt_text, .date {
   font-weight: 400;
@@ -6183,11 +6187,15 @@ h1 {
   @media (min-width: 50em) {
     .page_header {
       display: table-cell;
-      vertical-align: top; } }
+      vertical-align: top;
+      padding: 40px;
+      padding: 4rem; } }
 
 .logo {
-  padding: 40px 40px 20px;
-  padding: 4rem 4rem 2rem;
+  margin-bottom: 30px;
+  margin-bottom: 3rem;
+  padding: 30px;
+  padding: 3rem;
   margin-bottom: 0; }
   @media (min-width: 50em) {
     .logo {
@@ -6199,6 +6207,8 @@ h1 {
   vertical-align: top; }
 
 .content_wrapper {
+  padding: 30px;
+  padding: 3rem;
   overflow-y: scroll;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -6214,11 +6224,12 @@ h1 {
 .page_header {
   background-color: white; }
 
-.logo {
-  text-align: center; }
-  @media (min-width: 37.5em) {
-    .logo {
-      text-align: left; } }
+@media (min-width: 37.5em) {
+  .logo {
+    text-align: center; } }
+@media (min-width: 50em) {
+  .logo {
+    text-align: left; } }
 
 .nav {
   font-size: 20px;
@@ -6228,8 +6239,8 @@ h1 {
     border-top: 1px solid #ededed; }
   .nav li a {
     display: block;
-    padding: 10px 40px;
-    padding: 1rem 4rem; }
+    padding: 10px 30px;
+    padding: 1rem 3rem; }
     @media (min-width: 50em) {
       .nav li a {
         padding: 10px;
@@ -6282,8 +6293,12 @@ h1 {
     margin-top: -1rem; }
 
 .post .date {
-  margin-top: -20px;
-  margin-top: -2rem; }
+  margin-top: -15px;
+  margin-top: -1.5rem; }
+  @media (min-width: 50em) {
+    .post .date {
+      margin-top: -20px;
+      margin-top: -2rem; } }
 
 .tags li {
   font-size: 16px;

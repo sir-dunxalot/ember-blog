@@ -29,21 +29,22 @@ html, body {
 .page_header {
   @include rem(min-width, $sidebarWidth);
   display: table-header-group;
-  @extend %pad;
 
   @media ($medium) {
     display: table-cell;
     vertical-align: top;
+    @include rem(padding, $spacingMedium);
   }
 }
 
 .logo {
-  @include rem(padding, $spacing, $spacing, $spacing / 2);
+  @include rem(margin-bottom, $spacing);
+  @include rem(padding, $spacing);
   margin-bottom: 0;
 
   @media ($medium) {
     padding: 0;
-    @include rem(margin-bottom, $spacing);
+    @include rem(margin-bottom, $spacingMedium);
   }
 }
 
@@ -55,7 +56,7 @@ html, body {
 }
 
 .content_wrapper {
-  @extend %pad;
+  @include rem(padding, $spacing);
   @extend %full_height;
   overflow-y: scroll;
   @include box-sizing(content-box);

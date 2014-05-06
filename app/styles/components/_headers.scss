@@ -3,9 +3,12 @@
 }
 
 .logo {
-  text-align: center;
 
   @media ($small) {
+    text-align: center;
+  }
+
+  @media ($medium) {
     text-align: left;
   }
 }

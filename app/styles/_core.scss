@@ -27,10 +27,10 @@
   position: absolute;
 }
 
-%pad {
-  @include rem(padding, $spacing);
-}
-
 hr {
   @include rem(margin, $spacing, 0);
+
+  @media ($medium) {
+    @include rem(margin, $spacingMedium, 0);
+  }
 }
