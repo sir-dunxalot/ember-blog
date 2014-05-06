@@ -1,11 +1,7 @@
 <h1 class="logo">
-  {{#if view.hasMobileNav}}
+  {{#link-to 'index'}}
     {{blogTitle}}
-  {{else}}
-    {{#link-to 'index'}}
-      {{blogTitle}}
-    {{/link-to}}
-  {{/if}}
+  {{/link-to}}
 </h1>
 
 {{partial 'partials/navigation'}}

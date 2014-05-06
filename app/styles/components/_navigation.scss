@@ -26,9 +26,10 @@
   margin: 0;
 }
 
+// Nav icon wiht three horizontal lines
 .nav_toggle {
   background-color: transparent;
-  @include background-image(linear-gradient(transparent 50%, rgba($link-color, 0.5) 50%));
+  @include background-image(linear-gradient(transparent 60%, rgba($link-color, 0.5) 60%));
   @include rem(background-size, 1, 1);
   @extend %absolute;
   top: 0;
