@@ -27,10 +27,15 @@
 }
 
 .nav_toggle {
-  // background-color: t;
-  // background-image: linear-gradient(transparent 50%, rgba($bodyColor, 0.5) 50%);
-  // background-size: 10px 10px;
-  position: absolute;
-  @include rem(top, 2);
-  @include rem(right, 2);
+  background-color: transparent;
+  @include background-image(linear-gradient(transparent 50%, rgba($link-color, 0.5) 50%));
+  @include rem(background-size, 1, 1);
+  @extend %absolute;
+  top: 0;
+  right: 0;
+  @include rem(height, 3);
+  @include rem(width, 3.5);
+  @include rem(padding, 3);
+  @include background-clip(content-box);
+  @include box-sizing(content-box);
 }

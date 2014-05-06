@@ -13,7 +13,8 @@ App.HeaderView = Em.View.extend({
       var nav = responsiveNav(navSelector, { // Selector
         animate: true, // Boolean: Use CSS3 transitions, true or false
         transition: 284, // Integer: Speed of the transition, in milliseconds
-        label: '<a class="button nav_toggle">Nav</a>', // String: Label for the navigation toggle
+        // label: '<a class="button nav_toggle">Nav</a>', // String: Label for the navigation toggle
+        label: '<button class="nav_toggle"><span class="hidden">Nav</span></button>', // String: Label for the navigation toggle
         insert: 'before', // String: Insert the toggle before or after the navigation
         // customToggle: "", // Selector: Specify the ID of a custom toggle
         closeOnNavClick: true, // Boolean: Close the navigation when one of the links are clicked
