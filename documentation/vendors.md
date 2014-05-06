@@ -16,7 +16,7 @@ Stack
 
 - [Node.js](//nodejs.org/) web server is used for super-fast development (hence, [npm](//www.npmjs.org/) is used for most dependency management)
 - [Brunch.io](//brunch.io/) is a build tool is used for compiling and live reloading (e.g. parsing post markdown and generating html blog posts)
-- [Ember.js](//emberjs.com/) is the MVC framework that generates a one-page app for your blog
+- [Ember.js](//emberjs.com/) is the MVC framework that generates a one-page app for your blog. It's integrated with Brunch using the [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded) skeleton
 - Ember uses [Handlebars](http://handlebarsjs.com/) for templating
 - Ember requires [jQuery](http://jquery.com/). Hence, jQuery comes as standard
 

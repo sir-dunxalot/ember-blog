@@ -67,7 +67,16 @@ Deploying to [Github Pages](https://pages.github.com/) is super easy! Simply run
 Documentation
 ------
 
-- [Vendors & Third-party Integration](//github.com/sir-dunxalot/ember-blog/documentation/vendors.md)
+- [Getting Started](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/getting_started.md)
+- [Writing Posts](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/writing_posts.md)
+- [Deployment](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/deployment.md)
+- [Vendors & Third-party Integration](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/vendors.md)
+
+**Customizing**
+
+- [Layout](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/layout.md)
+- [Theme](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/theme.md)
+
 
 Todos & Known Issues
 ------
@@ -90,6 +99,7 @@ Todos & Known Issues
 - Parse CSS for unused rules
 - Development watching to seperate folder ignored by git
 - Allow ember components to be used in template (Em.Handlebars.compile(post.body);
+- Special characters in title used in URL break the app
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
