@@ -255,7 +255,7 @@ require('config/store');
 var folderOrder = [
     'initializers', 'models', 'fixtures',
     'mixins', 'routes', 'views', 'controllers',
-    'helpers', 'templates', 'components'
+    'helpers', 'templates', 'components', 'plugins'
 ];
 
 folderOrder.forEach(function(folder) {
@@ -341,10 +341,6 @@ App.Options = Em.Mixin.create({
     postCategory: 'p-category',
     postContent: 'e-content'
   },
-
-  disqus: {
-    shortname: 'jebbittech',
-  }
 });
 
 });
@@ -377,6 +373,7 @@ Em.ControllerMixin.reopen(
 ;require.register("mixins/page_title", function(exports, require, module) {
 'use strict';
 
+// TODO - Set on controller or avoid loading on all views
 App.PageTitle = Em.Mixin.create(
   App.Options, {
 
@@ -433,6 +430,104 @@ App.Post = DS.Model.extend({
     return publishedObject.toString();
   }.property('publishedObject'),
 });
+
+});
+
+;require.register("plugins/disqus", function(exports, require, module) {
+'use strict';
+
+/**
+Add your info here to link this blog to your free Disqus account
+*/
+
+App.DisqusOptions = Em.Object.create({
+  shortname: 'jebbittech',
+});
+
+/**
+Load Disqus when the blog loads (and only load it once)
+*/
+
+App.ApplicationView.reopen({
+  setupDisqus: function() {
+    var disqusShortname = App.DisqusOptions.get('shortname');
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+  }.on('didInsertElement'),
+});
+
+/**
+View to show comments for the related blog post and/or page
+*/
+
+App.DisqusView = Em.View.extend({
+  elementId: 'disqus_thread',
+  classNames: ['comments'],
+  timer: null,
+
+  loadNewPostComments: function() {
+    if (window.DISQUS) {
+      this.reset();
+    } else {
+      this.set('timer', Em.run.debounce(this, this.loadNewPostComments, 100));
+    }
+  }.on('willInsertElement'),
+
+  reset: function() {
+    var controller = this.get('controller');
+    var postIdentifier = controller.get('urlString');
+    var postUrl = controller.get('router.url');
+
+    console.log('resetting');
+
+    window.DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.identifier = postIdentifier;
+        this.page.url = postUrl;
+      }
+    });
+  }
+});
+
+/**
+Load Disqus comment count to add to each post preview
+*/
+
+App.DisqusCommentCount = Em.Mixin.create({
+  getCommentCounts: function() {
+    var disqusShortname = App.DisqusOptions.get('shortname');
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqusShortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }.on('didInsertElement'),
+});
+
+App.PostsView.reopen(
+  App.DisqusCommentCount, {
+
+});
+
+Em.LinkView.reopen({
+  addDisqusTag: function() {
+    var href = this.get('href');
+    var disqusTag = '#disqus_thread';
+    var isLinkToPost = href.indexOf('post/') > -1;
+
+    if (isLinkToPost) {
+      this.set('href', href + disqusTag);
+    }
+  }.on('willInsertElement'),
+});
+
+// <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 });
 
@@ -612,18 +707,6 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   },hashTypes:{'content': "ID"},hashContexts:{'content': depth0},contexts:[depth0],types:["ID"],data:data},helper ? helper.call(depth0, "App.PostsView", options) : helperMissing.call(depth0, "collection", "App.PostsView", options))));
   data.buffer.push("\n");
   return buffer;
-  
-});
-});
-
-;require.register("templates/disqus", function(exports, require, module) {
-module.exports = Ember.TEMPLATES['disqus'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
-this.compilerInfo = [4,'>= 1.0.0'];
-helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  
-
-
-  data.buffer.push("<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>\n<a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a>\n\n");
   
 });
 });
@@ -918,37 +1001,6 @@ App.ApplicationView = Em.View.extend({
     $(window).resize(); // Call immediately on page load
 
   }.on('didInsertElement'),
-});
-
-});
-
-;require.register("views/disqus_view", function(exports, require, module) {
-App.DisqusView = Em.View.extend({
-  elementId: 'disqus_thread',
-
-  setupDisqus: function() {
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = this.get('controller.disqus.shortname'); // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    // this.reset();
-  }.on('didInsertElement'),
-
-  reset: function() {
-    DISQUS.reset({
-      reload: true,
-      config: function () {
-        this.page.identifier = "newidentifier";
-        this.page.url = "http://example.com/#!newthread";
-      }
-    });
-  },
 });
 
 });

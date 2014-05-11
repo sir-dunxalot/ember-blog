@@ -1,5 +1,6 @@
 'use strict';
 
+// TODO - Set on controller or avoid loading on all views
 App.PageTitle = Em.Mixin.create(
   App.Options, {
 

@@ -6362,6 +6362,10 @@ button {
   zoom: 1;
   *display: inline; }
 
+.comments {
+  margin-top: 50px;
+  margin-top: 5rem; }
+
 body {
   background-color: #efefef; }
 

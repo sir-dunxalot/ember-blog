@@ -9,7 +9,7 @@ require('config/store');
 var folderOrder = [
     'initializers', 'models', 'fixtures',
     'mixins', 'routes', 'views', 'controllers',
-    'helpers', 'templates', 'components'
+    'helpers', 'templates', 'components', 'plugins'
 ];
 
 folderOrder.forEach(function(folder) {

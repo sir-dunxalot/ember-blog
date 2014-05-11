@@ -23,8 +23,4 @@ App.Options = Em.Mixin.create({
     postCategory: 'p-category',
     postContent: 'e-content'
   },
-
-  disqus: {
-    shortname: 'jebbittech',
-  }
 });
