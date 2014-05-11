@@ -46,14 +46,14 @@ App.DisqusView = Em.View.extend({
     var postIdentifier = controller.get('urlString');
     var postUrl = controller.get('router.url');
 
-    console.log('resetting');
-
-    window.DISQUS.reset({
-      reload: true,
-      config: function () {
-        this.page.identifier = postIdentifier;
-        this.page.url = postUrl;
-      }
+    Em.run.scheduleOnce('afterRender', function() {
+      window.DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.identifier = postIdentifier;
+          this.page.url = postUrl;
+        }
+      });
     });
   }
 });
