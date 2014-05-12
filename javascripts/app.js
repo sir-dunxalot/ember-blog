@@ -433,6 +433,54 @@ App.Post = DS.Model.extend({
 
 });
 
+;require.register("plugins/addthis", function(exports, require, module) {
+App.AddThisOptions = Em.Object.create({
+  pubId: 'ra-537038fc122c939b',
+  loaded: false,
+});
+
+App.AddThisComponent = Em.Component.extend({
+  classNames: ['addthis_toolbox', 'addthis_default_style', 'addthis_32x32_style'],
+  layout: Em.Handlebars.compile('<a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2"></a><a class="addthis_button_preferred_3"></a><a class="addthis_button_preferred_4"></a><a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>'),
+
+  loadAddThisApi: function() {
+    var pubId = App.AddThisOptions.get('pubId');
+    var url = '//s7.addthis.com/js/300/addthis_widget.js#async=1#domready=1';
+    var controller = this.get('parentView.controller');
+
+    var addThisConfig = {
+      data_track_addressbar: true,
+      pubid: pubId,
+      ui_508_compliant: true
+    };
+
+    var addThisShare = {
+      url: window.location.href,
+      title: controller.get('title'),
+      description: controller.get('description'),
+    };
+
+    window.addthis_config = addThisConfig;
+    window.addthis_share = addThisShare;
+
+    if (!App.AddThisOptions.get('loaded')) {
+      Em.run.schedule('afterRender', function() {
+        $.getScript(url).done(function() {
+          console.log('done');
+          // addthis.init();
+          addthis.toolbox('.addthis_toolbox');
+          App.AddThisOptions.set('loaded', true);
+        });
+      });
+    } else {
+      window.addthis_share = addThisShare;
+      addthis.toolbox('.addthis_toolbox');
+    }
+  }.on('didInsertElement'),
+});
+
+});
+
 ;require.register("plugins/disqus", function(exports, require, module) {
 'use strict';
 
@@ -445,29 +493,32 @@ App.DisqusOptions = Em.Object.create({
 });
 
 /**
-Load Disqus when the blog loads (and only load it once)
-*/
-
-App.ApplicationView.reopen({
-  setupDisqus: function() {
-    var disqusShortname = App.DisqusOptions.get('shortname');
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-
-  }.on('didInsertElement'),
-});
-
-/**
 View to show comments for the related blog post and/or page
 */
 
-App.DisqusView = Em.View.extend({
+App.DisqusCommentsComponent = Em.Component.extend({
   elementId: 'disqus_thread',
   classNames: ['comments'],
   timer: null,
+
+  setupDisqus: function() {
+    var controller = this.get('parentView.controller');
+    var title = controller.get('title');
+
+    window.disqus_title = title;
+
+    if (!window.DISQUS) {
+      var disqusShortname = App.DisqusOptions.get('shortname');
+
+      window.disqus_shortname = disqusShortname;
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+
+  }.on('didInsertElement'),
 
   loadNewPostComments: function() {
     if (window.DISQUS) {
@@ -478,9 +529,9 @@ App.DisqusView = Em.View.extend({
   }.on('willInsertElement'),
 
   reset: function() {
-    var controller = this.get('controller');
+    var controller = this.get('parentView.controller');
     var postIdentifier = controller.get('urlString');
-    var postUrl = controller.get('router.url');
+    var postUrl = window.location.href;
 
     Em.run.scheduleOnce('afterRender', function() {
       window.DISQUS.reset({
@@ -491,7 +542,7 @@ App.DisqusView = Em.View.extend({
         }
       });
     });
-  }
+  },
 });
 
 /**
@@ -499,14 +550,19 @@ Load Disqus comment count to add to each post preview
 */
 
 App.DisqusCommentCount = Em.Mixin.create({
-  getCommentCounts: function() {
+
+  setupCommentCount: function() {
     var disqusShortname = App.DisqusOptions.get('shortname');
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqusShortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    window.disqus_shortname = disqusShortname;
+
+    Em.run.later(this, function() {
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqusShortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }, 1000)
   }.on('didInsertElement'),
 });
 
@@ -516,18 +572,19 @@ App.PostsView.reopen(
 });
 
 Em.LinkView.reopen({
-  addDisqusTag: function() {
-    var href = this.get('href');
-    var disqusTag = '#disqus_thread';
-    var isLinkToPost = href.indexOf('post/') > -1;
 
-    if (isLinkToPost) {
+  addDisqusTag: function() {
+    var commentCount = this.get('commentCount');
+
+    if (commentCount) {
+      var isLinkToPost = this.get('isLinkToPost');
+      var href = this.get('href');
+      var disqusTag = '#disqus_thread';
+
       this.set('href', href + disqusTag);
     }
   }.on('willInsertElement'),
 });
-
-// <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 });
 
@@ -755,6 +812,30 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 });
 });
 
+;require.register("templates/partials/_comment_count", function(exports, require, module) {
+module.exports = Ember.TEMPLATES['partials/_comment_count'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, helper, options, self=this, helperMissing=helpers.helperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = '';
+  return buffer;
+  }
+
+  data.buffer.push("<dl class=\"comment_count\">\n  <dt>\n    <span class=\"hidden\">Number of comments</span>\n  </dt>\n  <dd>\n    <span class=\"glyphicon glyphicon-comment\"></span>\n    ");
+  stack1 = (helper = helpers['link-to'] || (depth0 && depth0['link-to']),options={hash:{
+    'commentCount': ("true"),
+    'class': ("u-url text")
+  },hashTypes:{'commentCount': "STRING",'class': "STRING"},hashContexts:{'commentCount': depth0,'class': depth0},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],data:data},helper ? helper.call(depth0, "post", "urlString", options) : helperMissing.call(depth0, "link-to", "post", "urlString", options));
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n  </dd>\n</dl>\n");
+  return buffer;
+  
+});
+});
+
 ;require.register("templates/partials/_footer", function(exports, require, module) {
 module.exports = Ember.TEMPLATES['partials/_footer'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
@@ -919,7 +1000,11 @@ function program1(depth0,data) {
     'unescaped': ("true")
   },hashTypes:{'unescaped': "STRING"},hashContexts:{'unescaped': depth0},contexts:[depth0],types:["ID"],data:data})));
   data.buffer.push("\n</div>\n\n");
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "disqus", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  stack1 = helpers._triageMustache.call(depth0, "add-this", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n\n");
+  stack1 = helpers._triageMustache.call(depth0, "disqus-comments", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["ID"],data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n");
   return buffer;
   
@@ -966,6 +1051,8 @@ function program1(depth0,data) {
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("</p>\n\n  ");
   data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/tags", options) : helperMissing.call(depth0, "partial", "partials/tags", options))));
+  data.buffer.push("\n\n  ");
+  data.buffer.push(escapeExpression((helper = helpers.partial || (depth0 && depth0.partial),options={hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data},helper ? helper.call(depth0, "partials/comment_count", options) : helperMissing.call(depth0, "partial", "partials/comment_count", options))));
   data.buffer.push("\n\n</article>\n");
   return buffer;
   

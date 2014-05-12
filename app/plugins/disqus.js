@@ -9,29 +9,32 @@ App.DisqusOptions = Em.Object.create({
 });
 
 /**
-Load Disqus when the blog loads (and only load it once)
-*/
-
-App.ApplicationView.reopen({
-  setupDisqus: function() {
-    var disqusShortname = App.DisqusOptions.get('shortname');
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-
-  }.on('didInsertElement'),
-});
-
-/**
 View to show comments for the related blog post and/or page
 */
 
-App.DisqusView = Em.View.extend({
+App.DisqusCommentsComponent = Em.Component.extend({
   elementId: 'disqus_thread',
   classNames: ['comments'],
   timer: null,
+
+  setupDisqus: function() {
+    var controller = this.get('parentView.controller');
+    var title = controller.get('title');
+
+    window.disqus_title = title;
+
+    if (!window.DISQUS) {
+      var disqusShortname = App.DisqusOptions.get('shortname');
+
+      window.disqus_shortname = disqusShortname;
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+
+  }.on('didInsertElement'),
 
   loadNewPostComments: function() {
     if (window.DISQUS) {
@@ -42,9 +45,9 @@ App.DisqusView = Em.View.extend({
   }.on('willInsertElement'),
 
   reset: function() {
-    var controller = this.get('controller');
+    var controller = this.get('parentView.controller');
     var postIdentifier = controller.get('urlString');
-    var postUrl = controller.get('router.url');
+    var postUrl = window.location.href;
 
     Em.run.scheduleOnce('afterRender', function() {
       window.DISQUS.reset({
@@ -55,7 +58,7 @@ App.DisqusView = Em.View.extend({
         }
       });
     });
-  }
+  },
 });
 
 /**
@@ -63,14 +66,19 @@ Load Disqus comment count to add to each post preview
 */
 
 App.DisqusCommentCount = Em.Mixin.create({
-  getCommentCounts: function() {
+
+  setupCommentCount: function() {
     var disqusShortname = App.DisqusOptions.get('shortname');
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = '//' + disqusShortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    window.disqus_shortname = disqusShortname;
+
+    Em.run.later(this, function() {
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqusShortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }, 1000)
   }.on('didInsertElement'),
 });
 
@@ -80,15 +88,16 @@ App.PostsView.reopen(
 });
 
 Em.LinkView.reopen({
-  addDisqusTag: function() {
-    var href = this.get('href');
-    var disqusTag = '#disqus_thread';
-    var isLinkToPost = href.indexOf('post/') > -1;
 
-    if (isLinkToPost) {
+  addDisqusTag: function() {
+    var commentCount = this.get('commentCount');
+
+    if (commentCount) {
+      var isLinkToPost = this.get('isLinkToPost');
+      var href = this.get('href');
+      var disqusTag = '#disqus_thread';
+
       this.set('href', href + disqusTag);
     }
   }.on('willInsertElement'),
 });
-
-// <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

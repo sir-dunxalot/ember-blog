@@ -6153,7 +6153,7 @@ h1 {
       margin-bottom: 40px;
       margin-bottom: 4rem; } }
 
-.alt_text, .date {
+.alt_text, .date, .comment_count {
   font-weight: 400;
   text-transform: uppercase;
   opacity: 0.5;
@@ -6330,7 +6330,7 @@ h1 {
   margin-left: 5px;
   margin-left: 0.5rem; }
 
-.glyphicon {
+.glyphicon:before {
   opacity: 0.5;
   filter: alpha(opacity=50); }
 
@@ -6365,6 +6365,18 @@ button {
 .comments {
   margin-top: 50px;
   margin-top: 5rem; }
+
+.comment_count dt, .comment_count dd {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline; }
+.comment_count dd {
+  margin-left: 0; }
+.comment_count a {
+  color: #333333; }
 
 body {
   background-color: #efefef; }
