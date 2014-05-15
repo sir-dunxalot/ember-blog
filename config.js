@@ -1,6 +1,6 @@
 exports.config = {
   paths: {
-    public: './',
+    public: './local',
     watched: ['app', 'envs', 'vendor', 'test']
   },
   files: {
@@ -65,6 +65,9 @@ exports.config = {
 
     // Production Settings
     production: {
+      paths: {
+        public: './production',
+      },
       files: {
         javascripts: {
           joinTo: {

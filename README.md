@@ -87,19 +87,19 @@ Todos & Known Issues
 - github pages deployment task
 - Social meta tags with handlebars unbound options
 - Ember root as html, maybe
-- Comment integration
 - Social sharing
 - Social links
 - Investigate benefits (if any) of using Ember.ListView with fixtures
-- Social sharing
 - Mobile testing
 - Unit tests
 - Test with large number of posts (300+)
-- SEO capabilities
+- SEO capabilities (phantomJS)
 - Parse CSS for unused rules
 - Development watching to seperate folder ignored by git
 - Allow ember components to be used in template (Em.Handlebars.compile(post.body);
-- Special characters in title used in URL break the app
+- Do special characters in title used in URL break the app?
+- Move everything back to public fodler and redirect
+- Bigger links for mobile nav
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 
