@@ -1,0 +1,45 @@
+.spinner {
+  display: block;
+  cursor: wait;
+  @include opacity(0.8);
+  border-radius: 50%;
+  margin: 50% auto;
+  @include animation(loading 0.6s infinite linear);
+
+  border: 5px solid $bodySubtle;
+  border-top: 5px solid rgba(0,0,0,0);
+  border-left: 5px solid rgba(0,0,0,0);
+  @include rem(width, 3);
+  @include rem(height, 3);
+}
+
+
+@keyframes loading {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(360deg);
+  };
+}
+
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(360deg);
+  };
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  };
+}

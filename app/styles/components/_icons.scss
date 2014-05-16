@@ -22,7 +22,7 @@
   color: $facebook;
 
   &:hover {
-    color: scale-color($facebook, lightness: -10%);
+    color: scale-color($facebook, $lightness: -10%);
   }
 }
 
@@ -30,6 +30,6 @@
   color: $twitter;
 
   &:hover {
-    color: scale-color($twitter, lightness: -10%);
+    color: scale-color($twitter, $lightness: -10%);
   }
 }
