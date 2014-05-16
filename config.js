@@ -66,7 +66,7 @@ exports.config = {
     // Production Settings
     production: {
       paths: {
-        public: './production',
+        public: './',
       },
       files: {
         javascripts: {
