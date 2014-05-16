@@ -84,7 +84,6 @@ Todos & Known Issues
 - WIP - lots of functionality needs to be added
 - Thorough documentation
 - application.html to hbs?
-- github pages deployment task
 - Social meta tags with handlebars unbound options
 - Ember root as html, maybe
 - Investigate benefits (if any) of using Ember.ListView with fixtures
