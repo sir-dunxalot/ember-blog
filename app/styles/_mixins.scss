@@ -1,3 +1,7 @@
+/**
+For targeting all modifier classes with a common base
+*/
+
 @mixin mod($classBeginsWith) {
   $class: '#{$classBeginsWith}-';
 
@@ -6,9 +10,17 @@
   }
 }
 
+/**
+Remove the unit from a number
+*/
+
 @function strip_unit($num) {
   @return $num / ($num * 0 + 1);
 }
+
+/**
+Return sizing in rem with a px fallback (where 1rem = 10px because of 62.5% base font size)
+*/
 
 @mixin rem($property, $values...) {
   $max: length($values);
@@ -37,11 +49,19 @@
   #{$property}: $remValues;
 }
 
+/**
+For cross-modern-browser animation syntax
+*/
+
 @mixin animation($animation) {
   -webkit-animation: $animation;
   -moz-animation: $animation;
   animation: $animation;
 }
+
+/**
+For cross-modern-browser animation keyframes syntax
+*/
 
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {

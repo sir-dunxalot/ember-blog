@@ -11,17 +11,6 @@
 @import 'mixins';
 @import 'core';
 
-@import 'components/typography';
-@import 'components/layout';
-@import 'components/headers';
-@import 'components/navigation';
-@import 'components/footers';
-@import 'components/posts';
-@import 'components/icons';
-@import 'components/buttons';
-@import 'components/comments';
-@import 'components/loading';
+@import 'layout/index';
 
-body {
-  background-color: $bodyBackground;
-}
+@import 'theme/index';

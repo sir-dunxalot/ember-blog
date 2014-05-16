@@ -1,5 +1,9 @@
 var moment = require('moment');
 
+/**
+List available Jake commands
+*/
+
 desc('List available jake commands');
 task('default', function (params) {
   cmds = ['jake --tasks'];
@@ -9,7 +13,11 @@ task('default', function (params) {
   });
 });
 
-desc('Publish the blog to your github repo\'s master branch');
+/**
+Build and publish the blog to your Github repo's master branch
+*/
+
+desc('Build and publish the blog to your github repo\'s master branch');
 task('deploy', function (params) {
   var commitMessage = '"Built for deployment on ' + new moment().format('MMMM Do YYYY, h:mm:ss a') + '"';
 

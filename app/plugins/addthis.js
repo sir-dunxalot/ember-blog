@@ -41,7 +41,7 @@ App.SharePostComponent = Em.Component.extend({
   rel: 'nofollow',
   tagName: 'a',
   target: '_blank',
-  template: Em.Handlebars.compile('<span class="hidden">{{capitalize on}}</span>'),
+  layout: Em.Handlebars.compile('<span class="hidden">{{capitalize on}}</span>'),
 
   href: function() {
     var post = this.get('post');
