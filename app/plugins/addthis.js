@@ -14,13 +14,13 @@ App.AddThisOptions = Em.Object.create({
 App.ApplicationView.reopen({
 
   loadAddThisApi: function() {
-    var pubId = App.AddThisOptions.get('pubId');
+    // var pubId = App.AddThisOptions.get('pubId');
     var url = '//s7.addthis.com/js/300/addthis_widget.js#async=1';
 
     if (!window.addthis) {
       $.getScript(url).done(function() {
-        window.addthis_config = window.addthis_config || {};
-        window.addthis_config.pubid = pubId;
+        // window.addthis_config = window.addthis_config || {};
+        // window.addthis_config.pubid = pubId;
       });
     }
   }.on('willInsertElement'),
@@ -36,11 +36,12 @@ Use in your templates like so:
 App.SharePostComponent = Em.Component.extend({
   attributeBindings: ['rel', 'title', 'href', 'target'],
   classNameBindings: ['socialClass'],
+  classNames: ['fa', 'fa-2x'],
   on: null, // Brand
   rel: 'nofollow',
   tagName: 'a',
   target: '_blank',
-  template: Em.Handlebars.compile('{{capitalize on}}'),
+  template: Em.Handlebars.compile('<span class="hidden">{{capitalize on}}</span>'),
 
   href: function() {
     var post = this.get('post');
@@ -63,7 +64,7 @@ App.SharePostComponent = Em.Component.extend({
 
   socialClass: function() {
     var brand = this.get('on');
-    return 'social-' + brand;
+    return 'fa-' + brand + '-square';
   }.property('on'),
 
   title: function() {

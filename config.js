@@ -21,13 +21,9 @@ exports.config = {
       },
     },
     stylesheets: {
-      // defaultExtension: 'scss',
       joinTo: {
         'stylesheets/app.css': /^(app|vendor)/
       },
-      order: {
-        // before: ['vendor/styles/normalize.css']
-      }
     },
     templates: {
       precompile: true,
@@ -62,8 +58,6 @@ exports.config = {
     }
   },
   overrides: {
-
-    // Production Settings
     production: {
       paths: {
         public: './',

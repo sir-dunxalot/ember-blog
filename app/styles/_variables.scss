@@ -19,6 +19,11 @@ $bodyBackground: $offwhite;
 $bodySubtle: scale-color($bodyBackground, $lightness: -7%);
 $bodyColor: #333333;
 
+// Third-party colors
+$twitter: #14adf1;
+$facebook: #3d5ba0;
+$instagram: #e95b6a;
+
 // Media queries
 
 $small: "min-width: 37.5em"; // 600px

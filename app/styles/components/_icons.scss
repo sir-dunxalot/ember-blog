@@ -9,3 +9,27 @@
 .glyphicon ~ .text, .text ~ .glyphicon {
   @include rem(margin-left, 1);
 }
+
+// Font awesome icons
+
+@include mod(fa) {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.fa-facebook-square {
+  color: $facebook;
+
+  &:hover {
+    color: scale-color($facebook, lightness: -10%);
+  }
+}
+
+.fa-twitter-square {
+  color: $twitter;
+
+  &:hover {
+    color: scale-color($twitter, lightness: -10%);
+  }
+}
