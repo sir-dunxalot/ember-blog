@@ -18,18 +18,33 @@
   }
 }
 
-.fa-facebook-square {
-  color: $facebook;
+@each $brand in $socialIcons {
+  $name: nth($brand, 1);
+  $color: nth($brand, 2);
 
-  &:hover {
-    color: scale-color($facebook, $lightness: -10%);
+  .fa-#{$name}-square {
+    color: $color;
+
+    &:hover {
+      color: scale-color($color, $lightness: -10%);
+    }
   }
 }
 
-.fa-twitter-square {
-  color: $twitter;
+// .fa-facebook-square {
+//   color: $facebook;
 
-  &:hover {
-    color: scale-color($twitter, $lightness: -10%);
-  }
-}
+//   &:hover {
+//     color: scale-color($facebook, $lightness: -10%);
+//   }
+// }
+
+// .fa-twitter-square {
+//   color: $twitter;
+
+//   &:hover {
+//     color: scale-color($twitter, $lightness: -10%);
+//   }
+// }
+
+// .fa-google-plus-square
