@@ -26,11 +26,3 @@
 %absolute {
   position: absolute;
 }
-
-hr {
-  @include rem(margin, $spacing, 0);
-
-  @media ($medium) {
-    @include rem(margin, $spacingMedium, 0);
-  }
-}
