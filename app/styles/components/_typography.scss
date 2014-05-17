@@ -20,17 +20,26 @@ Headings
 
 h1, h2 {
   font-family: $lato;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 0;
+
+  @media ($small) {
+    font-weight: 300;
+  }
 }
 
 h1 {
   @include rem(margin-bottom, $spacing);
+  @include rem(font-size, 3.6);
   color: #999;
 
   @media ($medium) {
     @include rem(margin-bottom, $spacingMedium);
   }
+}
+
+h2 {
+  @include rem(font-size, 3);
 }
 
 /**

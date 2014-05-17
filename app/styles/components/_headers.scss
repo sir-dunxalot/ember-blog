@@ -10,16 +10,12 @@
 }
 
 .logo {
+  @include rem(font-size, 3);
 
-  .backgroundclip & {
-    @include background-image(linear-gradient(top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%)));
-    -webkit-text-fill-color: transparent;
-    @include background-clip(text);
-    color: transparent;
+  @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%));
 
-    &:hover {
-      @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));
-    }
+  &:hover {
+    @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));
   }
 
   @media ($small) {
@@ -27,6 +23,7 @@
   }
 
   @media ($medium) {
+    @include rem(font-size, 3.6);
     text-align: left;
   }
 }

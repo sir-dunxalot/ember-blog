@@ -1,6 +1,11 @@
 .nav {
-  @include rem(font-size, 2);
-  font-weight: 300;
+  @include rem(font-size, 2.4);
+  font-weight: 400;
+
+  @media ($medium) {
+    font-weight: 300;
+    @include rem(font-size, 2);
+  }
 
   li ~ li {
     border-top: 1px solid $headerSubtle;
@@ -8,9 +13,11 @@
 
   li {
     a {
+      @include rem(padding, 1.6, $spacing);
       display: block;
-      @include rem(padding, 1, $spacing);
+
       color: #666;
+      @include transition(color 0.3s);
 
       @media ($medium) {
         @include rem(padding, 1);
@@ -18,6 +25,7 @@
       }
 
       &:hover {
+        background-color: rgba(#666, 0.05);
         text-decoration: none;
         color: #888;
       }
@@ -34,7 +42,7 @@
 // Nav icon wiht three horizontal lines
 .nav_toggle {
   background-color: transparent;
-  @include background-image(linear-gradient(transparent 60%, rgba($headerSubtle, 0.5) 60%));
+  @include background-image(linear-gradient(transparent 60%, rgba($orange, 0.5) 60%));
   @include rem(background-size, 1, 1);
   @extend %absolute;
   top: 0;
