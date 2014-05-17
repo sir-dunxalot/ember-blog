@@ -1,13 +1,25 @@
 <nav class="nav" role="navigation">
   <ul class="nav_list">
-    <li>{{#link-to 'index' title='The latest posts published on this blog'}}Latest{{/link-to}}</li>
-    <li>{{#link-to 'about' title='Information about this blog'}}About{{/link-to}}</li>
+
+    <li>
+      {{#link-to 'index' title='The latest posts published on this blog'}}
+        <span class="text">Latest</span>
+      {{/link-to}}
+    </li>
+
+    <li>
+      {{#link-to 'about' title='Information about this blog'}}
+        <span class="text">About</span>
+      {{/link-to}}
+    </li>
+
     {{#each categories}}
       <li>
         {{#link-to 'category' this.name}}
-          {{capitalize name}}
+          <span class="text">{{capitalize name}}</span>
         {{/link-to}}
       </li>
     {{/each}}
+
   </ul>
 </nav>

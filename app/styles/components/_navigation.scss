@@ -5,30 +5,42 @@
   @media ($medium) {
     font-weight: 300;
     @include rem(font-size, 2);
+    @include rem(margin, 0, -$spacingMedium);
   }
 
   li ~ li {
-    border-top: 1px solid $headerSubtle;
+    .text  {
+      border-top: 1px solid $headerSubtle;
+    }
   }
 
   li {
     a {
-      @include rem(padding, 1.6, $spacing);
       display: block;
+    }
+  }
 
-      color: #666;
-      @include transition(color 0.3s);
+  a {
+    color: #666;
+    @include transition(color 0.3s);
+
+    @media ($medium) {
+      @include rem(padding, 0, $spacingMedium);
+    }
+
+    .text {
+      display: block;
+      @include rem(padding, 1.6, $spacing);
 
       @media ($medium) {
-        @include rem(padding, 1);
-        @include rem(margin-left, -1);
+        @include rem(padding, 1, 0);
       }
+    }
 
-      &:hover {
-        background-color: rgba(#666, 0.05);
-        text-decoration: none;
-        color: #888;
-      }
+    &:hover {
+      background-color: rgba(#666, 0.05);
+      text-decoration: none;
+      color: #888;
     }
   }
 }
@@ -40,13 +52,22 @@
 }
 
 // Nav icon wiht three horizontal lines
-.nav_toggle {
-  background-color: transparent;
-  @include background-image(linear-gradient(transparent 60%, rgba($orange, 0.5) 60%));
-  @include rem(background-size, 1, 1);
+.nav-toggle {
   @extend %absolute;
   top: 0;
   right: 0;
+
+  // Hack for css specificity
+  .nav & {
+    padding: 0;
+  }
+}
+
+.nav_toggle_button {
+  background-color: transparent;
+  @include background-image(linear-gradient(transparent 60%, rgba($orange, 0.5) 60%));
+  @include rem(background-size, 1, 1);
+
   @include rem(height, 3);
   @include rem(width, 3.5);
   @include rem(padding, $spacing);
