@@ -12,10 +12,8 @@ This is a lot more content for markdown parsing
 
 **Ok yeah**
 
-<pre class="language-css line-numbers">
-  <code>
-    .test {
-      background: red;
-    }
-  </code>
-</pre>
+```
+  .test {
+    background: red;
+  }
+```
