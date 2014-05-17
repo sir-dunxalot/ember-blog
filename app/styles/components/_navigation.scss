@@ -33,7 +33,7 @@
       @include rem(padding, 1.6, $spacing);
 
       @media ($medium) {
-        @include rem(padding, 1, 0);
+        @include rem(padding, 1.2, 0);
       }
     }
 

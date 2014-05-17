@@ -38,3 +38,19 @@ hr {
     @include rem(margin, $spacingMedium, 0);
   }
 }
+
+.watermark {
+  @extend %absolute;
+  top: 0;
+  right: 0;
+
+  a {
+    @include rem(padding, 2);
+    @include opacity(0.5);
+    display: block;
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+}
