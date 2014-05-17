@@ -53,7 +53,7 @@ body {
 }
 
 .alt_text {
-  @include rem(font-size, 1.6);
+  @include rem(font-size, $bodyFontSize * 0.8);
   text-transform: uppercase;
   font-family: $lato;
   font-weight: 400;

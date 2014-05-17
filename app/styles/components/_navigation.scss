@@ -41,6 +41,10 @@
       background-color: rgba(#666, 0.05);
       text-decoration: none;
       color: #888;
+
+      @media ($medium) {
+        background-color: transparent;
+      }
     }
   }
 }

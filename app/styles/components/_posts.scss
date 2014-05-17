@@ -12,6 +12,10 @@
 
   h2 a {
     @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 16%));
+
+    &:hover {
+      @include gradientText($orange, top left, darken($violet, 8%), darken($orange, 8%) 30%, darken($gold, 16%));
+    }
   }
 }
 
