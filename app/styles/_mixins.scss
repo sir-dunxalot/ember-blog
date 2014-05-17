@@ -76,3 +76,11 @@ For cross-modern-browser animation keyframes syntax
     @content;
   }
 }
+
+/**
+Easy-use image path return
+*/
+
+@function img($name) {
+  @return url('#{$imagePath}#{$name}');
+}

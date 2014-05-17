@@ -1,0 +1,25 @@
+.page_header {
+  background-color: $headerBackground;
+  background-image: img('texture.png'), img('sidebar.jpg');
+  background-repeat: repeat, no-repeat;
+  background-size: auto, 100% auto;
+
+  @media ($medium) {
+    background-size: auto, auto 100%;
+  }
+
+  a {
+    color: #666;
+  }
+}
+
+.logo {
+
+  @media ($small) {
+    text-align: center;
+  }
+
+  @media ($medium) {
+    text-align: left;
+  }
+}
