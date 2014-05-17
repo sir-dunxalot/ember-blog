@@ -41,6 +41,9 @@ $socialIcons:
 $baseFontSize: 62.5%; // So 1rem = 10px when browser has default font-size of 16px (i.e. 10/16 * 100)
 $bodyFontSize: 1.8; // In rem
 
+$lato: 'Lato';
+$sourceSans: 'Source Sans Pro';
+
 // Config
 
 $imagePath: '../images/';
@@ -51,6 +54,8 @@ $small: "min-width: 37.5em"; // 600px
 $medium: "min-width: 50em"; // 800px
 $big: "min-width: 63.75em"; // 1020px
 
-// Iconography
+// Bootstrap overrides
 
 $icon-font-path: '../fonts/bootstrap/';
+
+$link-color: darken($gold, 8%);

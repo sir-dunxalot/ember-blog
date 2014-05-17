@@ -26,3 +26,15 @@
 %absolute {
   position: absolute;
 }
+
+body {
+  background-color: $bodyBackground;
+}
+
+hr {
+  @include rem(margin, $spacing, 0);
+
+  @media ($medium) {
+    @include rem(margin, $spacingMedium, 0);
+  }
+}

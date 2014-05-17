@@ -7,14 +7,19 @@
   }
 
   li {
-
     a {
       display: block;
       @include rem(padding, 1, $spacing);
+      color: #666;
 
       @media ($medium) {
         @include rem(padding, 1);
         @include rem(margin-left, -1);
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: #888;
       }
     }
   }
@@ -29,7 +34,7 @@
 // Nav icon wiht three horizontal lines
 .nav_toggle {
   background-color: transparent;
-  @include background-image(linear-gradient(transparent 60%, rgba($link-color, 0.5) 60%));
+  @include background-image(linear-gradient(transparent 60%, rgba($headerSubtle, 0.5) 60%));
   @include rem(background-size, 1, 1);
   @extend %absolute;
   top: 0;

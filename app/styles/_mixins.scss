@@ -84,3 +84,18 @@ Easy-use image path return
 @function img($name) {
   @return url('#{$imagePath}#{$name}');
 }
+
+/**
+Gradient text, with optional fallback for use with Modernizr
+*/
+
+@mixin gradientText($fallbackColor, $from, $stops...) {
+  color: $fallbackColor;
+
+  .backgroundclip & {
+    @include background-image(linear-gradient($from, $stops));
+    -webkit-text-fill-color: transparent;
+    @include background-clip(text);
+    color: transparent;
+  }
+}

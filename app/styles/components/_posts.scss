@@ -9,6 +9,10 @@
   .date {
     @include rem(margin-top, -1);
   }
+
+  h2 a {
+    @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 16%));
+  }
 }
 
 .post {
@@ -17,6 +21,12 @@
 
     @media ($medium) {
       @include rem(margin-top, $spacingMedium / -2);
+    }
+  }
+
+  .header {
+    h1 {
+      @include gradientText($orange, top left, darken($violet, 14%) 20%, darken($orange, 8%), darken($gold, 8%));
     }
   }
 }

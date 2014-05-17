@@ -7,24 +7,20 @@
   @media ($medium) {
     background-size: auto, 100% 100%;
   }
-
-  a {
-    color: #666;
-  }
 }
 
 .logo {
 
-  // .backgroundclip & {
+  .backgroundclip & {
     @include background-image(linear-gradient(top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%)));
+    -webkit-text-fill-color: transparent;
     @include background-clip(text);
     color: transparent;
-    -webkit-text-fill-color: transparent;
 
     &:hover {
       @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));
     }
-  // }
+  }
 
   @media ($small) {
     text-align: center;

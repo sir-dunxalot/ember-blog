@@ -1,4 +1,6 @@
-// @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+/**
+Scale font so everything with REM sizing scales with the window width
+*/
 
 html {
   font-size: $baseFontSize * 0.9;
@@ -12,34 +14,47 @@ html {
   }
 }
 
-body {
-  @include rem(font-size, $bodyFontSize);
-  font-family: 'Source Sans Pro';
-  color: $bodyColor;
-}
+/**
+Headings
+*/
 
 h1, h2 {
-  font-family: 'Lato';
+  font-family: $lato;
   font-weight: 300;
   margin-top: 0;
 }
 
 h1 {
   @include rem(margin-bottom, $spacing);
+  color: #999;
 
   @media ($medium) {
     @include rem(margin-bottom, $spacingMedium);
   }
 }
 
+/**
+Body and misc
+*/
+
+body {
+  @include rem(font-size, $bodyFontSize);
+  font-family: $sourceSans;
+  color: $bodyColor;
+}
+
 .alt_text {
   @include rem(font-size, 1.6);
   text-transform: uppercase;
-  font-family: 'Lato';
+  font-family: $lato;
   font-weight: 400;
   @include opacity(0.5);
 }
 
 .date {
   @extend .alt_text;
+}
+
+.nav a {
+  font-family: $lato;
 }
