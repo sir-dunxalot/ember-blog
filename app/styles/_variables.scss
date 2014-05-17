@@ -1,6 +1,7 @@
 // Layout
 
 $spacing: 3;
+$spacingSmall: 4;
 $spacingMedium: 4;
 
 // Colors
@@ -15,6 +16,14 @@ $headerSubtle: scale-color($headerBackground, $lightness: -7%);
 $bodyBackground: $offwhite;
 $bodySubtle: scale-color($bodyBackground, $lightness: -7%);
 $bodyColor: #333333;
+
+$gray: #222835;
+$gold: #DFD4C4;
+$orange: #D3B09A;
+$brown: #7A776C;
+$darkBrown: darken($brown, 10%);
+$darkBlue: #17191E;
+$violet: #B394BC;
 
 // Third-party colors
 $twitter: #14adf1;

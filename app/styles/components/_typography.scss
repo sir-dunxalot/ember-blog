@@ -14,11 +14,12 @@ html {
 
 body {
   @include rem(font-size, $bodyFontSize);
-  font-family: 'Lato';
+  font-family: 'Source Sans Pro';
   color: $bodyColor;
 }
 
 h1, h2 {
+  font-family: 'Lato';
   font-weight: 300;
   margin-top: 0;
 }
@@ -32,10 +33,11 @@ h1 {
 }
 
 .alt_text {
-  font-weight: 400;
-  text-transform: uppercase;
-  @include opacity(0.5);
   @include rem(font-size, 1.6);
+  text-transform: uppercase;
+  font-family: 'Lato';
+  font-weight: 400;
+  @include opacity(0.5);
 }
 
 .date {

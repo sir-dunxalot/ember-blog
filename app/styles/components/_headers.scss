@@ -5,7 +5,7 @@
   background-size: auto, 100% auto;
 
   @media ($medium) {
-    background-size: auto, auto 100%;
+    background-size: auto, 100% 100%;
   }
 
   a {
@@ -15,6 +15,17 @@
 
 .logo {
 
+  // .backgroundclip & {
+    @include background-image(linear-gradient(top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%)));
+    @include background-clip(text);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    &:hover {
+      @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));
+    }
+  // }
+
   @media ($small) {
     text-align: center;
   }
@@ -23,3 +34,76 @@
     text-align: left;
   }
 }
+
+
+
+
+// a {
+//   color: $gold;
+//   text-decoration: none;
+//   @include transition(all 0.2s);
+
+//   &:hover {
+//     color: $white;
+//   }
+// }
+
+// .banner_li {
+//   @include span-columns(6);
+//   @include rem(font-size, 2);
+//   font-family: $netto;
+//   text-transform: lowercase;
+
+//   .backgroundclip & a { // Defaults to gold if gradient text not supported via background-clip
+//     @include background-image(linear-gradient(top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%)));
+//     @include background-clip(text);
+//     color: transparent;
+//     -webkit-text-fill-color: transparent;
+
+//     &:hover {
+//       @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));
+//     }
+//   }
+
+//   a {
+//     color: $orange; // Fallback color for banner
+//     @include rem(line-height, $bannerHeight);
+//   }
+
+//   &:nth-of-type(2) { // Can't use last-of-type selector on a class. Can only use it on an element tag
+//     text-align: right;
+//     @include omega;
+//   }
+// }
+
+// .nav_li {
+//   @extend .alt_text;
+//   @include inline-block;
+//   @include text-shadow(1px 1px 5px rgba($darkBlue, 0.5), -1px -1px 5px rgba($darkBlue, 0.5), -1px 1px 5px rgba($darkBlue, 0.5), 1px -1px 5px rgba($darkBlue, 0.5));
+//   @include text-shadow(0.1rem 0.1rem 0.5rem rgba($darkBlue, 0.5), -0.1rem -0.1rem 0.5rem rgba($darkBlue, 0.5), -0.1rem 0.1rem 0.5rem rgba($darkBlue, 0.5), 0.1rem -0.1rem 0.5rem rgba($darkBlue, 0.5));
+
+//   a {
+//     display: block;
+//     color: $brown;
+
+//     &:hover {
+//       color: lighten($brown, 8%);
+//     }
+//   }
+
+//    & ~ & a {
+//     margin-left: 0; // Remove padding if nav link is not the first
+//   }
+
+//   .active {
+//     color: $gold;
+//     @include text-shadow(none);
+//   }
+
+//   .backgroundclip & .active {
+//     @include background-image(linear-gradient(top left, $gold, $orange 80%));
+//     @include background-clip(text);
+//     color: transparent;
+//     -webkit-text-fill-color: transparent;
+//   }
+// }
