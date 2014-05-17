@@ -65,7 +65,7 @@
   .glyphicon-bookmark {
     color: rgba($bodyColor, 0.4);
     @include rem(font-size, 2);
-    @include rem(margin-top, -($tagVertPadding + 1));
+    @include rem(margin-top, -($tagVertPadding + 1.2));
   }
 
   .text ~ .glyphicon {
