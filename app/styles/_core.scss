@@ -26,3 +26,36 @@
 %absolute {
   position: absolute;
 }
+
+body {
+  background-color: $bodyBackground;
+}
+
+hr {
+  @include rem(margin, $spacing, 0);
+
+  @media ($medium) {
+    @include rem(margin, $spacingMedium, 0);
+  }
+}
+
+.watermark {
+  display: none;
+  @extend %absolute;
+  top: 0;
+  right: 0;
+
+  @media ($medium) {
+    display: block;
+  }
+
+  a {
+    @include rem(padding, 2);
+    @include opacity(0.5);
+    display: block;
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+}

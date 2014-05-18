@@ -94,8 +94,7 @@ Todos & Known Issues
 - Parse CSS for unused rules
 - Allow ember components to be used in template (Em.Handlebars.compile(post.body);
 - Do special characters in title used in URL break the app?
-- Move everything back to public fodler and redirect
-- Bigger links for mobile nav
+- Quick classes for layout (e.g. image on left)
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 

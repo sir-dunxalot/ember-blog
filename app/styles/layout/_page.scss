@@ -56,10 +56,14 @@ html, body {
 }
 
 .content_wrapper {
+  @include box-sizing(content-box);
   @include rem(padding, $spacing);
   @extend %full_height;
   overflow-y: scroll;
-  @include box-sizing(content-box);
+
+  @media ($small) {
+    @include rem(padding, $spacingSmall);
+  }
 
   @media ($medium) {
     @include rem(padding, $spacingMedium);

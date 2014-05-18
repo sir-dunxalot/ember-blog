@@ -9,6 +9,14 @@
   .date {
     @include rem(margin-top, -1);
   }
+
+  h2 a {
+    @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 16%));
+
+    &:hover {
+      @include gradientText($orange, top left, darken($violet, 8%), darken($orange, 8%) 30%, darken($gold, 16%), mix($violet, $gold));
+    }
+  }
 }
 
 .post {
@@ -17,6 +25,12 @@
 
     @media ($medium) {
       @include rem(margin-top, $spacingMedium / -2);
+    }
+  }
+
+  .header {
+    h1 {
+      @include gradientText($orange, top left, darken($violet, 14%) 20%, darken($orange, 8%), darken($gold, 8%));
     }
   }
 }
@@ -36,7 +50,7 @@
 
   a {
     display: block;
-    @include rem(padding, $tagVertPadding, $tagHorizPadding);
+    @include rem(padding, $tagVertPadding - 0.1, $tagHorizPadding, $tagVertPadding);
     color: $bodyColor;
 
     &:hover {
@@ -51,7 +65,7 @@
   .glyphicon-bookmark {
     color: rgba($bodyColor, 0.4);
     @include rem(font-size, 2);
-    @include rem(margin-top, -($tagVertPadding + 1));
+    @include rem(margin-top, -($tagVertPadding + 1.2));
   }
 
   .text ~ .glyphicon {

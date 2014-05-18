@@ -7,10 +7,20 @@
 @import 'vendor/normalize';
 @import 'vendor/html5bp';
 @import 'vendor/responsive-nav';
+@import 'vendor/highlight';
 
 @import 'mixins';
 @import 'core';
 
 @import 'layout/index';
 
-@import 'theme/index';
+@import 'components/typography';
+@import 'components/headers';
+@import 'components/navigation';
+@import 'components/footers';
+@import 'components/posts';
+@import 'components/icons';
+@import 'components/buttons';
+@import 'components/comments';
+@import 'components/loading';
+@import 'components/code';
