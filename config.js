@@ -76,6 +76,7 @@ exports.config = {
               'vendor/scripts/common/handlebars.js',
               'vendor/scripts/production/ember.js',
               'vendor/scripts/production/ember-data.js',
+              'vendor/scripts/common/modernizr-custom.js',
               'vendor/scripts/common/bootstrap/tooltip.js'
             ]
           }

@@ -12,7 +12,7 @@ This is a lot more `content` for markdown parsing
 
 **Ok yeah**
 
-```js
+```ruby
 App.PostView = Em.View.extend({
   classNames: ['post'],
   tagName: 'article',

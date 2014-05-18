@@ -65,7 +65,8 @@ $languages:
   javascript $orange js,
   css $violet,
   scss $violet,
-  handlebars $solarizedGreen hbs;
+  handlebars $solarizedGreen hbs,
+  ruby $solarizedRed;
 
 @each $language in $languages {
   $name: nth($language, 1);
