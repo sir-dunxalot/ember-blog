@@ -14,7 +14,7 @@
     @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 16%));
 
     &:hover {
-      @include gradientText($orange, top left, darken($violet, 8%), darken($orange, 8%) 30%, darken($gold, 16%));
+      @include gradientText($orange, top left, darken($violet, 8%), darken($orange, 8%) 30%, darken($gold, 16%), mix($violet, $gold));
     }
   }
 }
@@ -50,7 +50,7 @@
 
   a {
     display: block;
-    @include rem(padding, $tagVertPadding, $tagHorizPadding);
+    @include rem(padding, $tagVertPadding - 0.1, $tagHorizPadding, $tagVertPadding);
     color: $bodyColor;
 
     &:hover {

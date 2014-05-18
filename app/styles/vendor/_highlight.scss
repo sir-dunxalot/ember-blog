@@ -4,11 +4,9 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 
 */
 
-.hljs {
-  display: block;
-  padding: 0.5em;
-  background: #23241f;
-}
+// pre {
+//   background-color: #23221f;
+// }
 
 .hljs,
 .hljs-tag,
@@ -17,13 +15,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .css .hljs-function
 .hljs-preprocessor,
 .hljs-pragma {
-  color: #f8f8f2;
+  color: #f8f8f2; // white
 }
 
 .hljs-strongemphasis,
 .hljs-strong,
 .hljs-emphasis {
-  color: #a8a8a2;
+  color: #a8a8a2; // dark beige
 }
 
 .hljs-bullet,
@@ -34,7 +32,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .alias .hljs-keyword,
 .hljs-literal,
 .hljs-hexcolor {
-  color: #ae81ff;
+  color: $solarizedViolet;
 }
 
 .hljs-tag .hljs-value,
@@ -42,7 +40,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-title,
 .css .hljs-class,
 .hljs-class .hljs-title:last-child {
-  color: #a6e22e;
+  color: $solarizedGreen; //green
 }
 
 .hljs-link_url {
@@ -79,20 +77,20 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .css .hljs-tag,
 .css .unit,
 .css .hljs-important {
-  color: #F92672;
+  color: $solarizedMagenta; // pink
 }
 
 .hljs-function .hljs-keyword,
 .hljs-class .hljs-keyword:first-child,
 .hljs-constant,
 .css .hljs-attribute {
-  color: #66d9ef;
+  color: $solarizedBlue; //blue
 }
 
 .hljs-variable,
 .hljs-params,
 .hljs-class .hljs-title {
-  color: #f8f8f2;
+  color: #f8f8f2; // white
 }
 
 .hljs-string,
@@ -119,7 +117,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-prompt,
 .hljs-link_label,
 .hljs-link_url {
-  color: #e6db74;
+  color: $solarizedYellow; // yellow
 }
 
 .hljs-comment,
@@ -133,7 +131,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .hljs-shebang,
 .apache .hljs-sqbracket,
 .tex .hljs-formula {
-  color: #75715e;
+  color: #75715e; // dark brown
 }
 
 .coffeescript .javascript,

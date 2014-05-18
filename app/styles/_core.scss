@@ -40,9 +40,14 @@ hr {
 }
 
 .watermark {
+  display: none;
   @extend %absolute;
   top: 0;
   right: 0;
+
+  @media ($medium) {
+    display: block;
+  }
 
   a {
     @include rem(padding, 2);
