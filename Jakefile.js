@@ -25,7 +25,7 @@ task('deploy', function (params) {
     'brunch build --production',
     'git add .',
     'git commit -m ' + commitMessage,
-    'git push origin master'
+    'git push demo master'
   ];
 
   console.log('Building...');
