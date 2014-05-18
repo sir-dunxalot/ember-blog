@@ -1,0 +1,62 @@
+pre code, code {
+  @include rem(font-size, 1.6);
+}
+
+pre {
+  @include rem(margin, $spacingMedium, 0);
+  @include rem(padding, $spacing / 2, 0);
+  @extend %relative;
+}
+
+code {
+  border: 1px solid $bodySubtle;
+}
+
+pre code {
+  border: none;
+
+  // Language ribbon
+  &:after {
+    @include rem(padding, 0.3, 0.7);
+    display: inline-block;
+    @extend %absolute;
+    top: 0;
+    right: 0;
+
+    @include rem(border-bottom-left-radius, 0.2);
+  }
+}
+
+/**
+Create text for ribbon containing code language abbreviation
+Format:
+$languages: name color [optional abbreviation]
+*/
+
+$languages:
+  html $gold,
+  js $orange,
+  css $violet,
+  scss $violet,
+  handlebars $brown hbs;
+
+@each $language in $languages {
+  $name: nth($language, 1);
+  $color: nth($language, 2);
+  $abbr: null;
+
+
+  // If there is an abbreviation
+  @if length($language) > 2 {
+    $abbr: nth($language, 3);
+  } @else {
+    $abbr: $name;
+  }
+
+  .lang-#{$name} {
+    &:after {
+      content: '#{$abbr}';
+      @include color($color);
+    }
+  }
+}

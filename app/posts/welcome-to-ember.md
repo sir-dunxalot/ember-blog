@@ -8,11 +8,11 @@ categories:
  - design
 ---
 
-This is a lot more content for markdown parsing
+This is a lot more `content` for markdown parsing
 
 **Ok yeah**
 
-```
+```scss
   .test {
     background: red;
   }

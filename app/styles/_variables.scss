@@ -17,6 +17,9 @@ $bodyBackground: $offwhite;
 $bodySubtle: scale-color($bodyBackground, $lightness: -7%);
 $bodyColor: #333333;
 
+$lightTextColor: $white;
+$darkTextColor: $bodyColor;
+
 $gray: #222835;
 $gold: #DFD4C4;
 $orange: #D3B09A;
