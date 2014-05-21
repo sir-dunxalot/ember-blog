@@ -1,4 +1,4 @@
-![Octosmashed Logo](https://github.com/sir-dunxalot/ember-blog/blob/master/app/assets/images/octosmashed_logo.png)
+![Octosmashed Logo](http://jebbit.github.io/images/octosmashed_logo.png)
 
 Octosmashed
 ==========
