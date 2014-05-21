@@ -5,7 +5,7 @@ Octosmashed
 
 Octosmashed is a JavaScript MVC-based static blogging tool based on the idea of [Octopress](http://octopress.org/). Octopress is a great framework for coders who want to blog, but it has limitations. For example, development and post writing can be tedious when you need to refresh the page, you need to know ruby to write plugins, and github pages limits the capabilities of Jekyll. Enter Octosmashed.
 
-**[WIP Demo](http://sir-dunxalot.github.io/)**
+*** <strong><a href="http://jebbit.github.io/" target="_blank">Live Demo</a></strong> ***
 
 Octosmashed is an Ember.js-based blogging framework built on Bruch. Features include:
 - Pure JS stack ([Node.js](http://nodejs.org/) server with [Brunch](http://brunch.io/) build tools)
