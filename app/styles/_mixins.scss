@@ -104,10 +104,15 @@ Gradient text, with optional fallback for use with Modernizr
 Determine if a color is bright or not
 */
 
-// USAGE - http://en.wikipedia.org/wiki/YIQ
-// YIQ takes into account the differences of perception between R, G, and B (red, green, and blue are not perceived equally by the human eye).
-// The below mixin normalizes each component of RGB and looks at the brightness/contrast to set the text color
-// Color brightness and contrast is explained here - http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+/* USAGE - http://en.wikipedia.org/wiki/YIQ
+YIQ takes into account the differences of perception between
+R, G, and B (red, green, and blue are not perceived equally by
+the human eye). The below mixin normalizes each component of
+RGB and looks at the brightness/contrast to set the text color.
+
+Color brightness and contrast is explained here:
+http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+*/
 @function bright($color) {
   $yiq: ( (red($color) * 299) + (green($color) * 587) + (blue($color) * 114) ) / 1000;
 

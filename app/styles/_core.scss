@@ -1,3 +1,7 @@
+/* Core classes for extendability
+TODO - Add block and inline-block classes
+*/
+
 %table {
   display: table;
   width: 100%;
@@ -26,6 +30,8 @@
 %absolute {
   position: absolute;
 }
+
+/* Misc css rules */
 
 body {
   background-color: $bodyBackground;
@@ -58,4 +64,18 @@ hr {
       @include opacity(1);
     }
   }
+}
+
+.content {
+  a {
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px dotted $link-hover-color;
+    }
+  }
+}
+
+::selection {
+  color: $bodyColor;
+  background: $gold;
 }

@@ -1,3 +1,6 @@
-<h1>{{capitalize category.name}}</h1>
+<h1 {{bind-attr class='category.name'}}>
+  <i class="icon"></i>
+  <span class="text">{{capitalize category.name}}</span>
+</h1>
 
 {{collection App.PostsView content=sortedPosts}}

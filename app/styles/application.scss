@@ -2,8 +2,9 @@
 
 @import 'variables';
 
-@import 'vendor/bootstrap';
+/* Vendor */
 
+@import 'vendor/bootstrap';
 @import 'vendor/normalize';
 @import 'vendor/html5bp';
 @import 'vendor/responsive-nav';
@@ -12,7 +13,11 @@
 @import 'mixins';
 @import 'core';
 
+/* Layout */
+
 @import 'layout/index';
+
+/* Components */
 
 @import 'components/typography';
 @import 'components/headers';

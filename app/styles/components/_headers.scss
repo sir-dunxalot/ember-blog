@@ -11,7 +11,10 @@
 
 .logo {
   @include rem(font-size, 3);
-  @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%));
+
+  &, .icon {
+    @include gradientText($orange, top left, darken($violet, 8%) 20%, darken($orange, 8%), darken($gold, 8%));
+  }
 
   &:hover {
     @include background-image(linear-gradient(top left, $violet 20%, $orange, $gold));

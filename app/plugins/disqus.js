@@ -5,7 +5,7 @@ Add your info here to link this blog to your free Disqus account
 */
 
 App.DisqusOptions = Em.Object.create({
-  shortname: 'jebbittech',
+  shortname: 'XXXXXXXXXXX', // Set your short name
 });
 
 /**

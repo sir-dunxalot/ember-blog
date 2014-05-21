@@ -73,7 +73,6 @@ $languages:
   $color: nth($language, 2);
   $abbr: null;
 
-
   // If there is an abbreviation
   @if length($language) > 2 {
     $abbr: nth($language, 3);
@@ -81,7 +80,7 @@ $languages:
     .lang-#{$abbr} {
       &:after {
         content: '#{$abbr}';
-        @include color(rgba($color, 0.5));
+        @include color(rgba($color, 0.5)); // Set text color based on background color
       }
     }
   } @else {

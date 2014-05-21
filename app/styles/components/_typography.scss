@@ -50,6 +50,12 @@ body {
   @include rem(font-size, $bodyFontSize);
   font-family: $sourceSans;
   color: $bodyColor;
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
+  @include rem(margin, $spacing, 0);
 }
 
 .alt_text {
@@ -71,4 +77,8 @@ body {
 
 strong {
   font-weight: 400;
+}
+
+.endnote {
+  @include opacity(0.5);
 }

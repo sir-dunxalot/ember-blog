@@ -1,6 +1,8 @@
 /*
+The page layout is as follows:
+
 .app {
-  .header {
+  .page_header {
     .nav {
 
     }
@@ -28,10 +30,10 @@ html, body {
 
 .page_header {
   @include rem(min-width, $sidebarWidth);
-  display: table-header-group;
+  display: table-header-group; // Vertical stacking at smaller window sizes
 
   @media ($medium) {
-    display: table-cell;
+    display: table-cell; // Horizontal sidebar at larger window sizes
     vertical-align: top;
     @include rem(padding, $spacingMedium);
   }

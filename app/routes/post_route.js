@@ -26,5 +26,4 @@ App.PostRoute = Em.Route.extend({
   _postNotFound: function() {
     this.transitionTo('catchall', 'post-not-found');
   },
-
 });

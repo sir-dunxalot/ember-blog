@@ -8,20 +8,16 @@ http://www.addthis.com/services/list
 */
 
 App.AddThisOptions = Em.Object.create({
-  pubId: 'ra-537038fc122c939b', // Set to your id
+  pubId: 'XX-XXXXXXXXXXXXXXXX', // Set to your publisher id
 });
 
 App.ApplicationView.reopen({
 
   loadAddThisApi: function() {
-    // var pubId = App.AddThisOptions.get('pubId');
     var url = '//s7.addthis.com/js/300/addthis_widget.js#async=1';
 
     if (!window.addthis) {
-      $.getScript(url).done(function() {
-        // window.addthis_config = window.addthis_config || {};
-        // window.addthis_config.pubid = pubId;
-      });
+      $.getScript(url);
     }
   }.on('willInsertElement'),
 });
@@ -36,7 +32,6 @@ Use in your templates like so:
 App.SharePostComponent = Em.Component.extend({
   attributeBindings: ['rel', 'title', 'href', 'target'],
   classNameBindings: ['socialClass'],
-  classNames: ['fa', 'fa-2x'],
   on: null, // Brand
   rel: 'nofollow',
   tagName: 'a',
@@ -64,11 +59,11 @@ App.SharePostComponent = Em.Component.extend({
 
   socialClass: function() {
     var brand = this.get('on');
-    return 'fa-' + brand + '-square';
+    return 'icon-' + brand;
   }.property('on'),
 
   title: function() {
     var brand = this.get('on');
-    return 'Share this on' + brand;
+    return 'Share this on ' + brand.capitalize();
   }.property('on'),
 });

@@ -3,12 +3,7 @@
 App.Options = Em.Mixin.create({
   // Basic settings
   blogTitle: 'Octosmashed',
-  blogAuthor: 'Duncan Walker',
-
-  // Social
-
-  // Misc
-  googleAnalyticsCode: 'xouxou',
+  blogAuthor: 'Your Name',
 
   // Microformat classes
   // USAGE - http://microformats.org/wiki/microformats2#h-entry

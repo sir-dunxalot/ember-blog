@@ -3,20 +3,20 @@
 
     <li>
       {{#link-to 'index' title='The latest posts published on this blog'}}
-        <span class="text">Latest</span>
+        <span class="link_content">Latest</span>
       {{/link-to}}
     </li>
 
     <li>
       {{#link-to 'about' title='Information about this blog'}}
-        <span class="text">About</span>
+        <span class="link_content">About</span>
       {{/link-to}}
     </li>
 
     {{#each categories}}
       <li>
-        {{#link-to 'category' this.name}}
-          <span class="text">{{capitalize name}}</span>
+        {{#link-to 'category' this.name class=this.name}}
+          <span class="link_content">{{capitalize name}}</span>
         {{/link-to}}
       </li>
     {{/each}}

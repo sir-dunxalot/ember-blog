@@ -50,15 +50,11 @@ $solarizedCyan: #2aa198; // Blue/green
 $solarizedGreen: #859900;
 
 // Third-party colors
+
 $twitter: #14adf1;
 $facebook: #3d5ba0;
 $googlePlus: #dd4b39;
 $instagram: #e95b6a;
-
-$socialIcons:
-  facebook $facebook,
-  twitter $twitter,
-  google-plus $googlePlus;
 
 // Typography
 
@@ -68,9 +64,11 @@ $bodyFontSize: 1.8; // In rem
 $lato: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $sourceSans: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $menlo: 'Menlo', Consolas, monaco, monospace;
+
 // Config
 
 $imagePath: '../images/';
+$fontPath: '../fonts/';
 
 // Media queries
 
@@ -82,4 +80,4 @@ $big: "min-width: 63.75em"; // 1020px
 
 $icon-font-path: '../fonts/bootstrap/';
 
-$link-color: darken($gold, 8%);
+$link-color: darken($gold, 24%);

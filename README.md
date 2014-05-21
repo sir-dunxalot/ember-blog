@@ -26,10 +26,15 @@ Installation
 ------
 
 1. [Install Node.js](http://nodejs.org/) if you don't have it installed already
-2. Create a directory for the blog on your local machine and run `git init`
-3. Copy the repo with `git clone git@github.com:sir-dunxalot/ember-blog.git`
-4. Install the package with `npm install`
+2. Copy the repo with `git clone git@github.com:sir-dunxalot/ember-blog.git`
+3. Install the packages with `npm install --save`
 5. Start the app with `brunch watch -s` (the app will start at localhost:3333)
+
+If you're planning on deploying on github pages, as this blog has been designed for, you'll want to create a repo with the name [your-user-name].github.io and run the following command:
+
+```
+git remote set-url origin git@github.com:your-user-name/your-user-name.github.io.git
+```
 
 Usage
 ------

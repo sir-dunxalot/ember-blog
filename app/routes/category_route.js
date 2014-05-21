@@ -29,5 +29,4 @@ App.CategoryRoute = Em.Route.extend({
       controller.set('posts', result.content);
     });
   },
-
 });

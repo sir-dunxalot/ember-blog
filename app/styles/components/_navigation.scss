@@ -9,7 +9,7 @@
   }
 
   li ~ li {
-    .text  {
+    .link_content  {
       border-top: 1px solid $headerSubtle;
     }
   }
@@ -28,7 +28,7 @@
       @include rem(padding, 0, $spacingMedium);
     }
 
-    .text {
+    .link_content {
       display: block;
       @include rem(padding, 1.6, $spacing);
 
@@ -46,6 +46,12 @@
         background-color: transparent;
       }
     }
+
+    .icon {
+      text-align: left;
+      @include rem(width, 3);
+      @include opacity(0.8);
+    }
   }
 }
 
@@ -55,7 +61,7 @@
   margin: 0;
 }
 
-// Nav icon wiht three horizontal lines
+// Nav icon with three horizontal lines
 .nav-toggle {
   @extend %absolute;
   top: 0;
