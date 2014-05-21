@@ -107,6 +107,7 @@ Todos & Known Issues
 - Quick classes for layout (e.g. image on left)
 - Facebook sharing URL
 - Add block and inline-block %placeholders
+- Code overflow should scroll or option to expand full screen, maybe on hover?
 
 Built on [brunch-with-ember-reloaded](https://github.com/gcollazo/brunch-with-ember-reloaded).
 

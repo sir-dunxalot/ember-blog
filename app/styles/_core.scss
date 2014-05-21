@@ -77,7 +77,7 @@ hr {
   }
 }
 
-a[href*='github']:not(.no_icon) {
+a[href*='github.com']:not(.no_icon) {
   @extend .icon;
   @extend .icon-github;
 
