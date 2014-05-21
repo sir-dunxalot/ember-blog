@@ -7,7 +7,7 @@ UI
 - [responsive-nav.js](//github.com/viljamis/responsive-nav.js) is used for hiding and showing the navigation options at small window widths
 - All [Twitter Bootstrap](//getbootstrap.com/) styles and components are available to use (though core themes do not extensively use Bootstrap components)
 - Layout and themes are written in [SASS](//sass-lang.com/) with [Compass](//compass-style.org/) support added using [sass-brunch](//github.com/brunch/sass-brunch)
-- Code highlighting in posts is done using [Prism](//prismjs.com/)
+- Code highlighting in posts is done using [Highlight.js](http://highlightjs.org/)
 - [HTML5 Boilerplate](//html5boilerplate.com/)-based application template
 - [Modernizr](//modernizr.com/) feature detection
 

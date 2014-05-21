@@ -19,6 +19,12 @@ Your blog is now setup! visit `localhost:3333` to see it and live preview your c
 Next Steps
 ------
 
+If you're planning on deploying on github pages, as this blog has been designed for, you'll want to create a repo with the name [your-user-name].github.io and run the following command:
+
+```
+git remote set-url origin git@github.com:your-user-name/your-user-name.github.io.git
+```
+
 - [Writing Posts](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/writing_posts.md)
 - [Deployment](//github.com/sir-dunxalot/ember-blog/blob/master/documentation/writing_posts.md)
 
