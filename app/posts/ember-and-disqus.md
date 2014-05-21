@@ -5,6 +5,7 @@ published: 2014-05-18
 author: Jebbit
 categories:
  - ember
+ - design
 ---
 
 <a href="//gist.github.com/sir-dunxalot/e3cdcf2fd427cbe40a47" target="_blank">
