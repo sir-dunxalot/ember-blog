@@ -8,8 +8,7 @@ categories:
 ---
 
 <a href="//gist.github.com/sir-dunxalot/e3cdcf2fd427cbe40a47" target="_blank">
-  <i class="icon-github"></i>
-  <span class="text">See the full code snippet here</span>
+  See the full code snippet here
 </a>
 
 To successfully integrate <a href="//disqus.com/" target="_blank">Disqus</a> within your Ember app, you will need to run Disqus asyncronously.
@@ -111,8 +110,7 @@ And there you have it! Simply place the `{{disqus-comments}}` in the template of
 For a working example, look no further than the bottom of this page! You can leave a comment and see it update instantly and then go to another post and watch the new comments load.
 
 <a href="//gist.github.com/sir-dunxalot/e3cdcf2fd427cbe40a47" target="_blank">
-  <i class="icon-github"></i>
-  <span class="text">See the full code snippet here</span>
+  See the full code snippet here
 </a>
 
 Disqus has a Comment Count capability, which I'll be covering in a future post.

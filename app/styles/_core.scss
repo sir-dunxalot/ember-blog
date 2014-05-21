@@ -68,10 +68,23 @@ hr {
 
 .content {
   a {
+    border-bottom: 1px dotted transparent;
+
     &:hover {
       text-decoration: none;
-      border-bottom: 1px dotted $link-hover-color;
+      border-bottom-color: $link-hover-color;
     }
+  }
+}
+
+a[href*='github']:not(.no_icon) {
+  @extend .icon;
+  @extend .icon-github;
+
+  &:before {
+    @include rem(margin-right, 1);
+    @include rem(top, 0.2);
+    position: relative;
   }
 }
 
