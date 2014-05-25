@@ -29,10 +29,12 @@ Em.Application.initializer({
       // Add string to model for link-to helpers and url serialization
       post['urlString'] = title.dasherize();
 
-      post['__content'] = post['__content'].replace(/&#39;/g,'\u0027'); // Hack for handlebars
-
-      var code = post['__content'].match(/<code[^>]*>(.*?)<\/code>/i);
-      console.log(code[1]);
+      // Hacks to allow handlebars compiling of blog post body and print handlebars inside code blocks
+      // TODO - This is probably slow as hell. Need a better way to do this, and do it pre-deployment.
+      post['__content'] = post['__content'].replace(/&#39;/g,'\u0027');
+      post['__content'] = post['__content'].replace(/<code(?:\s+[^>]+)*>(?:.*?{{.+?}})*.*<\/code>/g, function(a) {
+        return(a.replace(/{{/g, "&#123;&#123;").replace(/}}/g, "&#125;&#125;"));
+      });
 
       Em.TEMPLATES[post['urlString']] = Em.Handlebars.compile(post['__content']);
 
