@@ -13,7 +13,8 @@
 <hr>
 
 <div {{bind-attr class='mf.postContent'}}>
-  {{{body}}}
+  {{!-- Post content is in a partial identified by the urlString --}}
+  {{partial urlString}}
 </div>
 
 <hr>

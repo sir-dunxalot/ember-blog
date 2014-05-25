@@ -12,7 +12,7 @@ categories:
   See the full code snippet here
 </a>
 
-To successfully integrate <a href="//disqus.com/" target="_blank">Disqus</a> within your Ember app, you will need to run Disqus asyncronously.
+{{#link-to 'about'}}To successfully{{/link-to}} integrate <a href="//disqus.com/" target="_blank">Disqus</a> within your Ember app, you will need to run Disqus asyncronously.
 
 You can use an Ember Object to hold the Disqus options, if you like:
 

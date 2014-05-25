@@ -29,8 +29,14 @@ Em.Application.initializer({
       // Add string to model for link-to helpers and url serialization
       post['urlString'] = title.dasherize();
 
+      post['__content'] = post['__content'].replace(/&#39;/g,'\u0027'); // Hack for handlebars
+
+      var code = post['__content'].match(/<code[^>]*>(.*?)<\/code>/i);
+      console.log(code[1]);
+
+      Em.TEMPLATES[post['urlString']] = Em.Handlebars.compile(post['__content']);
+
       // Rename content for model (can't start with an underscore and content is reserved)
-      post['body'] = post['__content'];
       delete post['__content'];
 
       // Convert JS date to Date object for Ember model DS.attr('date')
