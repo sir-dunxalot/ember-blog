@@ -36,9 +36,8 @@ Em.Application.initializer({
         return(a.replace(/{{/g, "&#123;&#123;").replace(/}}/g, "&#125;&#125;"));
       });
 
-      Em.TEMPLATES[post['urlString']] = Em.Handlebars.compile(post['__content']);
-
-      // Rename content for model (can't start with an underscore and content is reserved)
+      // Write blog post body to a partial
+      Em.TEMPLATES['_' + post['urlString']] = Em.Handlebars.compile(post['__content']);
       delete post['__content'];
 
       // Convert JS date to Date object for Ember model DS.attr('date')

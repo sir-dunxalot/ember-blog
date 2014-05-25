@@ -3,13 +3,15 @@
 Octosmashed
 ==========
 
+***Warning - early stage development. v0.2.1***
+
 Octosmashed is a JavaScript MVC-based static blogging tool based on the idea of [Octopress](http://octopress.org/). Octopress is a great framework for coders who want to blog, but it has limitations. For example, development and post writing can be tedious when you need to refresh the page, you need to know ruby to write plugins, and github pages limits the capabilities of Jekyll. Enter Octosmashed.
 
 *** <strong><a href="http://jebbit.github.io/" target="_blank">Live Demo</a></strong> ***
 
-Octosmashed is an Ember.js-based blogging framework built on Bruch. Features include:
+Octosmashed is an Ember.js-based static blogging framework built on Bruch. Features include:
 - Pure JS stack ([Node.js](http://nodejs.org/) server with [Brunch](http://brunch.io/) build tools)
-- Write your posts in markdown (no database required)
+- Write your posts in markdown, handlebars, and html (no database required)
 - Single-command deploy to Github pages
 - Live blog reloading and compiling
 - Easy integration with npm modules and other JS plugins
@@ -39,7 +41,7 @@ Usage
 
 ### Blog Posts
 
-Write your blog posts in markdown with YAML front matter for post info. Octosmashed will automatically compile your posts and the categories you have used into Ember fixtures available to the rest of your blog. An example post:
+Write your blog posts in markdown, handlebars, and html with YAML front matter for post info. Octosmashed will automatically compile your posts and the categories you have used into Ember fixtures available to the rest of your blog. An example post:
 
 ```markdown
 ---
@@ -56,9 +58,11 @@ This is the blog content. I am writing this blog post all about Ember and stuff.
 
 **Some bold blog content**
 
+{{#link-to 'about'}}This is a handlebars link{{/link-to}}
+
 ```
 
-Save the post in the `posts` directory with any filename you like (filename does not affect the fixtures compiling). Everything outside the YAML Front Matter will be [parsed as markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis) and used for the content of the blog post.
+Save the post in the `posts` directory with any filename you like (filename does not affect the fixtures compiling). Everything outside the YAML Front Matter will be [parsed as markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis) and compiled as a handlebars template for the content of the blog post.
 
 Deployment & Github Pages
 ------
