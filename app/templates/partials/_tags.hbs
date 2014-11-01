@@ -1,0 +1,10 @@
+<ul class="tags">
+  {{#each categories}}
+    <li>
+      {{#link-to 'category' this}}
+        <span {{bind-attr class='view.mf.postCategory :text :alt_text'}}>{{capitalize this}}</span>
+        <span class="glyphicon glyphicon-bookmark"></span>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,18 @@
+<article {{bind-attr class='mf.postPreview'}}>
+
+  <h2 {{bind-attr class='mf.postTitle'}}>
+    {{#link-to 'post' this.urlString class='u-url'}}
+      {{title}}
+    {{/link-to}}
+  </h2>
+
+  {{partial 'partials/published'}}
+
+  <p {{bind-attr class='mf.postDescription'}}>{{description}}</p>
+
+  {{partial 'partials/tags'}}
+
+  {{!-- TODO - comment count only works on firts page load --}}
+  {{!-- {{partial 'partials/comment_count'}} --}}
+
+</article>

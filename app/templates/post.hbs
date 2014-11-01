@@ -1,0 +1,24 @@
+<header class="header">
+
+  <h1 {{bind-attr class='mf.postTitle'}}>{{title}}</h1>
+
+  {{partial 'partials/published'}}
+
+  {{#with content}}
+    {{partial 'partials/tags'}}
+  {{/with}}
+
+</header>
+
+<hr>
+
+<div {{bind-attr class='mf.postContent'}}>
+  {{!-- Post content is in a partial identified by the urlString --}}
+  {{partial urlString}}
+</div>
+
+<hr>
+
+{{partial 'partials/social_links'}}
+
+{{disqus-comments}}
