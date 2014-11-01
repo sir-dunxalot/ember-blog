@@ -1,0 +1,84 @@
+/**
+Scale font so everything with REM sizing scales with the window width
+*/
+
+html {
+  font-size: $baseFontSize * 0.9;
+
+  @media($medium) {
+    font-size: $baseFontSize * 0.95;
+  }
+
+  @media($big) {
+    font-size: $baseFontSize;
+  }
+}
+
+/**
+Headings
+*/
+
+h1, h2 {
+  font-family: $lato;
+  font-weight: 400;
+  margin-top: 0;
+
+  @media ($small) {
+    font-weight: 300;
+  }
+}
+
+h1 {
+  @include rem(margin-bottom, $spacing);
+  @include rem(font-size, 3.6);
+  color: #999;
+
+  @media ($medium) {
+    @include rem(margin-bottom, $spacingMedium);
+  }
+}
+
+h2 {
+  @include rem(font-size, 3);
+}
+
+/**
+Body and misc
+*/
+
+body {
+  @include rem(font-size, $bodyFontSize);
+  font-family: $sourceSans;
+  color: $bodyColor;
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
+  @include rem(margin, $spacing, 0);
+}
+
+.alt_text {
+  @include rem(font-size, $bodyFontSize * 0.9);
+  @include rem(letter-spacing, 0.05);
+  text-transform: uppercase;
+  font-family: $lato;
+  font-weight: 400;
+  @include opacity(0.5);
+}
+
+.date {
+  @extend .alt_text;
+}
+
+.nav a {
+  font-family: $lato;
+}
+
+strong {
+  font-weight: 400;
+}
+
+.endnote {
+  @include opacity(0.5);
+}

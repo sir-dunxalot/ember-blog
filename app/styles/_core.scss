@@ -1,0 +1,125 @@
+/* Core classes for extendability
+TODO - Add block and inline-block classes
+*/
+
+%table {
+  display: table;
+  width: 100%;
+}
+
+%row {
+  display: table-row;
+}
+
+%cell {
+  display: table-cell;
+}
+
+%full_width {
+  width: 100%;
+}
+
+%full_height {
+  height: 100%;
+}
+
+%relative {
+  position: relative;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%block {
+  display: block;
+}
+
+%inline_block {
+  @include inline-block;
+}
+
+/* Misc css rules */
+
+body {
+  background-color: $bodyBackground;
+}
+
+hr {
+  @include rem(margin, $spacing, 0);
+
+  @media ($medium) {
+    @include rem(margin, $spacingMedium, 0);
+  }
+}
+
+.watermark {
+  display: none;
+  @extend %absolute;
+  top: 0;
+  right: 0;
+
+  @media ($medium) {
+    display: block;
+  }
+
+  a {
+    @include rem(padding, 2);
+    @include opacity(0.5);
+    display: block;
+
+    &:hover {
+      @include opacity(1);
+    }
+  }
+}
+
+.content {
+  a {
+    border-bottom: 1px dotted transparent;
+
+    &:hover {
+      text-decoration: none;
+      border-bottom-color: $link-hover-color;
+    }
+  }
+}
+
+a[href*='github.com']:not(.no_icon), a[href*='jsbin.com']:not(.no_icon) {
+  @extend .icon;
+
+  @include rem(top, -0.2);
+  position: relative;
+
+  &:before {
+    @include rem(margin-right, 1);
+    @include rem(margin-left, 0.5);
+  }
+}
+
+a[href*='github.com']:not(.no_icon) {
+  @extend .icon-github;
+
+  &:before {
+    @include rem(top, 0.2);
+    position: relative;
+  }
+}
+
+a[href*='jsbin.com']:not(.no_icon) {
+
+  &:before {
+    content: '</>';
+    @include opacity(0.75);
+
+    @include rem(letter-spacing, -0.1);
+    font-family: $menlo !important;
+    font-weight: bold !important;
+    @include rem(font-size, 1.8);
+  }
+}
+
+::selection {
+  color: $bodyColor;
+  background: $gold;
+}

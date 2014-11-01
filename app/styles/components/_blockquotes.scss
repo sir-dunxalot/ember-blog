@@ -1,0 +1,32 @@
+blockquote {
+  @include rem(margin, $spacing, 0);
+  @include rem(padding, $spacing);
+
+  background-color: #F5F5F5;
+  border-color: $bodySubtle;
+  font-style: italic;
+  color: $base01;
+
+  p {
+    margin-top: 0;
+
+    &:before {
+      content: '"';
+    }
+
+    &:after {
+      content: '"';
+    }
+  }
+
+  footer {
+    @include rem(margin-top, $spacing);
+    @include rem(padding-right, 1);
+    font-style: normal;
+    text-align: right;
+
+    &:before {
+      @include rem(padding-right, 0.4);
+    }
+  }
+}

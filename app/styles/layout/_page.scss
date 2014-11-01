@@ -1,0 +1,87 @@
+/*
+The page layout is as follows:
+
+.app {
+  .page_header {
+    .nav {
+
+    }
+  }
+  .main {
+    .content_wrapper {
+      .content {
+
+      }
+    }
+  }
+}
+*/
+
+html, body {
+  @extend %full_height;
+  @extend %full_width;
+}
+
+.app {
+  @extend %table;
+  @extend %full_height;
+  position: fixed;
+}
+
+.page_header {
+  @include rem(min-width, $sidebarWidth);
+  display: table-header-group; // Vertical stacking at smaller window sizes
+
+  @media ($medium) {
+    display: table-cell; // Horizontal sidebar at larger window sizes
+    vertical-align: top;
+    @include rem(padding, $spacingMedium);
+  }
+}
+
+.logo {
+  @include rem(margin-bottom, $spacing);
+  @include rem(padding, $spacing);
+  margin-bottom: 0;
+
+  @media ($medium) {
+    padding: 0;
+    @include rem(margin-bottom, $spacingMedium);
+  }
+}
+
+.main {
+  @extend %full_height;
+  @extend %full_width;
+  @extend %cell;
+  vertical-align: top;
+}
+
+.content_wrapper {
+  @include box-sizing(content-box);
+  @include rem(padding, $spacing);
+  @extend %full_height;
+  overflow-y: scroll;
+
+  @media ($small) {
+    @include rem(padding, $spacingSmall);
+  }
+
+  @media ($medium) {
+    @include rem(padding, $spacingMedium);
+  }
+}
+
+.content {
+  @extend %table;
+  @extend %full_height;
+  @extend %full_width;
+
+  @media ($medium) {
+    @include rem(max-width, $contentWidth);
+  }
+}
+
+.footer {
+  display: table-footer-group;
+}

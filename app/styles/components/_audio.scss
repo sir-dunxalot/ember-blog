@@ -1,0 +1,43 @@
+.audio_player {
+  @extend %full_width;
+}
+
+.spotify {
+  height: 80px; // Don't use rem because iframe can't scale down
+  @include opacity(0);
+  @include transition(opacity 0.5s);
+
+  &.loaded {
+    @include opacity(1);
+  }
+}
+
+@include mod(spotify) {
+  @extend .spotify;
+}
+
+/** The below code is temperamental as best. Spotify
+limits height and width somewhat */
+.spotify-large {
+  @extend %full_width;
+  @include rem(height, 40);
+
+  @media ($small) {
+    @include rem(height, 50);
+  }
+
+  @media ($medium) {
+    @include rem(height, $contentWidth + 8);
+    @include rem(width, $contentWidth);
+  }
+}
+
+.spotify_follow-basic {
+  height: 25px;
+  width: 200px;
+}
+
+.spotify_follow-detail {
+  height: 56px;
+  width: 300px;
+}

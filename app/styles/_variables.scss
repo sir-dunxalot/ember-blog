@@ -1,0 +1,83 @@
+// Layout
+
+$spacing: 3;
+$spacingSmall: 4;
+$spacingMedium: 4;
+
+// Colors
+
+$white: #FFFFFF;
+$black: #000000;
+$offwhite: #EFEFEF;
+
+$headerBackground: #262C2E;
+$headerSubtle: scale-color($headerBackground, $lightness: -7%);
+
+$bodyBackground: $offwhite;
+$bodySubtle: scale-color($bodyBackground, $lightness: -7%);
+$bodyLessSubtle: #ccc;
+$bodyColor: #333333;
+
+$lightTextColor: $white;
+$darkTextColor: $bodyColor;
+
+$gray: #222835;
+$gold: #DFD4C4;
+$orange: #D3B09A;
+$brown: #7A776C;
+$darkBrown: darken($brown, 10%);
+$darkBlue: #17191E;
+$violet: #B394BC;
+
+// Solarized colors - http://ethanschoonover.com/solarized
+
+$base03:    #002b36; // Dark
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3; // Light
+
+$solarizedYellow: #b58900;
+$solarizedOrange: #cb4b16;
+$solarizedRed: #dc322f;
+$solarizedMagenta: #d33682; // Pink
+$solarizedViolet: #6c71c4; // Purple
+$solarizedBlue: #268bd2;
+$solarizedCyan: #2aa198; // Blue/green
+$solarizedGreen: #859900;
+
+// Third-party colors
+
+$twitter: #14adf1;
+$facebook: #3d5ba0;
+$googlePlus: #dd4b39;
+$instagram: #e95b6a;
+
+// Typography
+
+$baseFontSize: 62.5%; // So 1rem = 10px when browser has default font-size of 16px (i.e. 10/16 * 100)
+$bodyFontSize: 1.8; // In rem
+
+$lato: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sourceSans: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$menlo: 'Menlo', Consolas, monaco, monospace;
+
+// Config
+
+$imagePath: '../images/';
+$fontPath: '../fonts/';
+
+// Media queries
+
+$small: "min-width: 37.5em"; // 600px
+$medium: "min-width: 50em"; // 800px
+$big: "min-width: 63.75em"; // 1020px
+
+// Bootstrap overrides
+
+$icon-font-path: '../fonts/bootstrap/';
+
+$link-color: darken($gold, 24%);

@@ -1,0 +1,19 @@
+.comments {
+  @include rem(margin-top, 5);
+}
+
+.comment_count {
+  @extend .alt_text;
+
+  dt, dd {
+    @extend %inline_block;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+
+  a {
+    color: $bodyColor;
+  }
+}
