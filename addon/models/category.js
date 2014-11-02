@@ -8,8 +8,4 @@ var Category = DS.Model.extend({
   // posts: hasMany('post'),
 });
 
-Category.reopenClass({
-  FIXTURES: []
-});
-
 export default Category;
