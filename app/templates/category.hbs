@@ -1,6 +1,6 @@
 <h1 {{bind-attr class='category.name'}}>
   <i class="icon"></i>
-  <span class="text">{{capitalize category.name}}</span>
+  <span class="text">{{capitalize-string category.name}}</span>
 </h1>
 
-{{collection App.PostsView content=sortedPosts}}
+{{view 'posts' content=sortedPosts}}

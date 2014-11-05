@@ -1,14 +1,16 @@
 <article {{bind-attr class='mf.postPreview'}}>
 
   <h2 {{bind-attr class='mf.postTitle'}}>
-    {{#link-to 'post' this.urlString class='u-url'}}
-      {{title}}
+    {{#link-to 'post' view.content.urlString class='u-url'}}
+      {{view.content.title}}
     {{/link-to}}
   </h2>
 
   {{partial 'partials/published'}}
 
-  <p {{bind-attr class='mf.postDescription'}}>{{description}}</p>
+  <p {{bind-attr class='mf.postDescription'}}>
+    {{view.content.description}}
+  </p>
 
   {{partial 'partials/tags'}}
 
