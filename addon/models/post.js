@@ -5,8 +5,10 @@ var attr = DS.attr;
 
 var Post = DS.Model.extend({
   author: attr('string'),
+  body: attr('string'),
   // categories: hasMany('category'),
   categories: attr(),
+  // content: attr('string'),
   description: attr('string'),
   published: attr('string'),
   urlString: attr('string'),

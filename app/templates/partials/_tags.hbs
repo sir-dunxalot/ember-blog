@@ -1,5 +1,5 @@
 <ul class="tags">
-  {{#each categories}}
+  {{#each view.content.categories}}
     <li>
       {{#link-to 'category' this}}
         <span {{bind-attr class='view.mf.postCategory :text :alt_text'}}>{{capitalize-string this}}</span>

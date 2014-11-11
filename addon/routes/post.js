@@ -3,16 +3,11 @@ import Em from 'ember';
 export default Em.Route.extend({
 
   model: function(params) {
-    var post = this.store.find('post', { urlString: params.urlString });
-
-    return post;
+    return this.store.find('post', { urlString: params.urlString });
   },
 
-  // URL
   serialize: function(model) {
-    var obj = { urlString: model.get('urlString') };
-
-    return obj;
+    return { urlString: model.get('urlString') };
   },
 
   setupController: function(controller, model) {
