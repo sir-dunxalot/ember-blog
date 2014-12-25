@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 var attr = DS.attr;
-var hasMany = DS.attr;
+var hasMany = DS.hasMany;
 
 var Post = DS.Model.extend({
   author: attr('string'),

@@ -1,5 +1,3 @@
-import DS from 'ember-data';
+import Store from 'octosmashed/stores/application';
 
-export default DS.Store.extend({
-  adapter: 'application'
-});
+export default Store;

@@ -1,4 +1,3 @@
-import DS from 'ember-data';
+import Serializer from 'octosmashed/serializers/application';
 
-export default DS.RESTSerializer.extend({
-});
+export default Serializer;

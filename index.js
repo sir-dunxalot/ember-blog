@@ -8,7 +8,7 @@ var mergeTrees = require('broccoli-merge-trees');
 /* Library */
 
 var addImports = require('./lib/add-imports');
-var createFixtures = require('./lib/create-fixtures');
+var fixturesCreator = require('./lib/fixtures-creator');
 var logger = require('./lib/logger');
 
 module.exports = {
@@ -56,7 +56,7 @@ module.exports = {
             // srcDir: postsDir,
             // include: [new RegExp(/^.*\.(md|hbs)$/)]
           });
-          var fixturesTree = createFixtures(posts, fixturesOptions);
+          var fixturesTree = fixturesCreator(posts, fixturesOptions);
 
           return mergeTrees([tree, fixturesTree], {
             overwrite: true
