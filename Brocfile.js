@@ -1,8 +1,16 @@
+/* jshint node: true */
 /* global require, module */
 
 var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+var bowerDir = 'bower_components/';
 
-var app = new EmberAddon();
+var app = new EmberAddon({
+  sassOptions: {
+    includePaths: [
+      bowerDir + 'compass-mixins/lib'
+    ]
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

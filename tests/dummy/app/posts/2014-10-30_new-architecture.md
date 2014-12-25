@@ -9,6 +9,7 @@ categories:
 ---
 
 ##Rails Engines
+
 After reading articles published by organizations like <a href="http://pivotallabs.com/migrating-from-a-single-rails-app-to-a-suite-of-rails-engines/">Pivotal Labs</a> and <a href="http://gaslight.co/blog/maintainable-and-scalable-systems-with-rails-engines">Gaslight</a>, we decided to consolidate our separate Rails-Ember projects into one monolithic app that would house all of our code.
 
 This setup worked wonderfully at first. We could deploy with a simple ```git push``` and our sub-applications were separated via Rails engines. However, we started running into issues as our Ember projects grew. A simple page reload would take about 15 seconds due to the number of javascript files in a single project. We needed a new approach.
