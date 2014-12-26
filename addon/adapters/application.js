@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.FixtureAdapter.extend({
+  simulateRemoteResponse: false,
 
   /**
   By default, Ember Data does not implement a method with which to query features. Thus, we have to add it ourselves.

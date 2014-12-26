@@ -65,7 +65,6 @@ module.exports = {
 
   },
 
-
   setOverridingOptions: function() {
     var options = this._app.options.octosmashed || {};
     this._templatesDir = '/' + this._app.name + '/templates';
