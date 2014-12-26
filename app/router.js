@@ -9,7 +9,7 @@ Router.map(function() {
   this.route('index', { path: '/' });
   this.route('about');
   this.resource('post', { path: '/post/:urlString' });
-  this.resource('category', { path: '/category/:name' });
+  this.resource('category', { path: '/category/:urlString' });
   this.route('catchall', {path: '/*wildcard'});
 });
 

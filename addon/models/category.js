@@ -7,7 +7,7 @@ var hasMany = DS.hasMany;
 var Category = DS.Model.extend({
   name: attr('string'),
   posts: hasMany('post', { async: true }),
-  urlString: dasherize(name)
+  urlString: dasherize('name')
 });
 
 export default Category;

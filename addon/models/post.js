@@ -9,8 +9,8 @@ var Post = DS.Model.extend({
   categories: hasMany('category', { async: true }),
   description: attr('string'),
   published: attr('string'),
-  urlString: attr('string'),
-  title: attr('string')
+  title: attr('string'),
+  urlString: attr('string')
 });
 
 export default Post;

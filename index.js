@@ -14,24 +14,22 @@ var logger = require('./lib/logger');
 module.exports = {
   name: 'octosmashed',
 
-  /* Public variables*/
+  /* Private variables */
 
-  app: null,
-  templatesDir: null,
+  _app: null,
+  _templatesDir: null,
 
   /* Default options */
 
   enabled: true,
   fileOptions: { encoding: 'utf8' },
   fixturesDir: 'fixtures',
-  // postsFixturesFilename: 'posts-fixtures',
-  // postsFixturesPath: 'posts-fixtures',
 
   included: function(app) {
     var _this = this;
     var fixturesOptions = {};
 
-    this.app = app;
+    this._app = app;
 
     this._super.included(app);
     this.setOverridingOptions();
@@ -39,7 +37,7 @@ module.exports = {
 
     ['fileOptions',
       'fixturesDir',
-      'templatesDir'].forEach(function(option) {
+      '_templatesDir'].forEach(function(option) {
       fixturesOptions[option] = _this[option];
     });
 
@@ -53,8 +51,6 @@ module.exports = {
         toTree: function(tree) {
           var posts = new Funnel(tree, {
             include: [new RegExp(/\/posts\/.*.md$/)]
-            // srcDir: postsDir,
-            // include: [new RegExp(/^.*\.(md|hbs)$/)]
           });
           var fixturesTree = fixturesCreator(posts, fixturesOptions);
 
@@ -71,8 +67,8 @@ module.exports = {
 
 
   setOverridingOptions: function() {
-    var options = this.app.options.octosmashed || {};
-    this.templatesDir = '/' + this.app.name + '/templates';
+    var options = this._app.options.octosmashed || {};
+    this._templatesDir = '/' + this._app.name + '/templates';
 
     for (var option in options) {
       this[option] = options[option];

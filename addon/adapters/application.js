@@ -8,7 +8,7 @@ export default DS.FixtureAdapter.extend({
   @todo Return single object if only one record is found
   */
 
-  queryFixtures: function(records, query, type) {
+  queryFixtures: function(records, query /*, type */) {
     return records.filter(function(record) {
       for (var key in query) {
         var value;

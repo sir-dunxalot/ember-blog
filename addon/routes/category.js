@@ -2,14 +2,12 @@ import Em from 'ember';
 
 export default Em.Route.extend({
 
-  // Category data
   model: function(params) {
-    return this.store.find('category', { name: params.name });
+    return this.store.find('category', { urlString: params.urlString });
   },
 
-  // URL
   serialize: function(model) {
-    return { name: model.get('name') };
+    return { urlString: model.get('urlString') };
   },
 
   setupController: function(controller, model) {

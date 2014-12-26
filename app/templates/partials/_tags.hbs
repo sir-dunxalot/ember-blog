@@ -1,7 +1,7 @@
 <ul class="tags">
   {{#each view.content.categories}}
     <li>
-      {{#link-to 'category' name}}
+      {{#link-to 'category' urlString}}
         <span {{bind-attr class='view.mf.postCategory :text :alt_text'}}>{{capitalize-string name}}</span>
         <span class="glyphicon glyphicon-bookmark"></span>
       {{/link-to}}
