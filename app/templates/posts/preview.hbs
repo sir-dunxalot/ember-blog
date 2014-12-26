@@ -6,13 +6,13 @@
     {{/link-to}}
   </h2>
 
-  {{partial 'partials/published'}}
+  {{partial 'posts/published-date'}}
 
   <p {{bind-attr class='mf.postDescription'}}>
     {{view.content.description}}
   </p>
 
-  {{partial 'partials/tags'}}
+  {{partial 'posts/tags'}}
 
   {{!-- TODO - comment count only works on firts page load --}}
   {{!-- {{partial 'partials/comment_count'}} --}}

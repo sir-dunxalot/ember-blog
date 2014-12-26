@@ -9,6 +9,14 @@ var app = new EmberAddon({
     includePaths: [
       bowerDir + 'compass-mixins/lib'
     ]
+  },
+
+  octosmashed: {
+    blogTitle: 'Yotown',
+
+    mf: {
+      postFull: 'hey',
+    },
   }
 });
 

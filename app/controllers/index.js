@@ -1,3 +1,3 @@
-import IndexController from 'octosmashed/controllers/index';
+import Controller from 'octosmashed/controllers/index';
 
-export default IndexController;
+export default Controller;

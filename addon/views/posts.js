@@ -16,7 +16,7 @@ export default Em.CollectionView.extend({
   // itemViewClass: Em.ListItemView.extend({
   itemViewClass: Em.View.extend({
     tagName: 'li',
-    templateName: 'post-preview',
+    templateName: 'posts/preview',
     classNames: ['post_preview'],
   }),
 

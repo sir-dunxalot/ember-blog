@@ -2,13 +2,15 @@
 
 /* Dependencies */
 
+var mergeObjects = require('deepmerge');
 var Funnel = require('broccoli-funnel');
 var mergeTrees = require('broccoli-merge-trees');
 
 /* Library */
 
 var addImports = require('./lib/add-imports');
-var fixturesCreator = require('./lib/fixtures-creator');
+var defaultOptions = require('./lib/default-options');
+var fixturesCompiler = require('./lib/fixtures-compiler');
 var logger = require('./lib/logger');
 
 module.exports = {
@@ -18,12 +20,6 @@ module.exports = {
 
   _app: null,
   _templatesDir: null,
-
-  /* Default options */
-
-  enabled: true,
-  fileOptions: { encoding: 'utf8' },
-  fixturesDir: 'fixtures',
 
   included: function(app) {
     var _this = this;
@@ -43,7 +39,7 @@ module.exports = {
 
     if (this.enabled) {
       app.registry.add('js', {
-        name: 'octosmashed-posts-templates',
+        name: 'octosmashed-fixtures',
         ext: 'md',
 
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
@@ -52,7 +48,7 @@ module.exports = {
           var posts = new Funnel(tree, {
             include: [new RegExp(/\/posts\/.*.md$/)]
           });
-          var fixturesTree = fixturesCreator(posts, fixturesOptions);
+          var fixturesTree = fixturesCompiler(posts, fixturesOptions);
 
           return mergeTrees([tree, fixturesTree], {
             overwrite: true
@@ -66,7 +62,9 @@ module.exports = {
   },
 
   setOverridingOptions: function() {
-    var options = this._app.options.octosmashed || {};
+    var overridingOptions = this._app.options.octosmashed || {};
+    var options =  mergeObjects(defaultOptions, overridingOptions);
+
     this._templatesDir = '/' + this._app.name + '/templates';
 
     for (var option in options) {

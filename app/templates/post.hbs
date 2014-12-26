@@ -2,10 +2,10 @@
 
   <h1 {{bind-attr class='mf.postTitle'}}>{{title}}</h1>
 
-  {{partial 'partials/published'}}
+  {{partial 'posts/published-date'}}
 
   {{#with content}}
-    {{partial 'partials/tags'}}
+    {{partial 'posts/tags'}}
   {{/with}}
 
 </header>
@@ -15,7 +15,6 @@
 <div {{bind-attr class='mf.postContent'}}>
   {{!-- Post content is in a partial identified by the urlString --}}
   {{partial urlString}}
-  {{!-- {{{body}}} --}}
 </div>
 
 <hr>

@@ -43,6 +43,7 @@
     "broccoli-funnel": "^0.1.6",
     "broccoli-merge-trees": "^0.2.1",
     "chalk": "^0.5.1",
+    "deepmerge": "^0.2.7",
     "ember-cli-compass-bootstrap": "0.0.5",
     "ember-cli-google-analytics": "^1.1.0",
     "ember-cli-moment": "0.0.1",

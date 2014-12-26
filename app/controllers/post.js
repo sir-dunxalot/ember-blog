@@ -1,3 +1,3 @@
-import PostController from 'octosmashed/controllers/post';
+import Controller from 'octosmashed/controllers/post';
 
-export default PostController;
+export default Controller;

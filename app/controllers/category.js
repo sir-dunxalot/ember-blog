@@ -1,3 +1,3 @@
-import CategoryController from 'octosmashed/controllers/category';
+import Controller from 'octosmashed/controllers/category';
 
-export default CategoryController;
+export default Controller;

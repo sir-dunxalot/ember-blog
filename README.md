@@ -24,7 +24,16 @@ This README outlines the details of collaborating on this Ember addon.
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
-
-## In the Works
+## TODO
 
 - `urlString` to a computed property
+- Alert helper
+- Four media addons completed
+- Navigation
+- Basic styling
+- Documentation of usage
+- API documentation
+- Setting page title
+- options from Brocfile
+- Better way of using microformats across the blog
+- Author profiles and routes
