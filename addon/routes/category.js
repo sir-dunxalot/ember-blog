@@ -4,31 +4,22 @@ export default Em.Route.extend({
 
   // Category data
   model: function(params) {
-    var category = this.store.find('category', { name: params.name });
-
-    return category;
+    return this.store.find('category', { name: params.name });
   },
 
   // URL
   serialize: function(model) {
-    var obj = { name: model.get('name') };
-
-    return obj;
+    return { name: model.get('name') };
   },
 
-  // Posts data
-  // setupController: function(controller, model) {
-  //   var category = model.get('content')[0];
-  //   var categoryName = category.get('name');
+  setupController: function(controller, model) {
+    var category = model.get('content.firstObject');
 
-  //   controller.set('category', category);
+    if (category) {
+      controller.set('model', category);
+    } else {
+      this.transitionTo('catchall', 'category-not-found');
+    }
+  },
 
-  //   this.store.filter('post', function(post) {
-  //     var categories = post.get('categories');
-
-  //     return categories.indexOf(categoryName) > -1;
-  //   }).then(function(result) {
-  //     controller.set('posts', result.content);
-  //   });
-  // },
 });
