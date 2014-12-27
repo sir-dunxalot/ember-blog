@@ -19,9 +19,9 @@
       {{/link-to}}
     </li>
 
-    {{#each categories}}
+    {{#each navigation.categories}}
       <li>
-        {{#link-to 'category' this.name class=this.name}}
+        {{#link-to 'category' urlString class=name}}
           <span class="link_content">
             <i class="icon"></i>
             <span class="text">{{capitalize-string name}}</span>

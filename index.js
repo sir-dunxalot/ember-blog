@@ -40,7 +40,7 @@ module.exports = {
     if (this.enabled) {
       app.registry.add('js', {
         name: 'octosmashed-fixtures',
-        ext: 'md',
+        ext: 'md', // TODO - does this do anything?
 
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
 

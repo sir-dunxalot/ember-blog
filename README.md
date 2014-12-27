@@ -37,3 +37,4 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 - options from Brocfile
 - Better way of using microformats across the blog
 - Author profiles and routes
+- Em.ListView

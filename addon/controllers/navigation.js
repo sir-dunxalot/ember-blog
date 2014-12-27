@@ -14,6 +14,8 @@ The functionality of this controller is heavily dependent on `App.ApplicationCon
 
 export default Em.ArrayController.extend({
 
+  categories: null,
+
   /**
   The path of the route the router is currently in. For example `campaigns.campaign.show` or `businesses.index`.
 
