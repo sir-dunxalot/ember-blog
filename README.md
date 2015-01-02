@@ -29,12 +29,16 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 - `urlString` to a computed property
 - Alert helper
 - Four media addons completed
-- Navigation
 - Basic styling
 - Documentation of usage
 - API documentation
 - Setting page title
-- options from Brocfile
 - Better way of using microformats across the blog
 - Author profiles and routes
 - Em.ListView
+- Deploy scripts
+- Suggest edit on Github
+- Prerender.io
+- Pagination
+- CDN for assets
+- Heroku build pack?

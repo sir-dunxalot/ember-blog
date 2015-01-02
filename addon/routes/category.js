@@ -10,8 +10,10 @@ export default Em.Route.extend({
     var category = model.get('content.firstObject');
 
     if (category) {
-      controller.set('category', category.get('category'));
-      controller.set('model', category.get('posts'));
+      controller.setProperties({
+        category: category.get('category'),
+        model: category.get('posts')
+      });
     } else {
       this.transitionTo('catchall', 'category-not-found');
     }

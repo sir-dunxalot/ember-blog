@@ -3,7 +3,7 @@ import Em from 'ember';
 export default {
   name: 'navigation',
 
-  initialize: function() {
+  initialize: function(/* container, app */) {
     Em.ControllerMixin.reopen({
 
       needs: ['navigation'],

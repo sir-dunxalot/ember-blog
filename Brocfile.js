@@ -5,18 +5,16 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 var bowerDir = 'bower_components/';
 
 var app = new EmberAddon({
+  // outputFile: 'app.scss',
   sassOptions: {
     includePaths: [
-      bowerDir + 'compass-mixins/lib'
+      bowerDir + 'compass-mixins/lib',
+      'vendor/octosmashed-styles'
     ]
   },
 
   octosmashed: {
     blogTitle: 'Yotown',
-
-    mf: {
-      postFull: 'hey',
-    },
   }
 });
 

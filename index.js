@@ -21,6 +21,8 @@ module.exports = {
   _app: null,
   _templatesDir: null,
 
+  /* Setup and run everything */
+
   included: function(app) {
     var _this = this;
     var fixturesOptions = {};
@@ -28,19 +30,22 @@ module.exports = {
     this._app = app;
 
     this._super.included(app);
-    this.setOverridingOptions();
-    addImports(app);
-
-    ['fileOptions',
-      'fixturesDir',
-      '_templatesDir'].forEach(function(option) {
-      fixturesOptions[option] = _this[option];
-    });
+    this.setOptions();
 
     if (this.enabled) {
+      addImports(app);
+
+      ['fileOptions',
+        'fixturesDir',
+        '_templatesDir'].forEach(function(option) {
+        fixturesOptions[option] = _this[option];
+      });
+
+      /* Add posts and categories fixtures */
+
       app.registry.add('js', {
         name: 'octosmashed-fixtures',
-        ext: 'md', // TODO - does this do anything?
+        ext: 'md', // Not sure this does anything
 
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
 
@@ -61,7 +66,7 @@ module.exports = {
 
   },
 
-  setOverridingOptions: function() {
+  setOptions: function() {
     var overridingOptions = this._app.options.octosmashed || {};
     var options =  mergeObjects(defaultOptions, overridingOptions);
 
