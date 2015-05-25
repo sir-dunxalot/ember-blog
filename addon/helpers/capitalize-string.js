@@ -1,8 +1,10 @@
-import Em from 'ember';
+import Ember from 'ember';
 import defaultFor from 'octosmashed/utils/default-for';
 
-export default Em.Handlebars.makeBoundHelper(function(string) {
-  string = defaultFor(string, '');
+export function capitalizeString(params) {
+  var string = defaultFor(params[0], '');
 
-  return string.capitalize();
-});
+  return Ember.String.capitalize(string);
+}
+
+export default Ember.HTMLBars.makeBoundHelper(capitalizeString);

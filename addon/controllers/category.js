@@ -1,6 +1,6 @@
-import Em from 'ember';
+import Ember from 'ember';
 
-export default Em.ArrayController.extend({
+export default Ember.ArrayController.extend({ // TODO
   sortProperties: ['published:desc'],
-  sortedPosts: Em.computed.sort('content', 'sortProperties'),
+  sortedPosts: Ember.computed.sort('content', 'sortProperties'),
 });

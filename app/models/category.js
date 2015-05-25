@@ -1,5 +1,5 @@
 import Category from 'octosmashed/models/category';
-import fixtures from 'fixtures/categories';
+import fixtures from 'dummy/fixtures/categories'; // TODO
 
 Category.reopenClass({
   FIXTURES: fixtures

@@ -10,7 +10,6 @@ var mergeTrees = require('broccoli-merge-trees');
 
 /* Library */
 
-var addImports = require('./lib/add-imports');
 var defaultOptions = require('./lib/default-options');
 var fixturesCompiler = require('./lib/fixtures-compiler');
 var logger = require('./lib/logger');
@@ -21,13 +20,16 @@ module.exports = {
   /* Private variables */
 
   _app: null,
+  _htmlbarsPlugin: null,
   _templatesDir: null,
 
   /* Setup and run everything */
 
   included: function(app) {
     var _this = this;
-    var fixturesOptions = {};
+    var fixturesOptions = {
+      appName: app.name,
+    };
 
     this._app = app;
 
@@ -35,7 +37,6 @@ module.exports = {
     this.setOptions();
 
     if (this.enabled) {
-      addImports(app);
 
       ['fileOptions',
         'fixturesDir',
@@ -63,7 +64,7 @@ module.exports = {
         }
       });
     } else {
-      logger.warn(this.name + ' is not enabled.');
+      logger.warning(this.name + ' is not enabled.');
     }
 
   },
@@ -78,5 +79,24 @@ module.exports = {
       this[option] = options[option];
     }
   },
+
+  // setupPreprocessorRegistry: function(type, registry) {
+  //   registry.add('template', {
+  //     name: 'ember-cli-htmlbars',
+  //     ext: 'md',
+
+  //     toTree: function(tree) {
+  //       var posts = new Funnel(tree, {
+  //         include: [new RegExp(/\/posts\/.*.md$/)]
+  //       });
+
+  //       var fixturesTree = fixturesCompiler(posts, addonContext.htmlbarsOptions());
+
+  //                 return mergeTrees([tree, fixturesTree], {
+  //           overwrite: true
+  //         });
+  //     }
+  //   });
+  // },
 
 };

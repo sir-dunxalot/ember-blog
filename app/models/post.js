@@ -1,5 +1,5 @@
 import Post from 'octosmashed/models/post';
-import fixtures from 'fixtures/posts';
+import fixtures from 'dummy/fixtures/posts'; // TODO
 
 Post.reopenClass({
   FIXTURES: fixtures
