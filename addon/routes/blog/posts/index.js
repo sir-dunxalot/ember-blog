@@ -6,8 +6,4 @@ export default Ember.Route.extend({
     return this.store.find('post');
   },
 
-  setupController: function(controller, model) {
-    console.log(model);
-  }
-
 });

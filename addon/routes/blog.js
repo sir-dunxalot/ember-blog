@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Mixin.create({
+export default Ember.Route.extend({
 
   setupController: function(controller) {
     var categories = this.store.find('category');
@@ -9,4 +9,4 @@ export default Ember.Mixin.create({
     controller.set('blogCategories', categories);
   },
 
-})
+});

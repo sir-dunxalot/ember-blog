@@ -13,9 +13,11 @@ Router.map(function() {
       this.route('post', { path: '/:urlString' });
     });
 
-    this.resource('categories', function() {
+
+    this.route('categories', function() {
       this.route('category', { path: '/:urlString' });
     });
+
   });
 
 });
