@@ -1,7 +1,7 @@
 {
   "name": "ember-blog",
   "version": "0.1.0",
-  "description": "Adds a static blog to any Ember application supporting posts written in Markdown and HTMLBars",
+  "description": "Adds a static blog to any Ember CLI app, supporting posts written in Markdown and HTMLBars",
   "directories": {
     "doc": "doc",
     "test": "tests"
