@@ -11,7 +11,7 @@ categories:
 
 This post covers ways to address two common EasyForm pain points: error formatting and showing errors on form submission. These functions and the applicability of the code in our subsequent post are highly dependent on the complementary [Ember Validations](https://github.com/dockyard/ember-validations) library.
 
-{{#link-to 'post' 'extending-ember-easyform'}}In this previous post{{/link-to}} we cover maintainable ways to add additional functionality by reopening the base EasyForm classes. Such functions include styling valid inputs and adding custom input types.
+{{#link-to 'blog.post' 'extending-ember-easyform'}}In this previous post{{/link-to}} we cover maintainable ways to add additional functionality by reopening the base EasyForm classes. Such functions include styling valid inputs and adding custom input types.
 
 ##Error formatting
 
@@ -83,4 +83,4 @@ Further Reading
 - [Ember EasyForm source](https://github.com/dockyard/ember-easyForm)
 - [Ember Validations](https://github.com/dockyard/ember-validations)
 - [Dockyard - web and mobile applications](http://dockyard.com/)
-- {{#link-to 'post' 'extending-ember-easyform'}}Extending Ember EasyForm{{/link-to}}
+- {{#link-to 'blog.post' 'extending-ember-easyform'}}Extending Ember EasyForm{{/link-to}}

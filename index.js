@@ -21,6 +21,7 @@ module.exports = {
 
   _app: null,
   _htmlbarsPlugin: null,
+  _templateCompiler: null,
   _templatesDir: null,
 
   /* Setup and run everything */
@@ -53,10 +54,11 @@ module.exports = {
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
 
         toTree: function(tree) {
+          var templateCompiler = _this._templateCompiler;
           var posts = new Funnel(tree, {
             include: [new RegExp(/\/posts\/.*.md$/)]
           });
-          var fixturesTree = fixturesCompiler(posts, fixturesOptions);
+          var fixturesTree = fixturesCompiler(posts, fixturesOptions, templateCompiler);
 
           return mergeTrees([tree, fixturesTree], {
             overwrite: true
@@ -78,6 +80,30 @@ module.exports = {
     for (var option in options) {
       this[option] = options[option];
     }
+  },
+
+  setupPreprocessorRegistry: function(type, registry) {
+    var templatePlugins = registry.load('template');
+
+    // console.log(templatePlugins);
+
+    if (!templatePlugins.length) {
+      return;
+    }
+
+    // console.log(templatePlugins[0]);
+
+    var htmlbarsPlugin = templatePlugins[0];
+
+    this._templateCompiler = htmlbarsPlugin;
+
+    // precompile any htmlbars template string via the precompile method on the
+    // ember-cli-htmlbars plugin wrapper; `precompiled` will be a string of the
+    // form:
+    //
+    //   Ember.HTMLBars.template(function() {...})
+    //
+    // var precompiled = htmlbarsPlugin.precompile("{{my-component}}");
   },
 
   // setupPreprocessorRegistry: function(type, registry) {

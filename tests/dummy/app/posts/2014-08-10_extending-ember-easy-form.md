@@ -11,7 +11,7 @@ categories:
 
 In this post we will cover maintainable ways to add additional functionality to your forms by reopening the base EasyForm classes. Specifically, we will cover styling valid inputs and adding custom input types.
 
-Formatting and showing EasyForm's error messages is covered in more detail {{#link-to 'post' 'easyform-error-messages'}}in this post{{/link-to}}.
+Formatting and showing EasyForm's error messages is covered in more detail {{#link-to 'blog.post' 'easyform-error-messages'}}in this post{{/link-to}}.
 
 Styling Valid Inputs
 ------
@@ -191,6 +191,6 @@ Further Reading
 
 - [EasyForm docs](https://github.com/dockyard/ember-easyForm)
 - [Dockyard - web and mobile applications](http://dockyard.com/)
-- {{#link-to 'post' 'easyform-error-messages'}}Formatting and showing EasyForm error messages{{/link-to}}
+- {{#link-to 'blog.post' 'easyform-error-messages'}}Formatting and showing EasyForm error messages{{/link-to}}
 - [Radio buttons in Ember](https://github.com/sir-dunxalot/ember-radio-buttons)
 - [Ember form handlers](https://github.com/sir-dunxalot/ember-form-handlers)
