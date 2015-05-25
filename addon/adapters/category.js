@@ -1,3 +1,3 @@
-import BlogAdapter from 'octosmashed/adapters/blog';
+import BlogAdapter from 'ember-blog/adapters/blog';
 
 export default BlogAdapter;

@@ -1,3 +1,3 @@
-import Route from 'octosmashed/routes/blog/category/index';
+import Route from 'ember-blog/routes/blog/category/index';
 
 export default Route;

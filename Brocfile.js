@@ -6,9 +6,6 @@ var bowerDir = 'bower_components/';
 
 var app = new EmberAddon({
 
-  octosmashed: {
-    blogTitle: 'Yotown',
-  }
 });
 
 // Use `app.import` to add additional libraries to the generated

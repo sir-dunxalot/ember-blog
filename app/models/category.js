@@ -1,4 +1,4 @@
-import Category from 'octosmashed/models/category';
+import Category from 'ember-blog/models/category';
 import fixtures from 'dummy/fixtures/categories'; // TODO
 
 Category.reopenClass({

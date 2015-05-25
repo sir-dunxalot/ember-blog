@@ -1,4 +1,4 @@
-import Post from 'octosmashed/models/post';
+import Post from 'ember-blog/models/post';
 import fixtures from 'dummy/fixtures/posts'; // TODO
 
 Post.reopenClass({

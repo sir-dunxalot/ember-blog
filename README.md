@@ -1,44 +1,39 @@
-# Octosmashed
+# Emnber Blog
 
-This README outlines the details of collaborating on this Ember addon.
+Adds a blog to any Ember CLI application.
+
+- Write your posts in markdown and HTMLBars
+- Add post metadata using YAML front matter
+
+This addon compiles posts and associated categories into fixtures, adds new routes to your application for rendering that data (e.g. posts, categories, etc), and provides additional blog infrastructure.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```
+ember install ember-blog
+```
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+Documentation coming soon. This is early stage, currently under testing. In the meantime, the `tests/dummy` app for example usage.
 
-## Running Tests
+Posts are written in the following format:
 
-* `ember test`
-* `ember test --server`
+```markdown
+---
+title: More Ember stuff
+description: This is a description of the ember stuff in this article
+published: 2014-02-29
+author: Some Dude
+categories:
+ - ember
+ - design
+---
 
-## Building
+This is the blog content. I am writing this blog post all about Ember and stuff. This is a lot more content for markdown parsing.
 
-* `ember build`
+**Some bold blog content**
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+{{#link-to 'about'}}This is a HTMLBars link{{/link-to}}
 
-## TODO
-
-- `urlString` to a computed property
-- Alert helper
-- Four media addons completed
-- Basic styling
-- Documentation of usage
-- API documentation
-- Setting page title
-- Better way of using microformats across the blog
-- Author profiles and routes
-- Em.ListView
-- Deploy scripts
-- Suggest edit on Github
-- Prerender.io
-- Pagination
-- CDN for assets
-- Heroku build pack?
+```

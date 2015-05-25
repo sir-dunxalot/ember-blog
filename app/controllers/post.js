@@ -1,3 +1,3 @@
-import Controller from 'octosmashed/controllers/post';
+import Controller from 'ember-blog/controllers/post';
 
 export default Controller;

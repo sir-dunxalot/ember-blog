@@ -1,3 +1,3 @@
-import Serializer from 'octosmashed/serializers/post';
+import Serializer from 'ember-blog/serializers/post';
 
 export default Serializer;

@@ -1,3 +1,3 @@
-import PostAdapter from 'octosmashed/adapters/post';
+import PostAdapter from 'ember-blog/adapters/post';
 
 export default PostAdapter;

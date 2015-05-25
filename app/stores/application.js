@@ -1,3 +1,3 @@
-import Store from 'octosmashed/stores/application';
+import Store from 'ember-blog/stores/application';
 
 export default Store;

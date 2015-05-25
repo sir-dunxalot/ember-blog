@@ -1,7 +1,7 @@
 {
-  "name": "octosmashed",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "ember-blog",
+  "version": "0.1.0",
+  "description": "Adds a static blog to any Ember application supporting posts written in Markdown and HTMLBars",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -34,7 +34,13 @@
     "ember-try": "0.0.4"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember",
+    "blog",
+    "blogging",
+    "post",
+    "octopress",
+    "octosmashed"
   ],
   "dependencies": {
     "broccoli-caching-writer": "^0.5.5",

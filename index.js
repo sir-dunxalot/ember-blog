@@ -15,7 +15,7 @@ var fixturesCompiler = require('./lib/fixtures-compiler');
 var logger = require('./lib/logger');
 
 module.exports = {
-  name: 'octosmashed',
+  name: 'ember-blog',
 
   /* Private variables */
 
