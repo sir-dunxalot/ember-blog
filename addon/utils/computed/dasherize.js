@@ -1,4 +1,4 @@
-import defaultFor from 'octosmashed/utils/default-for';
+import defaultFor from 'ember-blog/utils/default-for';
 import Ember from 'ember';
 
 export default function(dependentKey) {

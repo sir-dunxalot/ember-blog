@@ -11,13 +11,33 @@
       {{/link-to}}
     </li>
 
-    {{#each category in categories}}
+    <li>
+      {{#link-to 'blog.categories'}}
+        Categories
+      {{/link-to}}
+    </li>
+
+    <li>
+      {{#link-to 'blog.authors'}}
+        Authors
+      {{/link-to}}
+    </li>
+
+{{!--     {{#each category in categories}}
       <li>
         {{#link-to 'blog.category' category.urlString}}
           {{capitalize-string category.name}}
         {{/link-to}}
       </li>
     {{/each}}
+
+    {{#each author in authors}}
+      <li>
+        {{#link-to 'blog.author' author.urlString}}
+          {{capitalize-string author.name}}
+        {{/link-to}}
+      </li>
+    {{/each}} --}}
 
   </ul>
 </nav>

@@ -9,14 +9,10 @@ export default Ember.Route.extend({
   setupController: function(controller, model) {
     var category = model.get('content.firstObject');
 
-    if (category) {
-      controller.setProperties({
-        category: category.get('category'),
-        model: category.get('posts')
-      });
-    } else {
-      this.transitionTo('catchall', 'category-not-found');
-    }
+    controller.setProperties({
+      category: category.get('category'),
+      model: category.get('posts')
+    });
   },
 
 });

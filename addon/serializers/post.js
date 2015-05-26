@@ -1,3 +1,3 @@
-import BlogSerializer from 'octosmashed/serializers/blog';
+import BlogSerializer from 'ember-blog/serializers/blog';
 
 export default BlogSerializer;

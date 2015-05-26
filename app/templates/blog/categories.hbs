@@ -1,0 +1,9 @@
+<ul>
+  {{#each category in model}}
+    <li>
+      {{#link-to 'blog.category' category.urlString}}
+        {{category.name}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,9 @@
+<ul>
+  {{#each author in model}}
+    <li>
+      {{#link-to 'blog.author' author.urlString}}
+        {{author.name}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

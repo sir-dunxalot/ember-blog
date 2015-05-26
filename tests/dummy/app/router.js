@@ -9,11 +9,14 @@ Router.map(function() {
 
   this.route('blog', function() {
 
-    this.route('posts');
-    this.route('post', { path: '/posts/:urlString' });
+    this.route('authors');
+    this.route('author', { path: '/authors/:urlString' });
 
     this.route('categories');
     this.route('category', { path: '/categories/:urlString' });
+
+    this.route('posts');
+    this.route('post', { path: '/posts/:urlString' });
 
   });
 
