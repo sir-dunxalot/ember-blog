@@ -1,5 +1,5 @@
 import Post from 'ember-blog/models/post';
-import fixtures from 'dummy/fixtures/posts'; // TODO
+import fixtures from '../fixtures/posts';
 
 Post.reopenClass({
   FIXTURES: fixtures

@@ -1,5 +1,5 @@
 import Author from 'ember-blog/models/author';
-import fixtures from 'dummy/fixtures/authors'; // TODO
+import fixtures from '../fixtures/authors'; // TODO
 
 Author.reopenClass({
   FIXTURES: fixtures

@@ -1,5 +1,5 @@
 import Category from 'ember-blog/models/category';
-import fixtures from 'dummy/fixtures/categories'; // TODO
+import fixtures from '../fixtures/categories'; // TODO
 
 Category.reopenClass({
   FIXTURES: fixtures
