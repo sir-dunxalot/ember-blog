@@ -1,3 +1,3 @@
-import Route from 'ember-blog/routes/blog/post/index';
+import Route from 'ember-blog/routes/blog/post';
 
 export default Route;

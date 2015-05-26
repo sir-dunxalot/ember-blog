@@ -1,8 +1,25 @@
 <h1 class="logo">
-  {{#link-to 'index'}}
-    {{blogTitle}}
-  {{/link-to}}
+  {{#link-to 'blog'}}Blog{{/link-to}}
 </h1>
 
-{{partial 'navigation'}}
+<nav role="navigation">
+  <ul>
+
+    <li>
+      {{#link-to 'blog'}}
+        Latest
+      {{/link-to}}
+    </li>
+
+    {{#each category in categories}}
+      <li>
+        {{#link-to 'blog.category' category.urlString class=name}}
+          {{capitalize-string category.name}}
+        {{/link-to}}
+      </li>
+    {{/each}}
+
+  </ul>
+</nav>
+
 

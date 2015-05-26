@@ -1,6 +1,6 @@
-<h1 {{bind-attr class='category.name'}}>
-  <i class="icon"></i>
-  <span class="text">{{capitalize-string category.name}}</span>
-</h1>
+<h1>{{capitalize-string category.name}}</h1>
 
-{{view 'posts' content=sortedPosts}}
+{{#each post in model}}
+  {{partial 'blog/post/preview'}}
+{{/each}}
+
