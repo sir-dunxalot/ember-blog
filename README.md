@@ -1,4 +1,4 @@
-# Emnber Blog
+# Ember Blog
 
 Adds a blog to any Ember CLI application.
 
@@ -15,9 +15,9 @@ ember install ember-blog
 
 ## Usage
 
-Documentation coming soon. This is early stage, currently under testing. In the meantime, the `tests/dummy` app for example usage.
+Documentation coming soon. **This is early stage, currently under testing**. In the meantime, see the `tests/dummy` app for example usage.
 
-Posts are written in the following format:
+Posts are written in the following format and are saved at `app-name/posts/any-old-name.js`. The file name does not affect the blog post in any way.
 
 ```markdown
 ---
