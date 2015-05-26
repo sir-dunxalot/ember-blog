@@ -1,6 +1,6 @@
 <h1>{{capitalize-string author.name}}</h1>
 
-{{#each post in model}}
+{{#each post in sortedPosts}}
   {{partial 'blog/post/preview'}}
 {{/each}}
 

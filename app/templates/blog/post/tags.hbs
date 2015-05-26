@@ -2,8 +2,7 @@
   {{#each category in post.categories}}
     <li>
       {{#link-to 'blog.category' category.urlString}}
-        <span {{bind-attr class='view.mf.postCategory :text :alt_text'}}>{{capitalize-string category.name}}</span>
-        <span class="glyphicon glyphicon-bookmark"></span>
+        {{capitalize-string category.name}}
       {{/link-to}}
     </li>
   {{/each}}
