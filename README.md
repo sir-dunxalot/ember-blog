@@ -37,3 +37,29 @@ This is the blog content. I am writing this blog post all about Ember and stuff.
 {{#link-to 'about'}}This is a HTMLBars link{{/link-to}}
 
 ```
+
+Add the blog routes to your application as follows:
+
+```js
+import Ember from 'ember';
+import config from './config/environment';
+import blogRoutes from 'ember-blog/routes';
+
+var Router = Ember.Router.extend({
+  location: config.locationType
+});
+
+Router.map(function() {
+
+  blogRoutes(this); // Added
+
+});
+
+export default Router;
+```
+
+Once you've added a post and the routes, navigate to `localhost:4200/blog` and you will see the blog in action!
+
+## Development
+
+For all issues and features requests please [open an issue](https://github.com/sir-dunxalot/ember-blog/issues/new) or submit a PR.
