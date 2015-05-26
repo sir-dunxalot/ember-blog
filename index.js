@@ -48,7 +48,7 @@ module.exports = {
       /* Add posts and categories fixtures */
 
       app.registry.add('js', {
-        name: 'octosmashed-fixtures',
+        name: 'blog-fixtures',
         ext: 'md', // Not sure this does anything
 
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
@@ -72,7 +72,7 @@ module.exports = {
   },
 
   setOptions: function() {
-    var overridingOptions = this._app.options.octosmashed || {};
+    var overridingOptions = this._app.options.blog || {};
     var options =  mergeObjects(defaultOptions, overridingOptions);
 
     this._templatesDir = '/' + this._app.name + '/templates';
@@ -84,45 +84,15 @@ module.exports = {
 
   setupPreprocessorRegistry: function(type, registry) {
     var templatePlugins = registry.load('template');
-
-    // console.log(templatePlugins);
+    var htmlbarsPlugin;
 
     if (!templatePlugins.length) {
       return;
     }
 
-    // console.log(templatePlugins[0]);
-
-    var htmlbarsPlugin = templatePlugins[0];
+    htmlbarsPlugin = templatePlugins[0];
 
     this._templateCompiler = htmlbarsPlugin;
-
-    // precompile any htmlbars template string via the precompile method on the
-    // ember-cli-htmlbars plugin wrapper; `precompiled` will be a string of the
-    // form:
-    //
-    //   Ember.HTMLBars.template(function() {...})
-    //
-    // var precompiled = htmlbarsPlugin.precompile("{{my-component}}");
   },
-
-  // setupPreprocessorRegistry: function(type, registry) {
-  //   registry.add('template', {
-  //     name: 'ember-cli-htmlbars',
-  //     ext: 'md',
-
-  //     toTree: function(tree) {
-  //       var posts = new Funnel(tree, {
-  //         include: [new RegExp(/\/posts\/.*.md$/)]
-  //       });
-
-  //       var fixturesTree = fixturesCompiler(posts, addonContext.htmlbarsOptions());
-
-  //                 return mergeTrees([tree, fixturesTree], {
-  //           overwrite: true
-  //         });
-  //     }
-  //   });
-  // },
 
 };

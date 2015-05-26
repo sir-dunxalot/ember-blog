@@ -13,7 +13,7 @@
 
     {{#each category in categories}}
       <li>
-        {{#link-to 'blog.category' category.urlString class=name}}
+        {{#link-to 'blog.category' category.urlString}}
           {{capitalize-string category.name}}
         {{/link-to}}
       </li>
