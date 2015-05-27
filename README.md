@@ -13,6 +13,8 @@ This addon compiles posts and associated categories into fixtures, adds new rout
 ember install ember-blog
 ```
 
+Edit your application's `package.json` and make sure `ember-cli-htmlbars` is `>=0.7.7`. This addon requires htmlbars **0.7.7** or greater.
+
 ## Usage
 
 Documentation coming soon. **This is early stage, currently under testing**. In the meantime, see the `tests/dummy` app for example usage.
