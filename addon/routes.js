@@ -1,5 +1,5 @@
-export default function(context) {
-  context.route('blog', function() {
+export default function(routerContext) {
+  routerContext.route('blog', function() {
 
     this.route('authors');
     this.route('author', { path: '/authors/:urlString' });

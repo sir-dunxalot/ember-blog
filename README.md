@@ -60,6 +60,13 @@ export default Router;
 
 Once you've added a post and the routes, navigate to `localhost:4200/blog` and you will see the blog in action!
 
+## Complementary Addons
+
+The following addons are great complements to `ember-blog` to take your app's blog one step further.
+
+- [Ember Inflector](https://github.com/stefanpenner/ember-inflector) - formats numbers of items (e.g. 1 post or 2 posts)
+- [Ember Moment](https://github.com/stefanpenner/ember-moment) - formats dates and times
+
 ## Development
 
 For all issues and features requests please [open an issue](https://github.com/sir-dunxalot/ember-blog/issues/new) or submit a PR.
