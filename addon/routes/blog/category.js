@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     var category = model.get('content.firstObject');
 
     controller.setProperties({
-      category: category.get('category'),
+      category: category,
       model: category.get('posts')
     });
   },

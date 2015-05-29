@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     var author = model.get('content.firstObject');
 
     controller.setProperties({
-      author: author.get('author'),
+      author: author,
       model: author.get('posts')
     });
   },
