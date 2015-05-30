@@ -54,6 +54,15 @@ module.exports = {
         /* https://github.com/stefanpenner/ember-cli/blob/master/lib/preprocessors/javascript-plugin.js */
 
         toTree: function(tree) {
+
+          /* Ignore tests */
+
+          if (arguments[1] === '/tests') {
+            return tree;
+          }
+
+          /* If not tests, let's compile fixtures... */
+
           var templateCompiler = _this._templateCompiler;
           var posts = new Funnel(tree, {
             include: [new RegExp(/\/posts\/.*.md$/)]
