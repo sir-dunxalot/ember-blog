@@ -68,6 +68,7 @@ The following addons are great complements to `ember-blog` to take your app's bl
 
 - [Ember Inflector](https://github.com/stefanpenner/ember-inflector) - formats numbers of items (e.g. 1 post or 2 posts)
 - [Ember Moment](https://github.com/stefanpenner/ember-moment) - formats dates and times
+- [Ember Disqus](https://github.com/sir-dunxalot/ember-disqus) - commenting system ([Disqus.com](//disqus.com))
 
 ## Development
 
